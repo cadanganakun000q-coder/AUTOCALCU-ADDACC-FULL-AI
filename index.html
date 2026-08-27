@@ -33,7 +33,10 @@ body{
 button,input,select{font:inherit}
 button{cursor:pointer}
 
-.app{display:flex;min-height:100vh}
+.app{
+  display:flex;
+  min-height:100vh
+}
 
 .sidebar{
   width:64px;
@@ -74,8 +77,7 @@ button{cursor:pointer}
   border:1px solid transparent
 }
 
-.nav.active,
-.nav:hover{
+.nav.active,.nav:hover{
   background:#0c1822;
   color:#19d9ff;
   border-color:#133544
@@ -126,8 +128,7 @@ button{cursor:pointer}
 
 .top-actions{
   display:flex;
-  gap:8px;
-  flex-wrap:wrap
+  gap:8px
 }
 
 .btn{
@@ -183,7 +184,9 @@ h1{
   box-shadow:0 10px 30px #0003
 }
 
-.card.accent{border-color:#173545}
+.card.accent{
+  border-color:#173545
+}
 
 .card-label{
   font-size:11px;
@@ -246,8 +249,7 @@ h1{
   color:#00131a
 }
 
-.sort,
-.search{
+.sort,.search{
   height:34px;
   border:1px solid #18232f;
   background:#090d14;
@@ -281,10 +283,9 @@ h1{
   overflow:hidden
 }
 
-.thead,
-.row{
+.thead,.row{
   display:grid;
-  grid-template-columns:minmax(160px,2fr) 1fr 1.15fr 1fr .8fr .7fr .7fr .55fr;
+  grid-template-columns:minmax(160px,2fr) 1fr 1.15fr 1fr .8fr .7fr .7fr 1.4fr;
   align-items:center
 }
 
@@ -303,7 +304,9 @@ h1{
   min-height:66px
 }
 
-.row:last-child{border-bottom:0}
+.row:last-child{
+  border-bottom:0
+}
 
 .account{
   display:flex;
@@ -331,7 +334,9 @@ h1{
   text-overflow:ellipsis
 }
 
-.masked{letter-spacing:2px}
+.masked{
+  letter-spacing:2px
+}
 
 .meta{
   font-size:10px;
@@ -383,16 +388,15 @@ h1{
 }
 
 .action:hover{
-  background:#10202c;
-  color:#5de7ff
-}
-
-.delete-btn:hover{
-  color:#ff6685
+  background:#12202b;
+  color:#fff
 }
 
 .row-actions{
-  white-space:nowrap
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:2px
 }
 
 .bottom{
@@ -425,7 +429,9 @@ h1{
   z-index:30
 }
 
-.modal-bg.show{display:flex}
+.modal-bg.show{
+  display:flex
+}
 
 .modal{
   width:min(620px,100%);
@@ -526,7 +532,9 @@ h1{
   gap:7px
 }
 
-.secret-row input{flex:1}
+.secret-row input{
+  flex:1
+}
 
 .mini{
   width:42px;
@@ -634,10 +642,9 @@ h1{
   font-size:10px
 }
 
-/* AI MODAL */
 .ai-modal{
-  width:min(900px,100%);
-  max-height:90vh;
+  width:min(850px,100%);
+  max-height:92vh;
   overflow:auto;
   background:#0a0e15;
   border:1px solid #1b2937;
@@ -646,32 +653,9 @@ h1{
   box-shadow:0 30px 80px #000
 }
 
-.ai-title{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:10px;
-  margin-bottom:12px
-}
-
-.ai-title h2{
-  margin:0;
-  font-size:16px
-}
-
-.ai-close{
-  width:32px;
-  height:32px;
-  border-radius:8px;
-  border:1px solid #26323e;
-  background:#090d13;
-  color:#8d99a8;
-  cursor:pointer
-}
-
-.ai-input{
+.ai-textarea{
   width:100%;
-  min-height:150px;
+  min-height:180px;
   resize:vertical;
   background:#070b11;
   border:1px solid #192431;
@@ -683,32 +667,24 @@ h1{
   line-height:1.5
 }
 
-.ai-input:focus{
+.ai-textarea:focus{
   border-color:#0e8baa
-}
-
-.ai-help{
-  font-size:9px;
-  color:#687585;
-  margin-top:7px;
-  line-height:1.5
 }
 
 .ai-status{
   display:none;
   margin-top:10px;
-  padding:10px;
-  border-radius:9px;
+  font-size:10px;
+  color:#9ba7b7;
   background:#080c12;
-  border:1px solid #172330;
-  color:#8d9aaa;
-  font-size:10px
+  border:1px solid #151e29;
+  border-radius:8px;
+  padding:10px
 }
 
 .ai-preview{
   display:none;
-  margin-top:14px;
-  overflow:auto
+  margin-top:12px
 }
 
 .ai-actions{
@@ -720,25 +696,18 @@ h1{
 
 .toast{
   position:fixed;
-  right:20px;
-  bottom:20px;
-  z-index:100;
-  background:#0c171e;
-  border:1px solid #1d4655;
-  color:#9beaff;
+  left:50%;
+  bottom:25px;
+  transform:translateX(-50%);
+  background:#0c1822;
+  color:#dff9ff;
+  border:1px solid #174356;
   border-radius:10px;
-  padding:11px 14px;
+  padding:10px 15px;
   font-size:10px;
   font-weight:800;
-  opacity:0;
-  transform:translateY(10px);
-  pointer-events:none;
-  transition:.2s
-}
-
-.toast.show{
-  opacity:1;
-  transform:translateY(0)
+  z-index:100;
+  box-shadow:0 15px 40px #0008
 }
 
 @media(max-width:900px){
@@ -795,14 +764,7 @@ h1{
   }
 
   .topbar{
-    margin-bottom:16px;
-    align-items:flex-start;
-    flex-direction:column;
-    gap:12px
-  }
-
-  .top-actions{
-    width:100%
+    margin-bottom:16px
   }
 
   .formgrid{
@@ -829,13 +791,8 @@ h1{
     gap:6px
   }
 
-  .rate-panel{
-    left:58px;
-    right:10px
-  }
-
-  .rate-grid{
-    grid-template-columns:1fr
+  .top-actions{
+    flex-wrap:wrap
   }
 }
 </style>
@@ -872,10 +829,10 @@ h1{
       </div>
 
       <div class="top-actions">
-        <button class="btn" onclick="openModal()">＋ ADD ACCOUNT</button>
-        <button class="btn" onclick="openAI()">✨ AI INPUT</button>
-        <button class="btn" onclick="exportData()">↗ EXPORT</button>
-        <button class="btn danger" onclick="clearAll()">RESET</button>
+        <button class="btn" type="button" onclick="openModal()">＋ ADD ACCOUNT</button>
+        <button class="btn" type="button" onclick="openAI()">🤖 AI INPUT</button>
+        <button class="btn" type="button" onclick="exportData()">↗ EXPORT</button>
+        <button class="btn danger" type="button" onclick="clearAll()">RESET</button>
       </div>
 
     </div>
@@ -922,9 +879,9 @@ h1{
     <div class="controls">
 
       <div class="filter">
-        <button class="active" data-filter="all" onclick="setFilter('all',this)">ALL</button>
-        <button data-filter="ready" onclick="setFilter('ready',this)">READY</button>
-        <button data-filter="sold" onclick="setFilter('sold',this)">SOLD</button>
+        <button class="active" data-filter="all" type="button" onclick="setFilter('all',this)">ALL</button>
+        <button data-filter="ready" type="button" onclick="setFilter('ready',this)">READY</button>
+        <button data-filter="sold" type="button" onclick="setFilter('sold',this)">SOLD</button>
       </div>
 
       <select class="sort" id="sort" onchange="render()">
@@ -969,15 +926,15 @@ h1{
         <div>🐾 PETS</div>
         <div>🥚 SOLD</div>
         <div>STATUS</div>
-        <div></div>
+        <div>ACTIONS</div>
       </div>
 
       <div id="rows"></div>
 
       <div class="bottom">
-        <button onclick="changePage(-1)">Prev</button>
+        <button type="button" onclick="changePage(-1)">Prev</button>
         <span id="pageInfo">Page 1</span>
-        <button onclick="changePage(1)">Next</button>
+        <button type="button" onclick="changePage(1)">Next</button>
       </div>
 
     </div>
@@ -994,6 +951,7 @@ h1{
 
     <button
       class="btn ghost"
+      type="button"
       style="padding:5px 8px;font-size:9px"
       onclick="toggleRate()"
     >
@@ -1034,7 +992,7 @@ h1{
 </div>
 
 
-<!-- ADD / EDIT ACCOUNT -->
+<!-- ADD / EDIT ACCOUNT MODAL -->
 <div class="modal-bg" id="modalBg">
 
   <div class="modal">
@@ -1043,8 +1001,9 @@ h1{
 
     <div class="notice">
       Semua angka income/speed boleh dikosongkan.
-      Unit <b>M</b> dan <b>B</b> hanya label game;
-      kalkulator mengambil <b>angka depannya saja</b>.
+      Jika hanya income ATAU speed yang diisi, akun tetap bisa dihitung.
+      Unit <b>M</b> dan <b>B</b> hanya label game; kalkulator mengambil
+      <b>angka depannya saja</b>.
     </div>
 
     <div class="formgrid">
@@ -1059,14 +1018,11 @@ h1{
 
         <div class="secret-row">
           <input id="fPass" type="password" placeholder="Password">
-
           <button
             class="mini"
             type="button"
             onclick="toggleInput('fPass',this)"
-          >
-            👁
-          </button>
+          >👁</button>
         </div>
       </div>
 
@@ -1077,7 +1033,6 @@ h1{
 
       <div class="field">
         <label>Status</label>
-
         <select id="fStatus">
           <option value="ready">READY</option>
           <option value="sold">SOLD</option>
@@ -1157,68 +1112,43 @@ h1{
     </div>
 
     <div class="modal-actions">
-
-      <button
-        class="btn ghost"
-        type="button"
-        onclick="closeModal()"
-      >
+      <button class="btn ghost" type="button" onclick="closeModal()">
         BATAL
       </button>
 
-      <button
-        class="btn primary"
-        type="button"
-        onclick="saveAccount()"
-      >
+      <button class="btn primary" type="button" onclick="saveAccount()">
         SIMPAN AKUN
       </button>
-
     </div>
 
   </div>
 </div>
 
 
-<!-- AI INPUT -->
+<!-- AI INPUT MODAL -->
 <div class="modal-bg" id="aiBg">
 
   <div class="ai-modal">
 
-    <div class="ai-title">
-
-      <h2>✨ AI INPUT — ACCOUNT PARSER</h2>
-
-      <button
-        class="ai-close"
-        type="button"
-        onclick="closeAI()"
-      >
-        ✕
-      </button>
-
-    </div>
+    <h2>🤖 AI INPUT AKUN</h2>
 
     <div class="notice">
-      Tempel data akun di bawah.
-      AI lokal akan mencoba membaca nama akun, income,
-      speed, money, pets, dan eggs/stolen.
-      Tidak membutuhkan API.
+      Masukkan beberapa data akun sekaligus.
+      Parser lokal akan mencoba membaca nama akun, income, speed,
+      money, pets dan stolen/eggs secara otomatis.
+      <br><br>
+      Contoh:
+      <br>
+      <b>xilumatiy20 | income 15 B/s | speed 35 B | money 84.44T | pets 2</b>
+      <br>
+      <b>xilumatiy26 | income 10 B/s | speed 43 B | money 50T | pets 1</b>
     </div>
 
     <textarea
       id="aiInput"
-      class="ai-input"
-      placeholder="Contoh:
-
-akun123 - 15 B/s - speed 35 B - money 84.44T - pets 12 - eggs 3
-
-akun456 - 500 M/s - speed 69 M - money 20T - pets 8"
+      class="ai-textarea"
+      placeholder="Paste data akun Anda di sini..."
     ></textarea>
-
-    <div class="ai-help">
-      Anda bisa memasukkan beberapa akun sekaligus, satu akun per baris.
-    </div>
 
     <div id="aiStatus" class="ai-status"></div>
 
@@ -1246,10 +1176,10 @@ akun456 - 500 M/s - speed 69 M - money 20T - pets 8"
         id="aiAddBtn"
         class="btn primary"
         type="button"
-        style="display:none"
         onclick="addAIResults()"
+        style="display:none"
       >
-        ＋ MASUKKAN AKUN
+        ＋ TAMBAHKAN
       </button>
 
     </div>
@@ -1258,29 +1188,47 @@ akun456 - 500 M/s - speed 69 M - money 20T - pets 8"
 </div>
 
 
-<!-- TOAST -->
-<div id="toast" class="toast"></div>
-
-
 <script>
 
 const KEY='sae_seller_dashboard_v2';
 
-let data =
-  JSON.parse(localStorage.getItem(KEY)||'null')
-  ||
-  {
+let data;
+
+try{
+  data=JSON.parse(localStorage.getItem(KEY)||'null');
+}catch(e){
+  data=null;
+}
+
+if(!data || typeof data!=='object'){
+  data={
     accounts:[],
     incomeRate:1000,
     speedRate:1000
   };
+}
 
-if(
-  data.rate!==undefined &&
-  data.incomeRate===undefined
-){
-  data.incomeRate=data.rate;
-  data.speedRate=data.rate;
+if(!Array.isArray(data.accounts)){
+  data.accounts=[];
+}
+
+if(data.incomeRate===undefined){
+  data.incomeRate=1000;
+}
+
+if(data.speedRate===undefined){
+  data.speedRate=1000;
+}
+
+if(data.rate!==undefined){
+  if(data.incomeRate===undefined){
+    data.incomeRate=data.rate;
+  }
+
+  if(data.speedRate===undefined){
+    data.speedRate=data.rate;
+  }
+
   delete data.rate;
 }
 
@@ -1290,40 +1238,40 @@ let pageSize=12;
 let editingId=null;
 let aiResults=[];
 
-const $=id=>document.getElementById(id);
 
-
-/* STORAGE */
-
-function save(){
-  localStorage.setItem(KEY,JSON.stringify(data));
+function $(id){
+  return document.getElementById(id);
 }
 
 
-/* NUMBER HELPERS */
+function save(){
+  try{
+    localStorage.setItem(KEY,JSON.stringify(data));
+  }catch(e){
+    console.error('Gagal menyimpan data:',e);
+  }
+}
+
 
 function num(v){
   const n=parseFloat(v);
   return Number.isFinite(n)?n:0;
 }
 
+
 function fmt(v){
-  return num(v).toLocaleString(
-    'id-ID',
-    {
-      maximumFractionDigits:2
-    }
-  );
+  return num(v).toLocaleString('id-ID',{
+    maximumFractionDigits:2
+  });
 }
 
+
 function rp(v){
-  return num(v).toLocaleString(
-    'id-ID',
-    {
-      maximumFractionDigits:0
-    }
-  );
+  return num(v).toLocaleString('id-ID',{
+    maximumFractionDigits:0
+  });
 }
+
 
 function esc(s){
   return String(s??'').replace(
@@ -1339,54 +1287,30 @@ function esc(s){
 }
 
 
-/*
-  Perhitungan harga tetap ada untuk kebutuhan
-  sorting/perhitungan internal.
-
-  TIDAK DITAMPILKAN lagi di bawah
-  Estimated Selling Price.
-*/
 function priceOf(a){
   return (
-    num(a.income)*num(data.incomeRate)
-    +
+    num(a.income)*num(data.incomeRate) +
     num(a.speed)*num(data.speedRate)
   );
 }
 
 
-/* TOAST */
-
-let toastTimer=null;
-
-function toast(message){
-
-  const box=$('toast');
-
-  if(!box)return;
-
-  box.textContent=message;
-  box.classList.add('show');
-
-  clearTimeout(toastTimer);
-
-  toastTimer=setTimeout(
-    ()=>{
-      box.classList.remove('show');
-    },
-    2200
-  );
-}
-
-
-/* RATE */
+/* =========================
+   SELLING RATE
+========================= */
 
 function toggleRate(){
-  $('ratePanel').classList.toggle('hidden-rate');
+  const panel=$('ratePanel');
+
+  if(!panel)return;
+
+  panel.classList.toggle('hidden-rate');
 }
 
 
-/* PASSWORD */
+/* =========================
+   PASSWORD
+========================= */
 
 function toggleInput(id,b){
 
@@ -1394,19 +1318,16 @@ function toggleInput(id,b){
 
   if(!x)return;
 
-  x.type=
-    x.type==='password'
-    ?'text'
-    :'password';
+  x.type=x.type==='password'?'text':'password';
 
   b.textContent=
-    x.type==='password'
-    ?'👁'
-    :'🙈';
+    x.type==='password'?'👁':'🙈';
 }
 
 
-/* ADD ACCOUNT MODAL */
+/* =========================
+   ACCOUNT MODAL
+========================= */
 
 function openModal(){
 
@@ -1418,64 +1339,44 @@ function openModal(){
 
   $('modalBg').classList.add('show');
 
-  setTimeout(
-    ()=>$('fName').focus(),
-    50
-  );
+  setTimeout(()=>{
+    $('fName').focus();
+  },50);
 }
 
 
-/* EDIT ACCOUNT */
-
 function openEdit(id){
 
-  const a=data.accounts.find(
-    x=>x.id===id
-  );
+  const a=data.accounts.find(x=>String(x.id)===String(id));
 
   if(!a)return;
 
-  editingId=id;
+  editingId=a.id;
 
-  $('modalTitle').textContent=
-    '✏️ Edit Spesifikasi Akun';
+  $('modalTitle').textContent='✏️ Edit Spesifikasi Akun';
 
   $('fName').value=a.name||'';
   $('fPass').value=a.password||'';
   $('fMoney').value=a.money||'';
 
-  $('fStatus').value=
-    a.status||'ready';
+  $('fStatus').value=a.status||'ready';
 
-  $('fIncome').value=
-    a.income??'';
+  $('fIncome').value=a.income??'';
+  $('fIncomeUnit').value=a.incomeUnit||'B/s';
 
-  $('fIncomeUnit').value=
-    a.incomeUnit||'B/s';
+  $('fSpeed').value=a.speed??'';
+  $('fSpeedUnit').value=a.speedUnit||'B';
 
-  $('fSpeed').value=
-    a.speed??'';
+  $('fPets').value=a.pets??'';
+  $('fStolen').value=a.stolen??'';
 
-  $('fSpeedUnit').value=
-    a.speedUnit||'B';
+  $('fNote').value=a.note||'';
 
-  $('fPets').value=
-    a.pets??'';
-
-  $('fStolen').value=
-    a.stolen??'';
-
-  $('fNote').value=
-    a.note||'';
-
-  $('fInclude').checked=
-    a.include!==false;
+  $('fInclude').checked=a.include!==false;
 
   $('modalBg').classList.add('show');
 }
 
-
-/* CLEAR FORM */
 
 function clearForm(){
 
@@ -1488,11 +1389,9 @@ function clearForm(){
     'fPets',
     'fStolen',
     'fNote'
-  ].forEach(
-    id=>{
-      $(id).value='';
-    }
-  );
+  ].forEach(id=>{
+    if($(id))$(id).value='';
+  });
 
   $('fStatus').value='ready';
   $('fIncomeUnit').value='B/s';
@@ -1501,87 +1400,70 @@ function clearForm(){
 }
 
 
-/* CLOSE MODAL */
-
 function closeModal(){
   $('modalBg').classList.remove('show');
 }
 
 
-/* SAVE ACCOUNT */
+/* =========================
+   SAVE ACCOUNT
+========================= */
 
 function saveAccount(){
 
-  const name=
-    $('fName').value.trim();
+  const name=$('fName').value.trim();
 
   if(!name){
-
     alert('Nama akun wajib diisi.');
-
     $('fName').focus();
-
     return;
   }
 
-  const a={
-    id:
-      editingId ||
-      Date.now(),
+  const account={
+    id:editingId || Date.now()+Math.random(),
 
     name:name,
 
-    password:
-      $('fPass').value,
+    password:$('fPass').value,
 
-    money:
-      $('fMoney').value.trim(),
+    money:$('fMoney').value.trim(),
 
-    income:
-      $('fIncome').value,
+    income:$('fIncome').value,
 
-    incomeUnit:
-      $('fIncomeUnit').value,
+    incomeUnit:$('fIncomeUnit').value,
 
-    speed:
-      $('fSpeed').value,
+    speed:$('fSpeed').value,
 
-    speedUnit:
-      $('fSpeedUnit').value,
+    speedUnit:$('fSpeedUnit').value,
 
-    pets:
-      $('fPets').value,
+    pets:$('fPets').value,
 
-    stolen:
-      $('fStolen').value,
+    stolen:$('fStolen').value,
 
-    note:
-      $('fNote').value.trim(),
+    note:$('fNote').value.trim(),
 
-    status:
-      $('fStatus').value,
+    status:$('fStatus').value,
 
-    include:
-      $('fInclude').checked
+    include:$('fInclude').checked
   };
 
 
-  if(editingId){
+  if(editingId!==null){
 
-    const index=
-      data.accounts.findIndex(
-        x=>x.id===editingId
-      );
+    const index=data.accounts.findIndex(
+      x=>String(x.id)===String(editingId)
+    );
 
     if(index!==-1){
-      data.accounts[index]=a;
+      data.accounts[index]=account;
     }
 
   }else{
 
-    data.accounts.push(a);
+    data.accounts.push(account);
 
   }
+
 
   save();
 
@@ -1590,49 +1472,38 @@ function saveAccount(){
   render();
 
   toast(
-    editingId
-    ? '✅ Akun berhasil diperbarui'
-    : '✅ Akun berhasil ditambahkan'
+    editingId!==null
+      ? '✏️ Akun berhasil diperbarui'
+      : '✅ Akun berhasil ditambahkan'
   );
+
+  editingId=null;
 }
 
 
-/*
-  Compatibility fix:
-  Kode lama memanggil addAccount().
-  Sekarang tetap disediakan supaya
-  tidak ada tombol lama yang error.
-*/
-function addAccount(){
-  saveAccount();
-}
-
-
-/* DELETE */
+/* =========================
+   DELETE ACCOUNT
+========================= */
 
 function delAccount(id){
 
-  const a=
-    data.accounts.find(
-      x=>x.id===id
-    );
+  const account=data.accounts.find(
+    x=>String(x.id)===String(id)
+  );
 
-  if(!a)return;
+  if(!account)return;
 
-  if(
-    !confirm(
-      'Hapus akun "'+
-      a.name+
-      '"?'
-    )
-  ){
+  if(!confirm(
+    'Hapus akun "'+
+    account.name+
+    '"?'
+  )){
     return;
   }
 
-  data.accounts=
-    data.accounts.filter(
-      x=>x.id!==id
-    );
+  data.accounts=data.accounts.filter(
+    a=>String(a.id)!==String(id)
+  );
 
   save();
 
@@ -1642,14 +1513,15 @@ function delAccount(id){
 }
 
 
-/* INCLUDE */
+/* =========================
+   INCLUDE
+========================= */
 
 function toggleInclude(id){
 
-  const a=
-    data.accounts.find(
-      x=>x.id===id
-    );
+  const a=data.accounts.find(
+    x=>String(x.id)===String(id)
+  );
 
   if(!a)return;
 
@@ -1661,21 +1533,22 @@ function toggleInclude(id){
 }
 
 
-/* READY / SOLD */
+/* =========================
+   STATUS
+========================= */
 
 function toggleStatus(id){
 
-  const a=
-    data.accounts.find(
-      x=>x.id===id
-    );
+  const a=data.accounts.find(
+    x=>String(x.id)===String(id)
+  );
 
   if(!a)return;
 
   a.status=
     a.status==='sold'
-    ?'ready'
-    :'sold';
+      ?'ready'
+      :'sold';
 
   save();
 
@@ -1683,25 +1556,24 @@ function toggleStatus(id){
 
   toast(
     a.status==='sold'
-    ?'🛒 Akun ditandai SOLD'
-    :'🟢 Akun dikembalikan READY'
+      ?'🛒 Akun ditandai SOLD'
+      :'🟢 Akun ditandai READY'
   );
 }
 
 
-/* FILTER */
+/* =========================
+   FILTER
+========================= */
 
 function setFilter(f,b){
 
   filter=f;
-
   page=1;
 
   document
     .querySelectorAll('.filter button')
-    .forEach(
-      x=>x.classList.remove('active')
-    );
+    .forEach(x=>x.classList.remove('active'));
 
   b.classList.add('active');
 
@@ -1709,43 +1581,41 @@ function setFilter(f,b){
 }
 
 
-/* PAGINATION */
+/* =========================
+   PAGINATION
+========================= */
 
 function changePage(d){
 
   const arr=list();
 
-  const pages=
-    Math.max(
-      1,
-      Math.ceil(
-        arr.length/pageSize
-      )
-    );
+  const pages=Math.max(
+    1,
+    Math.ceil(arr.length/pageSize)
+  );
 
-  page=
-    Math.min(
-      pages,
-      Math.max(1,page+d)
-    );
+  page=Math.max(
+    1,
+    Math.min(pages,page+d)
+  );
 
   render();
 }
 
 
-/* RATE SAVE */
+/* =========================
+   RATES
+========================= */
 
 function saveAndRender(){
 
-  data.incomeRate=
-    num(
-      $('incomeRate').value
-    );
+  data.incomeRate=num(
+    $('incomeRate').value
+  );
 
-  data.speedRate=
-    num(
-      $('speedRate').value
-    );
+  data.speedRate=num(
+    $('speedRate').value
+  );
 
   save();
 
@@ -1753,68 +1623,74 @@ function saveAndRender(){
 }
 
 
-/* LIST */
+/* =========================
+   LIST
+========================= */
 
 function list(){
 
+  const searchEl=$('search');
+
   const q=
-    $('search').value
-      .toLowerCase()
-      .trim();
+    searchEl
+      ?searchEl.value.toLowerCase().trim()
+      :'';
 
   const only=
-    $('onlyIncluded')?.checked;
+    $('onlyIncluded')
+      ?$('onlyIncluded').checked
+      :false;
 
-  let a=
-    data.accounts.filter(
-      x=>
-        (
-          filter==='all' ||
-          x.status===filter
-        )
-        &&
-        (
-          !only ||
-          x.include
-        )
-        &&
-        (
-          !q ||
-          String(x.name||'')
-            .toLowerCase()
-            .includes(q)
-        )
-    );
 
-  const s=
-    $('sort').value;
+  let arr=data.accounts.filter(a=>{
+
+    const filterOK=
+      filter==='all' ||
+      a.status===filter;
+
+    const includedOK=
+      !only ||
+      a.include!==false;
+
+    const searchOK=
+      !q ||
+      String(a.name||'')
+        .toLowerCase()
+        .includes(q);
+
+    return filterOK &&
+           includedOK &&
+           searchOK;
+  });
+
+
+  const sortEl=$('sort');
+
+  const s=sortEl
+    ?sortEl.value
+    :'default';
+
 
   if(s==='income'){
-    a.sort(
-      (x,y)=>
-        num(y.income)-
-        num(x.income)
+    arr.sort(
+      (x,y)=>num(y.income)-num(x.income)
     );
   }
 
   if(s==='speed'){
-    a.sort(
-      (x,y)=>
-        num(y.speed)-
-        num(x.speed)
+    arr.sort(
+      (x,y)=>num(y.speed)-num(x.speed)
     );
   }
 
   if(s==='price'){
-    a.sort(
-      (x,y)=>
-        priceOf(y)-
-        priceOf(x)
+    arr.sort(
+      (x,y)=>priceOf(y)-priceOf(x)
     );
   }
 
   if(s==='name'){
-    a.sort(
+    arr.sort(
       (x,y)=>
         String(x.name||'')
           .localeCompare(
@@ -1823,61 +1699,64 @@ function list(){
     );
   }
 
-  return a;
+
+  return arr;
 }
 
 
-/* MONEY PARSER */
+/* =========================
+   MONEY PARSER
+========================= */
 
 function parseMoney(v){
 
-  const m=
-    String(v||'')
-      .replace(/,/g,'.')
-      .match(
-        /\d+(?:\.\d+)?/
-      );
+  const text=String(v||'')
+    .replace(/,/g,'.');
 
-  return m
-    ? num(m[0])
-    : 0;
+  const match=text.match(
+    /\d+(?:\.\d+)?/
+  );
+
+  return match
+    ?num(match[0])
+    :0;
 }
 
 
-/* RENDER */
+/* =========================
+   RENDER
+========================= */
 
 function render(){
 
-  $('incomeRate').value=
-    data.incomeRate;
+  if($('incomeRate')){
+    $('incomeRate').value=data.incomeRate;
+  }
 
-  $('speedRate').value=
-    data.speedRate;
+  if($('speedRate')){
+    $('speedRate').value=data.speedRate;
+  }
 
 
-  const calc=
-    data.accounts.filter(
-      a=>a.include
-    );
+  const calc=data.accounts.filter(
+    a=>a.include!==false
+  );
 
-  const income=
-    calc.reduce(
-      (s,a)=>
-        s+num(a.income),
-      0
-    );
 
-  const speed=
-    calc.reduce(
-      (s,a)=>
-        s+num(a.speed),
-      0
-    );
+  const income=calc.reduce(
+    (sum,a)=>sum+num(a.income),
+    0
+  );
+
+
+  const speed=calc.reduce(
+    (sum,a)=>sum+num(a.speed),
+    0
+  );
 
 
   const total=
-    income*num(data.incomeRate)
-    +
+    income*num(data.incomeRate)+
     speed*num(data.speedRate);
 
 
@@ -1886,8 +1765,10 @@ function render(){
       a=>a.status==='ready'
     ).length;
 
+
   $('readySub').textContent=
     `${data.accounts.length} total accounts`;
+
 
   $('soldCount').textContent=
     data.accounts.filter(
@@ -1899,255 +1780,200 @@ function render(){
     '$'+
     data.accounts
       .reduce(
-        (s,a)=>
-          s+parseMoney(a.money),
+        (sum,a)=>sum+parseMoney(a.money),
         0
       )
       .toLocaleString(
         'id-ID',
-        {
-          maximumFractionDigits:2
-        }
+        {maximumFractionDigits:2}
       );
 
 
   $('incomeTotal').textContent=
     fmt(income)+' pts';
 
+
   $('speedTotal').textContent=
     fmt(speed)+' pts';
 
+
+  /* 
+     HANYA NILAI HARGA.
+     Rumus di bawah Estimated Selling Price
+     sengaja tidak dibuat.
+  */
 
   $('priceTotal').textContent=
     'Rp'+rp(total);
 
 
-  /*
-    PENTING:
-    priceFormula sengaja tidak lagi
-    diisi karena elemen rumus sudah
-    dihapus dari HTML.
-  */
-
-
   const arr=list();
 
-  const pages=
-    Math.max(
-      1,
-      Math.ceil(
-        arr.length/pageSize
-      )
-    );
+  const pages=Math.max(
+    1,
+    Math.ceil(arr.length/pageSize)
+  );
+
 
   if(page>pages){
     page=pages;
   }
 
 
-  const slice=
-    arr.slice(
-      (page-1)*pageSize,
-      page*pageSize
-    );
+  const slice=arr.slice(
+    (page-1)*pageSize,
+    page*pageSize
+  );
 
 
   const hideN=
-    $('hideNames').checked;
+    $('hideNames')
+      ?$('hideNames').checked
+      :false;
 
   const hideP=
-    $('hidePasswords').checked;
+    $('hidePasswords')
+      ?$('hidePasswords').checked
+      :false;
 
 
-  $('rows').innerHTML=
-    slice.length
+  if(!slice.length){
 
-    ?
+    $('rows').innerHTML=
+      `<div class="empty">
+        Belum ada akun yang sesuai.
+        Tekan ＋ ADD ACCOUNT untuk menambahkan.
+      </div>`;
 
-    slice.map(
-      a=>{
+  }else{
+
+    $('rows').innerHTML=
+      slice.map(a=>{
 
         const inc=
-          a.income!==''
-
-          ?
-          `${fmt(a.income)}
-           ${esc(a.incomeUnit||'B/s')}`
-
-          :
-          '—';
+          a.income!=='' &&
+          a.income!==null &&
+          a.income!==undefined
+            ?`${fmt(a.income)} ${esc(a.incomeUnit||'B/s')}`
+            :'—';
 
 
         const sp=
-          a.speed!==''
+          a.speed!=='' &&
+          a.speed!==null &&
+          a.speed!==undefined
+            ?`${fmt(a.speed)} ${esc(a.speedUnit||'B')}`
+            :'—';
 
-          ?
-          `${fmt(a.speed)}
-           ${esc(a.speedUnit||'B')}`
 
-          :
-          '—';
+        const passwordText=
+          hideP
+            ?'🔒 Password hidden'
+            :(a.password
+              ?'🔑 '+esc(a.password)
+              :'No password');
 
 
         return `
+          <div class="row">
 
-        <div class="row">
+            <div class="cell">
+              <div class="account">
 
-          <div class="cell">
+                <div class="avatar">👤</div>
 
-            <div class="account">
+                <div style="min-width:0">
 
-              <div class="avatar">
-                👤
-              </div>
+                  <div class="name ${hideN?'masked':''}">
+                    ${
+                      hideN
+                        ?'••••••••'
+                        :esc(a.name)
+                    }
+                  </div>
 
-              <div style="min-width:0">
-
-                <div class="name ${hideN?'masked':''}">
-                  ${
-                    hideN
-                    ? '••••••••'
-                    : esc(a.name)
-                  }
-                </div>
-
-                <div class="meta">
-
-                  ${
-                    hideP
-                    ?
-                    '🔒 Password hidden'
-                    :
-                    (
-                      a.password
-                      ?
-                      '🔑 '+esc(a.password)
-                      :
-                      'No password'
-                    )
-                  }
-
-                  ${
-                    a.note
-                    ?
-                    ' · '+esc(a.note)
-                    :
-                    ''
-                  }
+                  <div class="meta">
+                    ${passwordText}
+                    ${
+                      a.note
+                        ?' · '+esc(a.note)
+                        :''
+                    }
+                  </div>
 
                 </div>
 
               </div>
+            </div>
+
+            <div class="cell val money">
+              ${a.money?esc(a.money):'—'}
+            </div>
+
+            <div class="cell val income">
+              ${inc}
+            </div>
+
+            <div class="cell val speed">
+              ${sp}
+            </div>
+
+            <div class="cell val pets">
+              🐾 ${num(a.pets)}
+            </div>
+
+            <div class="cell val stolen">
+              🥚 ${num(a.stolen)}
+            </div>
+
+            <div class="cell">
+              <span class="status ${a.status}">
+                ${
+                  a.status==='sold'
+                    ?'SOLD'
+                    :'READY'
+                }
+              </span>
+            </div>
+
+            <div class="cell row-actions">
+
+              <input
+                class="include"
+                type="checkbox"
+                title="Ikut perhitungan"
+                ${a.include!==false?'checked':''}
+                onchange="toggleInclude('${String(a.id)}')"
+              >
+
+              <button
+                class="action"
+                type="button"
+                title="Edit spesifikasi"
+                onclick="openEdit('${String(a.id)}')"
+              >✏️</button>
+
+              <button
+                class="action"
+                type="button"
+                title="Ready / Sold"
+                onclick="toggleStatus('${String(a.id)}')"
+              >↔</button>
+
+              <button
+                class="action"
+                type="button"
+                title="Hapus"
+                onclick="delAccount('${String(a.id)}')"
+              >🗑</button>
 
             </div>
 
           </div>
-
-
-          <div class="cell val money">
-            ${
-              a.money
-              ?
-              esc(a.money)
-              :
-              '—'
-            }
-          </div>
-
-
-          <div class="cell val income">
-            ${inc}
-          </div>
-
-
-          <div class="cell val speed">
-            ${sp}
-          </div>
-
-
-          <div class="cell val pets">
-            🐾 ${num(a.pets)}
-          </div>
-
-
-          <div class="cell val stolen">
-            🥚 ${num(a.stolen)}
-          </div>
-
-
-          <div class="cell">
-
-            <span class="status ${a.status}">
-
-              ${
-                a.status==='sold'
-                ?
-                'SOLD'
-                :
-                'READY'
-              }
-
-            </span>
-
-          </div>
-
-
-          <div class="cell row-actions">
-
-            <input
-              class="include"
-              type="checkbox"
-              title="Ikut perhitungan"
-              ${
-                a.include
-                ?
-                'checked'
-                :
-                ''
-              }
-              onchange="toggleInclude(${a.id})"
-            >
-
-            <button
-              class="action"
-              title="Edit spesifikasi"
-              onclick="openEdit(${a.id})"
-            >
-              ✏️
-            </button>
-
-            <button
-              class="action"
-              title="Ready / Sold"
-              onclick="toggleStatus(${a.id})"
-            >
-              ↔
-            </button>
-
-            <button
-              class="action delete-btn"
-              title="Hapus"
-              onclick="delAccount(${a.id})"
-            >
-              🗑
-            </button>
-
-          </div>
-
-        </div>
-
         `;
-      }
-    ).join('')
 
-    :
-
-    `
-      <div class="empty">
-        Belum ada akun yang sesuai.
-        Tekan ＋ ADD ACCOUNT untuk menambahkan.
-      </div>
-    `;
+      }).join('');
+  }
 
 
   $('pageInfo').textContent=
@@ -2155,101 +1981,55 @@ function render(){
 }
 
 
-/* EXPORT */
+/* =========================
+   EXPORT
+========================= */
 
 function exportData(){
 
-  const blob=
-    new Blob(
-      [
-        JSON.stringify(
-          data,
-          null,
-          2
-        )
-      ],
-      {
-        type:'application/json'
-      }
-    );
+  const blob=new Blob(
+    [
+      JSON.stringify(
+        data,
+        null,
+        2
+      )
+    ],
+    {
+      type:'application/json'
+    }
+  );
+
+
+  const url=
+    URL.createObjectURL(blob);
+
 
   const a=
     document.createElement('a');
 
-  a.href=
-    URL.createObjectURL(blob);
+  a.href=url;
 
   a.download=
     'sae-seller-dashboard-backup.json';
 
+  document.body.appendChild(a);
+
   a.click();
 
-  URL.revokeObjectURL(a.href);
+  a.remove();
 
-  toast('↗ Data berhasil diexport');
+  setTimeout(()=>{
+    URL.revokeObjectURL(url);
+  },1000);
+
+  toast('📦 Backup berhasil diexport');
 }
 
 
-/* IMPORT */
-
-function importData(e){
-
-  const f=
-    e.target.files[0];
-
-  if(!f)return;
-
-  const r=
-    new FileReader();
-
-  r.onload=()=>{
-
-    try{
-
-      const x=
-        JSON.parse(r.result);
-
-      if(!Array.isArray(x.accounts)){
-        throw new Error();
-      }
-
-      data=x;
-
-      data.incomeRate=
-        num(
-          data.incomeRate||1000
-        );
-
-      data.speedRate=
-        num(
-          data.speedRate||1000
-        );
-
-      save();
-
-      render();
-
-      alert(
-        'Data berhasil diimport'
-      );
-
-    }catch{
-
-      alert(
-        'File backup tidak valid'
-      );
-
-    }
-
-  };
-
-  r.readAsText(f);
-
-  e.target.value='';
-}
-
-
-/* RESET */
+/* =========================
+   RESET
+========================= */
 
 function clearAll(){
 
@@ -2261,11 +2041,13 @@ function clearAll(){
     return;
   }
 
+
   data={
     accounts:[],
     incomeRate:1000,
     speedRate:1000
   };
+
 
   save();
 
@@ -2279,13 +2061,11 @@ function clearAll(){
 
 /* =========================
    AI INPUT
-   ========================= */
+========================= */
 
 function openAI(){
 
-  $('aiBg')
-    .classList
-    .add('show');
+  $('aiBg').classList.add('show');
 
   $('aiInput').focus();
 
@@ -2295,42 +2075,35 @@ function openAI(){
 
   $('aiAddBtn').style.display='none';
 
+  $('aiInput').value='';
+
   aiResults=[];
 }
 
 
 function closeAI(){
 
-  $('aiBg')
-    .classList
-    .remove('show');
+  $('aiBg').classList.remove('show');
 }
 
 
-function aiStatus(t){
+function aiStatus(text){
 
   $('aiStatus').style.display='block';
 
-  $('aiStatus').innerHTML=t;
+  $('aiStatus').innerHTML=text;
 }
 
 
-function cleanNum(v){
-
-  return String(v||'')
-    .replace(/,/g,'.')
-    .match(
-      /\d+(?:\.\d+)?/
-    )?.[0] || '';
-}
-
+/* =========================
+   AI / LOCAL PARSER
+========================= */
 
 function parseAI(){
 
   const raw=
-    $('aiInput')
-      .value
-      .trim();
+    $('aiInput').value.trim();
+
 
   if(!raw){
 
@@ -2345,87 +2118,78 @@ function parseAI(){
   const lines=
     raw
       .split(/\r?\n/)
-      .map(
-        x=>x.trim()
-      )
+      .map(x=>x.trim())
       .filter(Boolean);
 
 
   const out=[];
 
 
-  for(
-    const line of lines
-  ){
+  for(const line of lines){
 
     if(
-      /^(kelompok|group|account|akun)\s*\d*\s*[:\-]?$/i
-        .test(line)
+      /^(kelompok|group)\s+\d+\s*b?$/i.test(line) ||
+      /^\d+\s*b$/i.test(line)
     ){
       continue;
     }
 
 
     /*
-      Cari nama dari awal baris.
-      Format fleksibel:
-      username - ...
-      username | ...
-      username : ...
+      Nama akun:
+      ambil token pertama yang terlihat
+      seperti username.
     */
 
-    let name='';
+    let nameMatch=
+      line.match(
+        /(?:^|\s)([A-Za-z0-9_]{3,})/
+      );
 
 
-    const firstPart=
-      line
-        .split(/\s*[-|:;,]\s*/)
-        [0]
-        ?.trim();
+    /*
+      Jika format menggunakan:
+      Username: abc
+      Account: abc
+      Name: abc
+    */
+
+    const explicitName=
+      line.match(
+        /(?:username|account|name|akun)\s*[:=]\s*([A-Za-z0-9_.-]{3,})/i
+      );
 
 
-    if(
-      firstPart &&
-      /^[A-Za-z0-9_]{3,}$/
-        .test(firstPart)
-    ){
-
-      name=firstPart;
-
-    }else{
-
-      const nameMatch=
-        line.match(
-          /\b[A-Za-z0-9_]{3,}\b/
-        );
-
-      if(nameMatch){
-        name=nameMatch[0];
-      }
-
+    if(explicitName){
+      nameMatch=[
+        explicitName[0],
+        explicitName[1]
+      ];
     }
 
 
-    if(!name){
+    if(!nameMatch){
       continue;
     }
 
 
     const incomeMatch=
       line.match(
-        /(\d+(?:[.,]\d+)?)\s*(B|M)\s*(?:\/s|money\/s)/i
+        /(?:income|income\s*\/?\s*sec|income\/sec)\s*[:=]?\s*(\d+(?:[.,]\d+)?)\s*(B|M)\s*(?:\/s)?/i
+      )
+      ||
+      line.match(
+        /(\d+(?:[.,]\d+)?)\s*(B|M)\s*\/s/i
       );
 
 
     const speedMatch=
       line.match(
-        /(?:speed\s*[:=]?\s*)(\d+(?:[.,]\d+)?)\s*(B|M)?/i
-      );
-
-
-    const speedAlt=
+        /speed\s*[:=]?\s*(\d+(?:[.,]\d+)?)\s*(B|M)?/i
+      )
+      ||
       line.match(
-        /(?:^|[,\s(])speed\s*(\d+(?:[.,]\d+)?)\s*(B|M)?/i
+        /(?:^|[,\s])speed\s*(\d+(?:[.,]\d+)?)\s*(B|M)?/i
       );
 
 
@@ -2447,70 +2211,70 @@ function parseAI(){
       );
 
 
-    const speedFound=
-      speedMatch ||
-      speedAlt;
+    let income='';
+    let incomeUnit='B/s';
+
+
+    if(incomeMatch){
+
+      income=
+        incomeMatch[1]
+          .replace(',','.');
+
+      incomeUnit=
+        (
+          incomeMatch[2] ||
+          'B'
+        ).toUpperCase()+'/s';
+    }
+
+
+    let speed='';
+    let speedUnit='B';
+
+
+    if(speedMatch){
+
+      speed=
+        speedMatch[1]
+          .replace(',','.');
+
+      speedUnit=
+        (
+          speedMatch[2] ||
+          'B'
+        ).toUpperCase();
+    }
 
 
     out.push({
 
-      name:name,
+      name:nameMatch[1],
 
       password:'',
 
       money:
         moneyMatch
-        ?
-        moneyMatch[1]
-        :
-        '',
+          ?moneyMatch[1]
+          :'',
 
-      income:
-        incomeMatch
-        ?
-        incomeMatch[1]
-          .replace(',','.')
-        :
-        '',
+      income:income,
 
-      incomeUnit:
-        incomeMatch
-        ?
-        incomeMatch[2]
-          .toUpperCase()+'/s'
-        :
-        'B/s',
+      incomeUnit:incomeUnit,
 
-      speed:
-        speedFound
-        ?
-        speedFound[1]
-          .replace(',','.')
-        :
-        '',
+      speed:speed,
 
-      speedUnit:
-        speedFound &&
-        speedFound[2]
-        ?
-        speedFound[2]
-          .toUpperCase()
-        :
-        'B',
+      speedUnit:speedUnit,
 
       pets:
         petsMatch
-        ?
-        petsMatch[1]
-        :
-        '',
+          ?petsMatch[1]
+          :'',
 
       stolen:
         stolenMatch
-        ?
-        stolenMatch[1]
-        :
-        '',
+          ?stolenMatch[1]
+          :'',
 
       note:'',
 
@@ -2519,18 +2283,48 @@ function parseAI(){
       include:true
 
     });
-
   }
 
 
-  aiResults=out;
+  /*
+    Hilangkan duplicate yang identik
+    dari input yang sama.
+  */
+
+  const unique=[];
+
+  const seen=new Set();
 
 
-  if(!out.length){
+  for(const item of out){
+
+    const key=
+      [
+        item.name,
+        item.income,
+        item.speed,
+        item.money
+      ].join('|');
+
+
+    if(!seen.has(key)){
+
+      seen.add(key);
+
+      unique.push(item);
+    }
+  }
+
+
+  aiResults=unique;
+
+
+  if(!aiResults.length){
 
     aiStatus(
-      '❌ Belum berhasil mengenali akun. '+
-      'Gunakan satu akun per baris.'
+      '❌ Belum berhasil mengenali akun.<br><br>'+
+      'Coba gunakan format seperti:<br>'+
+      '<b>xilumatiy20 | income 15 B/s | speed 35 B | money 84.44T</b>'
     );
 
     return;
@@ -2538,8 +2332,8 @@ function parseAI(){
 
 
   aiStatus(
-    `✅ Terbaca <b>${out.length} akun</b>. `+
-    'Periksa hasilnya sebelum memasukkan ke dashboard.'
+    `✅ Terbaca <b>${aiResults.length} akun</b>.
+     Periksa hasilnya sebelum memasukkan ke dashboard.`
   );
 
 
@@ -2547,97 +2341,75 @@ function parseAI(){
 
 
   $('aiPreview').innerHTML=
-
     `
-    <div class="table">
+      <div class="table">
 
-      <div
-        class="thead"
-        style="
-          grid-template-columns:
-          2fr 1fr 1fr 1fr .7fr
-        "
-      >
+        <div
+          class="thead"
+          style="grid-template-columns:2fr 1fr 1fr 1fr .7fr"
+        >
+          <div>ACCOUNT</div>
+          <div>INCOME</div>
+          <div>SPEED</div>
+          <div>MONEY</div>
+          <div>ADD</div>
+        </div>
 
-        <div>ACCOUNT</div>
-        <div>INCOME</div>
-        <div>SPEED</div>
-        <div>MONEY</div>
-        <div>ADD</div>
+        ${
+          aiResults.map((a,i)=>`
+
+            <div
+              class="row"
+              style="grid-template-columns:2fr 1fr 1fr 1fr .7fr"
+            >
+
+              <div class="name">
+                ${esc(a.name)}
+              </div>
+
+              <div class="val income">
+                ${
+                  a.income
+                    ?esc(
+                      a.income+
+                      ' '+
+                      a.incomeUnit
+                    )
+                    :'—'
+                }
+              </div>
+
+              <div class="val speed">
+                ${
+                  a.speed
+                    ?esc(
+                      a.speed+
+                      ' '+
+                      a.speedUnit
+                    )
+                    :'—'
+                }
+              </div>
+
+              <div class="val money">
+                ${esc(a.money||'—')}
+              </div>
+
+              <div>
+                <input
+                  class="include"
+                  type="checkbox"
+                  id="air${i}"
+                  checked
+                >
+              </div>
+
+            </div>
+
+          `).join('')
+        }
 
       </div>
-
-      `+
-
-      out.map(
-        (a,i)=>
-
-        `
-        <div
-          class="row"
-          style="
-            grid-template-columns:
-            2fr 1fr 1fr 1fr .7fr
-          "
-        >
-
-          <div class="name">
-            ${esc(a.name)}
-          </div>
-
-          <div class="val income">
-            ${
-              a.income
-              ?
-              esc(
-                a.income+
-                ' '+
-                a.incomeUnit
-              )
-              :
-              '—'
-            }
-          </div>
-
-          <div class="val speed">
-            ${
-              a.speed
-              ?
-              esc(
-                a.speed+
-                ' '+
-                a.speedUnit
-              )
-              :
-              '—'
-            }
-          </div>
-
-          <div class="val money">
-            ${
-              esc(
-                a.money||'—'
-              )
-            }
-          </div>
-
-          <div>
-            <input
-              class="include"
-              type="checkbox"
-              id="air${i}"
-              checked
-            >
-          </div>
-
-        </div>
-        `
-      ).join('')
-
-      +
-
-      `
-    </div>
     `;
 
 
@@ -2646,42 +2418,45 @@ function parseAI(){
 }
 
 
-/* ADD AI RESULTS */
+/* =========================
+   ADD AI RESULTS
+========================= */
 
 function addAIResults(){
 
   const selected=
     aiResults.filter(
-      (_,i)=>
-        $('air'+i)?.checked
+      (_,i)=>{
+        const checkbox=$('air'+i);
+        return checkbox && checkbox.checked;
+      }
     );
 
 
   if(!selected.length){
 
     alert(
-      'Pilih minimal satu akun.'
+      'Pilih minimal satu akun terlebih dahulu.'
     );
 
     return;
   }
 
 
-  selected.forEach(
-    a=>{
+  selected.forEach(a=>{
 
-      data.accounts.push({
+    data.accounts.push({
 
-        ...a,
+      ...a,
 
-        id:
-          Date.now()+
-          Math.random()
+      id:Date.now()+
+         Math.random(),
 
-      });
+      include:true
 
-    }
-  );
+    });
+
+  });
 
 
   save();
@@ -2696,49 +2471,48 @@ function addAIResults(){
 }
 
 
-/* CLOSE MODALS WHEN CLICKING OUTSIDE */
+/* =========================
+   TOAST
+========================= */
 
-$('modalBg')
-  .addEventListener(
-    'click',
-    e=>{
+function toast(message){
 
-      if(
-        e.target===
-        $('modalBg')
-      ){
-        closeModal();
-      }
+  const old=
+    document.querySelector('.toast');
 
-    }
-  );
+  if(old){
+    old.remove();
+  }
 
 
-$('aiBg')
-  .addEventListener(
-    'click',
-    e=>{
+  const el=
+    document.createElement('div');
 
-      if(
-        e.target===
-        $('aiBg')
-      ){
-        closeAI();
-      }
+  el.className='toast';
 
-    }
-  );
+  el.textContent=message;
+
+  document.body.appendChild(el);
 
 
-/* ESCAPE */
+  setTimeout(()=>{
+    el.remove();
+  },2500);
+}
+
+
+/* =========================
+   KEYBOARD
+========================= */
 
 document.addEventListener(
   'keydown',
-  e=>{
+  function(e){
 
     if(e.key==='Escape'){
 
       closeModal();
+
       closeAI();
 
     }
@@ -2747,31 +2521,47 @@ document.addEventListener(
 );
 
 
-/* INITIALIZE */
+/* =========================
+   CLICK OUTSIDE MODALS
+========================= */
 
-try{
+$('modalBg').addEventListener(
+  'click',
+  function(e){
 
-  $('incomeRate').value=
-    data.incomeRate;
+    if(e.target===this){
+      closeModal();
+    }
 
-  $('speedRate').value=
-    data.speedRate;
+  }
+);
 
-  render();
 
-}catch(err){
+$('aiBg').addEventListener(
+  'click',
+  function(e){
 
-  console.error(
-    'Initialization error:',
-    err
-  );
+    if(e.target===this){
+      closeAI();
+    }
 
-  alert(
-    'Dashboard gagal dimuat: '+
-    (err?.message||err)
-  );
+  }
+);
 
-}
+
+/* =========================
+   INITIALIZE
+========================= */
+
+save();
+
+$('incomeRate').value=
+  data.incomeRate;
+
+$('speedRate').value=
+  data.speedRate;
+
+render();
 
 </script>
 
