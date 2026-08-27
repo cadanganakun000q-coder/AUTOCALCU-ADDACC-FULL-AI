@@ -74,8 +74,8 @@ h1{font-size:20px;margin:6px 0 0;letter-spacing:.1px}
 .field{display:flex;flex-direction:column;gap:5px}
 .field.full{grid-column:1/-1}
 .field label{font-size:9px;color:#718092;font-weight:800;text-transform:uppercase;letter-spacing:.7px}
-.field input,.field select,.field textarea{width:100%;height:38px;background:#070b11;border:1px solid #192431;border-radius:8px;color:#e4eaf2;padding:0 10px;outline:none}
-.field input:focus,.field select:focus,.field textarea:focus{border-color:#0e8baa}
+.field input,.field select{width:100%;height:38px;background:#070b11;border:1px solid #192431;border-radius:8px;color:#e4eaf2;padding:0 10px;outline:none}
+.field input:focus,.field select:focus{border-color:#0e8baa}
 .inline{display:grid;grid-template-columns:1fr 105px;gap:7px}
 .checkline{display:flex;align-items:center;gap:8px;margin-top:7px;color:#8b96a5;font-size:10px}
 .checkline input{accent-color:#0cc8ee}
@@ -129,8 +129,7 @@ h1{font-size:20px;margin:6px 0 0;letter-spacing:.1px}
         <h1>PLAYER ACCOUNTS & EGG/PET HUB</h1>
       </div>
       <div class="top-actions">
-        <button class="btn" onclick="openModal()">＋ ADD ACCOUNT</button>
-        <button class="btn" onclick="openAI()">✨ AI INPUT</button>
+        <button class="btn" onclick="openModal()">＋ ADD ACCOUNT</button><button class="btn" onclick="openAI()">🤖 AI INPUT</button>
         <button class="btn" onclick="exportData()">↗ EXPORT</button>
         <button class="btn danger" onclick="clearAll()">RESET</button>
       </div>
@@ -183,30 +182,6 @@ h1{font-size:20px;margin:6px 0 0;letter-spacing:.1px}
   <div class="rate-note">Rate income dan speed terpisah. Sembunyikan panel sebelum screenshot marketplace.</div>
 </div>
 
-
-<div class="modal-bg" id="aiBg">
-  <div class="modal" style="width:min(900px,100%)">
-    <h2>✨ AI INPUT — Import Spesifikasi Akun</h2>
-    <div class="notice">
-      Tempel data akun dalam format bebas. Parser lokal akan mencoba mengenali <b>nama, income, speed, money, pets, dan stolen/eggs</b>.
-      Tidak perlu API key dan data tetap diproses di browser.
-    </div>
-    <div class="field full">
-      <label>Data Akun</label>
-      <textarea id="aiInput" rows="9" placeholder="Contoh:
-xilumatiy20 - 15 B/s - speed 35 B - money 84.44T - pets 12 - eggs 4
-akun_abc | income 503.12 M/s | speed 80 M | money 12.5T"></textarea>
-    </div>
-    <div id="aiStatus" class="notice" style="display:none;margin-top:12px"></div>
-    <div id="aiPreview" style="display:none;margin-top:12px"></div>
-    <div class="modal-actions">
-      <button class="btn ghost" onclick="closeAI()">BATAL</button>
-      <button class="btn" onclick="parseAI()">🔎 ANALISIS</button>
-      <button class="btn primary" id="aiAddBtn" style="display:none" onclick="addAIResults()">＋ TAMBAHKAN YANG DIPILIH</button>
-    </div>
-  </div>
-</div>
-
 <div class="modal-bg" id="modalBg">
   <div class="modal">
     <h2 id="modalTitle">＋ Tambah Akun</h2>
@@ -226,30 +201,29 @@ akun_abc | income 503.12 M/s | speed 80 M | money 12.5T"></textarea>
       <div class="field full"><label>Catatan</label><input id="fNote" placeholder="opsional"></div>
     </div>
     <div class="checkline"><input id="fInclude" type="checkbox" checked> Masukkan akun ini ke perhitungan harga</div>
-    <div class="modal-actions"><button class="btn ghost" onclick="closeModal()">BATAL</button><button class="btn primary" onclick="safeSaveAccount()">SIMPAN AKUN</button></div>
+    <div class="modal-actions"><button class="btn ghost" onclick="closeModal()">BATAL</button><button class="btn primary" onclick="saveAccount()">SIMPAN AKUN</button></div>
+  </div>
+</div>
+
+<div class="modal-bg" id="aiBg">
+  <div class="modal" style="width:min(900px,100%)">
+    <h2>🤖 AI INPUT — Import Spesifikasi Akun</h2>
+    <div class="notice">
+      Tempel data akun mentah di bawah. Parser lokal akan mencoba mengenali nama, income/sec, speed, money, pets, dan stolen/eggs tanpa API key.
+      Satu akun per baris paling akurat. Contoh: <b>xilumatiy20 - income 5.4 B/s - speed 35 B - money 84.44T - pets 12 - stolen 3</b>
+    </div>
+    <div class="field full"><label>Data Akun</label><textarea id="aiInput" style="width:100%;min-height:150px;resize:vertical;background:#070b11;border:1px solid #192431;border-radius:8px;color:#e4eaf2;padding:10px;outline:none" placeholder="Tempel daftar akun di sini..."></textarea></div>
+    <div id="aiStatus" class="notice" style="display:none;margin-top:10px"></div>
+    <div id="aiPreview" style="display:none;margin-top:10px;max-height:320px;overflow:auto"></div>
+    <div class="modal-actions">
+      <button class="btn ghost" onclick="closeAI()">BATAL</button>
+      <button class="btn" onclick="parseAI()">🔍 ANALISIS DATA</button>
+      <button class="btn primary" id="aiAddBtn" style="display:none" onclick="addAIResults()">＋ TAMBAHKAN HASIL</button>
+    </div>
   </div>
 </div>
 
 <script>
-
-window.addEventListener('error', function(e){
-  console.error('Dashboard error:', e.error || e.message);
-  const msg = e.error?.message || e.message || 'JavaScript error';
-  let t=document.getElementById('appError');
-  if(!t){
-    t=document.createElement('div');
-    t.id='appError';
-    Object.assign(t.style,{
-      position:'fixed',left:'18px',right:'18px',bottom:'18px',zIndex:'9999',
-      background:'#2a0d15',color:'#ffd9e0',border:'1px solid #6b2638',
-      borderRadius:'10px',padding:'12px 14px',fontSize:'11px',
-      fontWeight:'700',boxShadow:'0 20px 50px #000b'
-    });
-    document.body.appendChild(t);
-  }
-  t.textContent='⚠️ Dashboard error: '+msg;
-});
-
 const KEY='sae_seller_dashboard_v2';
 let data=JSON.parse(localStorage.getItem(KEY)||'null')||{accounts:[],incomeRate:1000,speedRate:1000};
 if(data.rate!==undefined&&data.incomeRate===undefined){data.incomeRate=data.rate;data.speedRate=data.rate;delete data.rate}
@@ -263,18 +237,7 @@ function esc(s){return String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&l
 function priceOf(a){return num(a.income)*num(data.incomeRate)+num(a.speed)*num(data.speedRate)}
 function toggleRate(){$('ratePanel').classList.toggle('hidden-rate')}
 function toggleInput(id,b){const x=$(id);x.type=x.type==='password'?'text':'password';b.textContent=x.type==='password'?'👁':'🙈'}
-function openModal(){
-  try{
-    editingId=null;
-    $('modalTitle').textContent='＋ Tambah Akun';
-    clearForm();
-    $('modalBg').classList.add('show');
-    $('fName').focus();
-  }catch(err){
-    console.error(err);
-    alert('Form tambah akun gagal dibuka: '+(err?.message||err));
-  }
-}
+function openModal(){editingId=null;$('modalTitle').textContent='＋ Tambah Akun';clearForm();$('modalBg').classList.add('show');$('fName').focus()}
 function openEdit(id){
  const a=data.accounts.find(x=>x.id===id);if(!a)return;
  editingId=id;$('modalTitle').textContent='✏️ Edit Spesifikasi Akun';
@@ -298,27 +261,7 @@ function saveAccount(){
  if(editingId){const i=data.accounts.findIndex(x=>x.id===editingId);data.accounts[i]=a}else data.accounts.push(a);
  save();closeModal();render()
 }
-
-function safeSaveAccount(){
-  try{
-    saveAccount();
-  }catch(err){
-    console.error(err);
-    alert('Gagal menyimpan akun: '+(err?.message||err));
-  }
-}
-
-function delAccount(id){
-  const accountId=String(id);
-  const account=data.accounts.find(a=>String(a.id)===accountId);
-  if(!account)return;
-  if(!window.confirm('Hapus akun "'+account.name+'"?'))return;
-  data.accounts=data.accounts.filter(a=>String(a.id)!==accountId);
-  save();
-  page=1;
-  render();
-  toast('🗑 Akun berhasil dihapus');
-}}
+function delAccount(id){if(confirm('Hapus akun ini?')){data.accounts=data.accounts.filter(a=>a.id!==id);save();render()}}
 function toggleInclude(id){const a=data.accounts.find(x=>x.id===id);if(a){a.include=!a.include;save();render()}}
 function toggleStatus(id){const a=data.accounts.find(x=>x.id===id);if(a){a.status=a.status==='sold'?'ready':'sold';save();render()}}
 function setFilter(f,b){filter=f;page=1;document.querySelectorAll('.filter button').forEach(x=>x.classList.remove('active'));b.classList.add('active');render()}
@@ -358,166 +301,64 @@ function render(){
   <div class="cell val pets">🐾 ${num(a.pets)}</div><div class="cell val stolen">🥚 ${num(a.stolen)}</div>
   <div class="cell"><span class="status ${a.status}">${a.status==='sold'?'SOLD':'READY'}</span></div>
   <div class="cell row-actions"><input class="include" type="checkbox" title="Ikut perhitungan" ${a.include?'checked':''} onchange="toggleInclude(${a.id})">
-  <button class="action" title="Edit spesifikasi" onclick="openEdit(${a.id})">✏️</button><button class="action" title="Ready / Sold" onclick="toggleStatus(${a.id})">↔</button><button class="action delete-btn" title="Hapus" data-delete-id="${a.id}">🗑</button></div></div>`
+  <button class="action" title="Edit spesifikasi" onclick="openEdit(${a.id})">✏️</button><button class="action" title="Ready / Sold" onclick="toggleStatus(${a.id})">↔</button><button class="action" title="Hapus" onclick="delAccount(${a.id})">🗑</button></div></div>`
  }).join(''):`<div class="empty">Belum ada akun yang sesuai. Tekan ＋ ADD ACCOUNT untuk menambahkan.</div>`;
  $('pageInfo').textContent=`Page ${page} of ${pages}`
 }
 function exportData(){const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='sae-seller-dashboard-backup.json';a.click();URL.revokeObjectURL(a.href)}
 function importData(e){const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{try{const x=JSON.parse(r.result);if(!Array.isArray(x.accounts))throw 0;data=x;data.incomeRate=num(data.incomeRate||1000);data.speedRate=num(data.speedRate||1000);save();render();alert('Data berhasil diimport')}catch{alert('File backup tidak valid')}};r.readAsText(f);e.target.value=''}
 function clearAll(){if(confirm('Hapus semua akun dan reset dashboard?')){data={accounts:[],incomeRate:1000,speedRate:1000};save();render()}}
-try{
-  $('incomeRate').value=data.incomeRate;
-  $('speedRate').value=data.speedRate;
-  render();
-}catch(err){
-  console.error('Initialization error:',err);
-  alert('Dashboard gagal dimuat: '+(err?.message||err));
-}
+$('incomeRate').value=data.incomeRate;$('speedRate').value=data.speedRate;render();
 
 let aiResults=[];
-function openAI(){ $('aiBg').classList.add('show'); $('aiInput').focus(); $('aiPreview').style.display='none'; $('aiStatus').style.display='none'; $('aiAddBtn').style.display='none'; aiResults=[] }
-function closeAI(){ $('aiBg').classList.remove('show') }
+function openAI(){
+  const bg=$('aiBg'); if(!bg)return;
+  bg.classList.add('show');
+  $('aiInput').focus(); $('aiPreview').style.display='none'; $('aiStatus').style.display='none'; $('aiAddBtn').style.display='none'; aiResults=[];
+}
+function closeAI(){const bg=$('aiBg'); if(bg)bg.classList.remove('show')}
 function aiStatus(t){$('aiStatus').style.display='block';$('aiStatus').innerHTML=t}
+function cleanNum(v){return String(v??'').replace(',', '.').trim()}
 function parseAI(){
- const raw=$('aiInput').value.trim();
- if(!raw){aiStatus('⚠️ Paste data terlebih dahulu.');return}
-
- const lines=raw.split(/\r?\n/)
-   .map(x=>x.trim())
-   .filter(Boolean);
-
- const out=[];
- const cleanNum=(v)=>String(v||'').replace(/,/g,'.').match(/\d+(?:\.\d+)?/)?.[0]||'';
-
- for(const line of lines){
-   if(/^(kelompok|group|account|akun)\s*\d*\s*[:\-]?$/i.test(line)) continue;
-
-   // Name is normally the first token before a separator or a known field.
-   let name='';
-   const beforeField=line.split(/\s+(?:income|speed|money|cash|balance|pets?|stolen|eggs?)\s*[:=]/i)[0];
-   const nm=beforeField.match(/^\s*[@#]?([A-Za-z0-9_.-]{3,})/);
-   if(nm) name=nm[1];
-
-   // If the line starts "name - ..." / "name | ...", use the first segment.
-   if(!name){
-     const first=line.split(/\s*[\-|•|]\s*/)[0].trim();
-     const m=first.match(/^[@#]?([A-Za-z0-9_.-]{3,})$/);
-     if(m) name=m[1];
-   }
-   if(!name) continue;
-
-   const incomeMatch=line.match(/(?:income|⚡)?\s*[:=]?\s*(\d+(?:[.,]\d+)?)\s*(B|M)\s*(?:\/s|money\/s)\b/i)
-                    || line.match(/(\d+(?:[.,]\d+)?)\s*(B|M)\s*\/s\b/i);
-
-   const speedMatch=line.match(/(?:speed|🚀)\s*[:=]?\s*(\d+(?:[.,]\d+)?)\s*(B|M)?\b/i);
-   const moneyMatch=line.match(/(?:money|cash|balance|💰)\s*[:=]?\s*\$?\s*([\d.,]+)\s*([KMBT])?/i);
-   const petsMatch=line.match(/(?:pets?|🐾)\s*[:=]?\s*(\d+)/i);
-   const stolenMatch=line.match(/(?:stolen|eggs?|egg|🥚)\s*[:=]?\s*(\d+)/i);
-   const passMatch=line.match(/(?:pass(?:word)?|password)\s*[:=]\s*([^\s|,;]+)/i);
-
-   // Supports "15 B/s" even when there is no "income:" label.
-   let income=incomeMatch?cleanNum(incomeMatch[1]):'';
-   let incomeUnit=incomeMatch?(incomeMatch[2].toUpperCase()+'/s'):'B/s';
-
-   let speed=speedMatch?cleanNum(speedMatch[1]):'';
-   let speedUnit=(speedMatch&&speedMatch[2])?speedMatch[2].toUpperCase():'B';
-
-   // Common compact format: "name - 15 B/s - speed 35 B - money 84.44T"
-   const compact=line.match(/(?:^|\s|-)\s*(\d+(?:[.,]\d+)?)\s*(B|M)\s*\/s\b/i);
-   if(!income && compact){
-     income=cleanNum(compact[1]);
-     incomeUnit=compact[2].toUpperCase()+'/s';
-   }
-
-   out.push({
-     name,
-     password:passMatch?passMatch[1]:'',
-     money:moneyMatch ? moneyMatch[1] + (moneyMatch[2]||'') : '',
-     income,
-     incomeUnit,
-     speed,
-     speedUnit,
-     pets:petsMatch?petsMatch[1]:'',
-     stolen:stolenMatch?stolenMatch[1]:'',
-     note:'',
-     status:'ready',
-     include:true
-   });
- }
-
- // Avoid accidental duplicate rows caused by repeated pasted lines.
- const unique=[];
- const seen=new Set();
- for(const a of out){
-   const key=[a.name,a.income,a.speed,a.money,a.pets,a.stolen].join('|').toLowerCase();
-   if(!seen.has(key)){seen.add(key);unique.push(a)}
- }
- aiResults=unique;
-
- if(!aiResults.length){
-   aiStatus('❌ Belum berhasil mengenali akun. Coba format: <b>nama - 15 B/s - speed 35 B - money 84.44T - pets 12</b>');
-   $('aiPreview').style.display='none';
-   $('aiAddBtn').style.display='none';
-   return;
- }
-
- aiStatus(`✅ Terbaca <b>${aiResults.length} akun</b>. Centang akun yang ingin dimasukkan, lalu tekan <b>TAMBAHKAN</b>.`);
- $('aiPreview').style.display='block';
- $('aiPreview').innerHTML=
-   `<div class="table"><div class="thead" style="grid-template-columns:2fr 1fr 1fr 1fr .7fr">
-     <div>ACCOUNT</div><div>INCOME</div><div>SPEED</div><div>MONEY</div><div>ADD</div>
-   </div>`+
-   aiResults.map((a,i)=>`<div class="row" style="grid-template-columns:2fr 1fr 1fr 1fr .7fr">
-     <div class="name">${esc(a.name)}</div>
-     <div class="val income">${a.income?esc(a.income+' '+a.incomeUnit):'—'}</div>
-     <div class="val speed">${a.speed?esc(a.speed+' '+a.speedUnit):'—'}</div>
-     <div class="val money">${esc(a.money||'—')}</div>
-     <div><input class="include" type="checkbox" id="air${i}" checked></div>
-   </div>`).join('')+
-   `</div>`;
- $('aiAddBtn').style.display='inline-block';
+  const raw=$('aiInput').value.trim();
+  if(!raw){aiStatus('⚠️ Paste data terlebih dahulu.');return}
+  const lines=raw.split(/\r?\n/).map(x=>x.trim()).filter(Boolean);
+  const out=[];
+  for(const line of lines){
+    if(/^(kelompok|group|category)\s*\d+/i.test(line)) continue;
+    const nameMatch=line.match(/^\s*([A-Za-z0-9_][A-Za-z0-9_.-]{2,})/);
+    if(!nameMatch) continue;
+    const incomeMatch=line.match(/(?:income|income\s*\/\s*sec|income\/s)\s*[:=\-]?\s*(\d+(?:[.,]\d+)?)\s*(B|M)\s*(?:\/s)?/i) || line.match(/(\d+(?:[.,]\d+)?)\s*(B|M)\s*\/s/i);
+    const speedMatch=line.match(/(?:speed)\s*[:=\-]?\s*(\d+(?:[.,]\d+)?)\s*(B|M)?/i);
+    const moneyMatch=line.match(/(?:money|cash|balance)\s*[:=\-]?\s*\$?\s*([\d.,]+\s*[KMBT]?)/i);
+    const petsMatch=line.match(/pets?\s*[:=\-]?\s*(\d+)/i);
+    const stolenMatch=line.match(/(?:stolen|eggs?|egg)\s*[:=\-]?\s*(\d+)/i);
+    out.push({
+      id:Date.now()+Math.random(), name:nameMatch[1], password:'',
+      money:moneyMatch?moneyMatch[1].replace(/\s+/g,''):'',
+      income:incomeMatch?cleanNum(incomeMatch[1]):'',
+      incomeUnit:incomeMatch?incomeMatch[2].toUpperCase()+'/s':'B/s',
+      speed:speedMatch?cleanNum(speedMatch[1]):'',
+      speedUnit:speedMatch&&speedMatch[2]?speedMatch[2].toUpperCase():'B',
+      pets:petsMatch?petsMatch[1]:'', stolen:stolenMatch?stolenMatch[1]:'', note:'', status:'ready', include:true
+    });
+  }
+  aiResults=out;
+  if(!out.length){aiStatus('❌ Tidak ada akun yang dikenali. Pastikan setiap baris dimulai dengan nama akun.');return}
+  aiStatus(`✅ Terbaca <b>${out.length} akun</b>. Centang akun yang ingin dimasukkan.`);
+  $('aiPreview').style.display='block';
+  $('aiPreview').innerHTML=`<div class="table"><div class="thead" style="grid-template-columns:2fr 1fr 1fr 1fr .7fr"><div>ACCOUNT</div><div>INCOME</div><div>SPEED</div><div>MONEY</div><div>ADD</div></div>`+
+    out.map((a,i)=>`<div class="row" style="grid-template-columns:2fr 1fr 1fr 1fr .7fr"><div class="name">${esc(a.name)}</div><div class="val income">${a.income?esc(a.income+' '+a.incomeUnit):'—'}</div><div class="val speed">${a.speed?esc(a.speed+' '+a.speedUnit):'—'}</div><div class="val money">${esc(a.money||'—')}</div><div><input class="include" type="checkbox" id="air${i}" checked></div></div>`).join('')+`</div>`;
+  $('aiAddBtn').style.display='inline-block';
 }
-
-function toast(message){
- const old=document.getElementById('appToast');
- if(old) old.remove();
- const t=document.createElement('div');
- t.id='appToast';
- t.textContent=message;
- Object.assign(t.style,{
-   position:'fixed',left:'50%',bottom:'28px',transform:'translateX(-50%)',
-   zIndex:'100',background:'#0d1822',color:'#bff5ff',
-   border:'1px solid #16465a',borderRadius:'10px',padding:'11px 16px',
-   fontSize:'11px',fontWeight:'800',boxShadow:'0 15px 40px #0008'
- });
- document.body.appendChild(t);
- setTimeout(()=>t.remove(),2800);
-}
-
 function addAIResults(){
- const selected=aiResults.filter((_,i)=>$('air'+i)?.checked);
- selected.forEach(a=>data.accounts.push({...a,id:Date.now()+Math.random()}));
- save();render();closeAI();toast(`✨ ${selected.length} akun berhasil ditambahkan`);
+  const selected=aiResults.filter((_,i)=>{const el=$('air'+i);return el&&el.checked});
+  if(!selected.length){aiStatus('⚠️ Pilih minimal satu akun.');return}
+  selected.forEach(a=>data.accounts.push({...a,id:Date.now()+Math.random()}));
+  save(); page=1; render(); closeAI(); toast(`✨ ${selected.length} akun berhasil ditambahkan`);
 }
-
-document.addEventListener('click',function(e){
-  const btn=e.target.closest('.delete-btn');
-  if(!btn)return;
-  e.preventDefault();
-  e.stopPropagation();
-  delAccount(btn.getAttribute('data-delete-id'));
-});
-
-document.addEventListener('keydown',e=>{
- if(e.key==='Escape'){
-   closeModal();
-   closeAI();
- }
-});
-$('modalBg').addEventListener('click',e=>{if(e.target===$('modalBg'))closeModal()});
-$('aiBg').addEventListener('click',e=>{if(e.target===$('aiBg'))closeAI()});
-
+function toast(t){let x=document.getElementById('toast');if(!x){x=document.createElement('div');x.id='toast';x.style.cssText='position:fixed;right:18px;bottom:18px;z-index:99;background:#101923;border:1px solid #234052;color:#dff9ff;padding:10px 14px;border-radius:10px;font-size:11px;box-shadow:0 15px 40px #0008';document.body.appendChild(x)}x.textContent=t;x.style.display='block';clearTimeout(window.__toast);window.__toast=setTimeout(()=>x.style.display='none',2200)}
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeModal();closeAI()}}); document.getElementById('modalBg')?.addEventListener('click',e=>{if(e.target.id==='modalBg')closeModal()}); document.getElementById('aiBg')?.addEventListener('click',e=>{if(e.target.id==='aiBg')closeAI()});
 </script>
 </body>
 </html>
-<!-- GitHub Pages deployment update -->
