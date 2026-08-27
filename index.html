@@ -25,13 +25,23 @@
 
 body{
   margin:0;
-  background:radial-gradient(circle at 70% 0%,#101925 0,#06080d 35%,#04060a 100%);
+  background:radial-gradient(
+    circle at 70% 0%,
+    #101925 0,
+    #06080d 35%,
+    #04060a 100%
+  );
   color:var(--text);
   font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif
 }
 
-button,input,select{font:inherit}
-button{cursor:pointer}
+button,input,select,textarea{
+  font:inherit
+}
+
+button{
+  cursor:pointer
+}
 
 .app{
   display:flex;
@@ -77,7 +87,8 @@ button{cursor:pointer}
   border:1px solid transparent
 }
 
-.nav.active,.nav:hover{
+.nav.active,
+.nav:hover{
   background:#0c1822;
   color:#19d9ff;
   border-color:#133544
@@ -195,9 +206,17 @@ h1{
   font-weight:900
 }
 
-.card-label.cyan{color:#54e5ff}
-.card-label.purple{color:#bc83ff}
-.card-label.yellow{color:#ffd54c}
+.card-label.cyan{
+  color:#54e5ff
+}
+
+.card-label.purple{
+  color:#bc83ff
+}
+
+.card-label.yellow{
+  color:#ffd54c
+}
 
 .card-value{
   font-size:28px;
@@ -206,10 +225,21 @@ h1{
   letter-spacing:.2px
 }
 
-.card-value.green{color:#12e5a1}
-.card-value.cyan{color:#5ee9ff}
-.card-value.purple{color:#bf7fff}
-.card-value.yellow{color:#ffd13d}
+.card-value.green{
+  color:#12e5a1
+}
+
+.card-value.cyan{
+  color:#5ee9ff
+}
+
+.card-value.purple{
+  color:#bf7fff
+}
+
+.card-value.yellow{
+  color:#ffd13d
+}
 
 .card-sub{
   font-size:10px;
@@ -249,7 +279,8 @@ h1{
   color:#00131a
 }
 
-.sort,.search{
+.sort,
+.search{
   height:34px;
   border:1px solid #18232f;
   background:#090d14;
@@ -283,9 +314,18 @@ h1{
   overflow:hidden
 }
 
-.thead,.row{
+.thead,
+.row{
   display:grid;
-  grid-template-columns:minmax(160px,2fr) 1fr 1.15fr 1fr .8fr .7fr .7fr 1.4fr;
+  grid-template-columns:
+    minmax(160px,2fr)
+    1fr
+    1.15fr
+    1fr
+    .8fr
+    .7fr
+    .7fr
+    .55fr;
   align-items:center
 }
 
@@ -349,11 +389,25 @@ h1{
   font-weight:800
 }
 
-.money{color:#14e3a2}
-.income{color:#62e7ff}
-.speed{color:#be80ff}
-.pets{color:#11cdd0}
-.stolen{color:#ffd13d}
+.money{
+  color:#14e3a2
+}
+
+.income{
+  color:#62e7ff
+}
+
+.speed{
+  color:#be80ff
+}
+
+.pets{
+  color:#11cdd0
+}
+
+.stolen{
+  color:#ffd13d
+}
 
 .status{
   font-size:10px;
@@ -383,20 +437,17 @@ h1{
   width:32px;
   height:32px;
   color:#687384;
-  font-size:14px;
-  margin-left:3px
+  font-size:14px
 }
 
 .action:hover{
-  background:#12202b;
-  color:#fff
+  background:#101923
 }
 
 .row-actions{
   display:flex;
-  align-items:center;
-  justify-content:flex-end;
-  gap:2px
+  gap:4px;
+  align-items:center
 }
 
 .bottom{
@@ -474,9 +525,10 @@ h1{
 }
 
 .field input,
-.field select{
+.field select,
+.field textarea{
   width:100%;
-  height:38px;
+  min-height:38px;
   background:#070b11;
   border:1px solid #192431;
   border-radius:8px;
@@ -485,8 +537,14 @@ h1{
   outline:none
 }
 
+.field textarea{
+  padding:10px;
+  resize:vertical
+}
+
 .field input:focus,
-.field select:focus{
+.field select:focus,
+.field textarea:focus{
   border-color:#0e8baa
 }
 
@@ -642,72 +700,39 @@ h1{
   font-size:10px
 }
 
-.ai-modal{
-  width:min(850px,100%);
-  max-height:92vh;
-  overflow:auto;
-  background:#0a0e15;
-  border:1px solid #1b2937;
-  border-radius:18px;
-  padding:20px;
-  box-shadow:0 30px 80px #000
-}
-
-.ai-textarea{
+/* AI PASSWORD INPUT */
+.ai-password{
   width:100%;
-  min-height:180px;
-  resize:vertical;
+  height:34px;
   background:#070b11;
   border:1px solid #192431;
-  border-radius:10px;
+  border-radius:7px;
   color:#e4eaf2;
-  padding:12px;
-  outline:none;
-  font-size:12px;
-  line-height:1.5
+  padding:0 8px;
+  outline:none
 }
 
-.ai-textarea:focus{
+.ai-password:focus{
   border-color:#0e8baa
 }
 
-.ai-status{
-  display:none;
-  margin-top:10px;
-  font-size:10px;
-  color:#9ba7b7;
-  background:#080c12;
-  border:1px solid #151e29;
-  border-radius:8px;
-  padding:10px
-}
+@media(max-width:1100px){
+  .thead,
+  .row{
+    grid-template-columns:
+      minmax(150px,1.8fr)
+      .9fr
+      1fr
+      .9fr
+      .7fr
+      .6fr
+      .65fr
+      1.2fr
+  }
 
-.ai-preview{
-  display:none;
-  margin-top:12px
-}
-
-.ai-actions{
-  display:flex;
-  justify-content:flex-end;
-  gap:8px;
-  margin-top:14px
-}
-
-.toast{
-  position:fixed;
-  left:50%;
-  bottom:25px;
-  transform:translateX(-50%);
-  background:#0c1822;
-  color:#dff9ff;
-  border:1px solid #174356;
-  border-radius:10px;
-  padding:10px 15px;
-  font-size:10px;
-  font-weight:800;
-  z-index:100;
-  box-shadow:0 15px 40px #0008
+  .row-actions{
+    flex-wrap:wrap
+  }
 }
 
 @media(max-width:900px){
@@ -731,6 +756,16 @@ h1{
   .search{
     margin-left:0;
     width:180px
+  }
+
+  .row-actions{
+    grid-column:1/-1
+  }
+
+  .rate-panel{
+    right:10px;
+    bottom:10px;
+    max-width:calc(100% - 20px)
   }
 }
 
@@ -764,7 +799,17 @@ h1{
   }
 
   .topbar{
-    margin-bottom:16px
+    margin-bottom:16px;
+    align-items:flex-start
+  }
+
+  .top-actions{
+    flex-wrap:wrap;
+    justify-content:flex-end
+  }
+
+  .top-actions .btn{
+    padding:8px 9px
   }
 
   .formgrid{
@@ -783,6 +828,11 @@ h1{
     display:none
   }
 
+  .row-actions{
+    display:flex!important;
+    grid-column:1/-1
+  }
+
   .search{
     width:100%
   }
@@ -791,7 +841,15 @@ h1{
     gap:6px
   }
 
-  .top-actions{
+  .rate-grid{
+    grid-template-columns:1fr
+  }
+
+  .modal{
+    padding:15px
+  }
+
+  .modal-actions{
     flex-wrap:wrap
   }
 }
@@ -804,6 +862,7 @@ h1{
 
   <aside class="sidebar">
     <div class="logo">SA</div>
+
     <div class="nav active">⌂</div>
     <div class="nav">♟</div>
     <div class="nav">▥</div>
@@ -829,96 +888,230 @@ h1{
       </div>
 
       <div class="top-actions">
-        <button class="btn" type="button" onclick="openModal()">＋ ADD ACCOUNT</button>
-        <button class="btn" type="button" onclick="openAI()">🤖 AI INPUT</button>
-        <button class="btn" type="button" onclick="exportData()">↗ EXPORT</button>
-        <button class="btn danger" type="button" onclick="clearAll()">RESET</button>
-      </div>
 
+        <button class="btn" onclick="openModal()">
+          ＋ ADD ACCOUNT
+        </button>
+
+        <button class="btn" onclick="openAI()">
+          ✨ AI INPUT
+        </button>
+
+        <button class="btn" onclick="exportData()">
+          ↗ EXPORT
+        </button>
+
+        <button class="btn danger" onclick="clearAll()">
+          RESET
+        </button>
+
+      </div>
     </div>
+
 
     <section class="cards">
 
       <div class="card">
-        <div class="card-label">🟢 ACTIVE / READY ACCOUNTS</div>
-        <div id="readyCount" class="card-value">0</div>
-        <div id="readySub" class="card-sub">ready for sale</div>
+        <div class="card-label">
+          🟢 ACTIVE / READY ACCOUNTS
+        </div>
+
+        <div id="readyCount" class="card-value">
+          0
+        </div>
+
+        <div id="readySub" class="card-sub">
+          ready for sale
+        </div>
       </div>
 
+
       <div class="card">
-        <div class="card-label cyan">💸 TOTAL MONEY</div>
-        <div id="moneyTotal" class="card-value green">$0</div>
-        <div class="card-sub">combined account balance</div>
+
+        <div class="card-label cyan">
+          💸 TOTAL MONEY
+        </div>
+
+        <div id="moneyTotal" class="card-value green">
+          $0
+        </div>
+
+        <div class="card-sub">
+          combined account balance
+        </div>
+
       </div>
+
 
       <div class="card accent">
-        <div class="card-label cyan">💰 ESTIMATED SELLING PRICE</div>
-        <div id="priceTotal" class="card-value cyan">Rp0</div>
+
+        <div class="card-label cyan">
+          💰 ESTIMATED SELLING PRICE
+        </div>
+
+        <div id="priceTotal" class="card-value cyan">
+          Rp0
+        </div>
+
       </div>
 
-      <div class="card">
-        <div class="card-label purple">🚀 TOTAL SPEED</div>
-        <div id="speedTotal" class="card-value purple">0</div>
-        <div class="card-sub">angka depan saja</div>
-      </div>
 
       <div class="card">
-        <div class="card-label cyan">📈 TOTAL INCOME / SEC</div>
-        <div id="incomeTotal" class="card-value cyan">0</div>
-        <div class="card-sub">angka depan saja</div>
+
+        <div class="card-label purple">
+          🚀 TOTAL SPEED
+        </div>
+
+        <div id="speedTotal" class="card-value purple">
+          0
+        </div>
+
+        <div class="card-sub">
+          angka depan saja
+        </div>
+
       </div>
 
+
       <div class="card">
-        <div class="card-label yellow">🛒 SOLD ACCOUNTS</div>
-        <div id="soldCount" class="card-value yellow">0</div>
-        <div class="card-sub">marked as sold</div>
+
+        <div class="card-label cyan">
+          📈 TOTAL INCOME / SEC
+        </div>
+
+        <div id="incomeTotal" class="card-value cyan">
+          0
+        </div>
+
+        <div class="card-sub">
+          angka depan saja
+        </div>
+
+      </div>
+
+
+      <div class="card">
+
+        <div class="card-label yellow">
+          🛒 SOLD ACCOUNTS
+        </div>
+
+        <div id="soldCount" class="card-value yellow">
+          0
+        </div>
+
+        <div class="card-sub">
+          marked as sold
+        </div>
+
       </div>
 
     </section>
 
+
     <div class="controls">
 
       <div class="filter">
-        <button class="active" data-filter="all" type="button" onclick="setFilter('all',this)">ALL</button>
-        <button data-filter="ready" type="button" onclick="setFilter('ready',this)">READY</button>
-        <button data-filter="sold" type="button" onclick="setFilter('sold',this)">SOLD</button>
+
+        <button
+          class="active"
+          data-filter="all"
+          onclick="setFilter('all',this)">
+          ALL
+        </button>
+
+        <button
+          data-filter="ready"
+          onclick="setFilter('ready',this)">
+          READY
+        </button>
+
+        <button
+          data-filter="sold"
+          onclick="setFilter('sold',this)">
+          SOLD
+        </button>
+
       </div>
 
-      <select class="sort" id="sort" onchange="render()">
-        <option value="default">⚡ Default Sort</option>
-        <option value="income">Income ↓</option>
-        <option value="speed">Speed ↓</option>
-        <option value="price">Price ↓</option>
-        <option value="name">Name A-Z</option>
+
+      <select
+        class="sort"
+        id="sort"
+        onchange="render()">
+
+        <option value="default">
+          ⚡ Default Sort
+        </option>
+
+        <option value="income">
+          Income ↓
+        </option>
+
+        <option value="speed">
+          Speed ↓
+        </option>
+
+        <option value="price">
+          Price ↓
+        </option>
+
+        <option value="name">
+          Name A-Z
+        </option>
+
       </select>
 
+
       <label class="toggle">
-        <input type="checkbox" id="hideNames" onchange="render()">
+
+        <input
+          type="checkbox"
+          id="hideNames"
+          onchange="render()">
+
         🙈 Hide All Names
+
       </label>
 
+
       <label class="toggle">
-        <input type="checkbox" id="hidePasswords" onchange="render()">
+
+        <input
+          type="checkbox"
+          id="hidePasswords"
+          onchange="render()">
+
         🔒 Hide Passwords
+
       </label>
 
+
       <label class="toggle">
-        <input type="checkbox" id="onlyIncluded" onchange="render()">
+
+        <input
+          type="checkbox"
+          id="onlyIncluded"
+          onchange="render()">
+
         ☑ Included Only
+
       </label>
+
 
       <input
         class="search"
         id="search"
         oninput="render()"
-        placeholder="🔎 Search account..."
-      >
+        placeholder="🔎 Search account...">
 
     </div>
+
 
     <div class="table">
 
       <div class="thead">
+
         <div>ACCOUNT</div>
         <div>💸 MONEY</div>
         <div>⚡ INCOME / SEC</div>
@@ -926,391 +1119,678 @@ h1{
         <div>🐾 PETS</div>
         <div>🥚 SOLD</div>
         <div>STATUS</div>
-        <div>ACTIONS</div>
+        <div></div>
+
       </div>
 
       <div id="rows"></div>
 
       <div class="bottom">
-        <button type="button" onclick="changePage(-1)">Prev</button>
-        <span id="pageInfo">Page 1</span>
-        <button type="button" onclick="changePage(1)">Next</button>
+
+        <button onclick="changePage(-1)">
+          Prev
+        </button>
+
+        <span id="pageInfo">
+          Page 1
+        </span>
+
+        <button onclick="changePage(1)">
+          Next
+        </button>
+
       </div>
 
     </div>
 
   </main>
+
 </div>
 
 
 <!-- SELLING RATES -->
-<div class="rate-panel hidden-rate" id="ratePanel">
+
+<div
+  class="rate-panel hidden-rate"
+  id="ratePanel">
 
   <div class="rate-head">
+
     🔐 SELLING RATES
 
     <button
       class="btn ghost"
-      type="button"
       style="padding:5px 8px;font-size:9px"
-      onclick="toggleRate()"
-    >
+      onclick="toggleRate()">
+
       SHOW / HIDE
+
     </button>
+
   </div>
+
 
   <div class="rate-grid">
 
     <div class="rate-box">
-      <label>⚡ RATE INCOME / SEC</label>
+
+      <label>
+        ⚡ RATE INCOME / SEC
+      </label>
+
       <input
         id="incomeRate"
         type="number"
         min="0"
         step="any"
-        oninput="saveAndRender()"
-      >
+        oninput="saveAndRender()">
+
     </div>
 
+
     <div class="rate-box">
-      <label>🚀 RATE SPEED</label>
+
+      <label>
+        🚀 RATE SPEED
+      </label>
+
       <input
         id="speedRate"
         type="number"
         min="0"
         step="any"
-        oninput="saveAndRender()"
-      >
+        oninput="saveAndRender()">
+
     </div>
 
   </div>
 
+
   <div class="rate-note">
-    Rate income dan speed terpisah. Sembunyikan panel sebelum screenshot marketplace.
+    Rate income dan speed terpisah.
+    Sembunyikan panel sebelum screenshot marketplace.
   </div>
 
 </div>
 
 
-<!-- ADD / EDIT ACCOUNT MODAL -->
-<div class="modal-bg" id="modalBg">
+<!-- AI INPUT -->
+
+<div
+  class="modal-bg"
+  id="aiBg">
+
+  <div
+    class="modal"
+    style="width:min(1000px,100%)">
+
+    <h2>
+      ✨ AI INPUT — Import Spesifikasi Akun
+    </h2>
+
+
+    <div class="notice">
+
+      Tempel data akun dalam format bebas.
+      Parser lokal akan mencoba mengenali
+      <b>nama, password, income, speed, money, pets, dan stolen/eggs</b>.
+
+      Tidak perlu API key dan data tetap diproses di browser.
+
+    </div>
+
+
+    <div class="field full">
+
+      <label>
+        Data Akun
+      </label>
+
+      <textarea
+        id="aiInput"
+        rows="9"
+        placeholder="Contoh:
+xilumatiy20 - password:Rahasia123 - 15 B/s - speed 35 B - money 84.44T - pets 12 - eggs 4
+akun_abc | password=abc123 | income 503.12 M/s | speed 80 M | money 12.5T"></textarea>
+
+    </div>
+
+
+    <div
+      id="aiStatus"
+      class="notice"
+      style="display:none;margin-top:12px">
+    </div>
+
+
+    <div
+      id="aiPreview"
+      style="display:none;margin-top:12px">
+    </div>
+
+
+    <div class="modal-actions">
+
+      <button
+        class="btn ghost"
+        onclick="closeAI()">
+
+        BATAL
+
+      </button>
+
+
+      <button
+        class="btn"
+        onclick="parseAI()">
+
+        🔎 ANALISIS
+
+      </button>
+
+
+      <button
+        class="btn primary"
+        id="aiAddBtn"
+        style="display:none"
+        onclick="addAIResults()">
+
+        ＋ TAMBAHKAN YANG DIPILIH
+
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- ADD / EDIT ACCOUNT -->
+
+<div
+  class="modal-bg"
+  id="modalBg">
 
   <div class="modal">
 
-    <h2 id="modalTitle">＋ Tambah Akun</h2>
+    <h2 id="modalTitle">
+      ＋ Tambah Akun
+    </h2>
+
 
     <div class="notice">
+
       Semua angka income/speed boleh dikosongkan.
-      Jika hanya income ATAU speed yang diisi, akun tetap bisa dihitung.
-      Unit <b>M</b> dan <b>B</b> hanya label game; kalkulator mengambil
-      <b>angka depannya saja</b>.
+      Jika hanya income ATAU speed yang diisi,
+      akun tetap bisa dihitung.
+
+      Unit <b>M</b> dan <b>B</b> hanya label game;
+      kalkulator mengambil <b>angka depannya saja</b>.
+
     </div>
+
 
     <div class="formgrid">
 
-      <div class="field full">
-        <label>Nama Akun</label>
-        <input id="fName" placeholder="contoh: xilumatiy20">
-      </div>
 
       <div class="field full">
-        <label>Password Akun (opsional)</label>
+
+        <label>
+          Nama Akun
+        </label>
+
+        <input
+          id="fName"
+          placeholder="contoh: xilumatiy20">
+
+      </div>
+
+
+      <div class="field full">
+
+        <label>
+          Password Akun (opsional)
+        </label>
 
         <div class="secret-row">
-          <input id="fPass" type="password" placeholder="Password">
+
+          <input
+            id="fPass"
+            type="password"
+            placeholder="Password">
+
           <button
             class="mini"
-            type="button"
-            onclick="toggleInput('fPass',this)"
-          >👁</button>
+            onclick="toggleInput('fPass',this)">
+
+            👁
+
+          </button>
+
         </div>
+
       </div>
 
-      <div class="field">
-        <label>Money</label>
-        <input id="fMoney" placeholder="contoh: 84.44T">
-      </div>
 
       <div class="field">
-        <label>Status</label>
+
+        <label>
+          Money
+        </label>
+
+        <input
+          id="fMoney"
+          placeholder="contoh: 84.44T">
+
+      </div>
+
+
+      <div class="field">
+
+        <label>
+          Status
+        </label>
+
         <select id="fStatus">
-          <option value="ready">READY</option>
-          <option value="sold">SOLD</option>
+
+          <option value="ready">
+            READY
+          </option>
+
+          <option value="sold">
+            SOLD
+          </option>
+
         </select>
+
       </div>
 
+
       <div class="field">
-        <label>Income / Sec</label>
+
+        <label>
+          Income / Sec
+        </label>
 
         <div class="inline">
+
           <input
             id="fIncome"
             type="number"
             min="0"
             step="any"
-            placeholder="contoh: 15"
-          >
+            placeholder="contoh: 15">
 
           <select id="fIncomeUnit">
-            <option value="B/s">B/s</option>
-            <option value="M/s">M/s</option>
+
+            <option value="B/s">
+              B/s
+            </option>
+
+            <option value="M/s">
+              M/s
+            </option>
+
           </select>
+
         </div>
+
       </div>
 
+
       <div class="field">
-        <label>Speed</label>
+
+        <label>
+          Speed
+        </label>
 
         <div class="inline">
+
           <input
             id="fSpeed"
             type="number"
             min="0"
             step="any"
-            placeholder="contoh: 45"
-          >
+            placeholder="contoh: 45">
 
           <select id="fSpeedUnit">
-            <option value="B">B</option>
-            <option value="M">M</option>
+
+            <option value="B">
+              B
+            </option>
+
+            <option value="M">
+              M
+            </option>
+
           </select>
+
         </div>
+
       </div>
 
+
       <div class="field">
-        <label>Pets</label>
+
+        <label>
+          Pets
+        </label>
+
         <input
           id="fPets"
           type="number"
           min="0"
           step="1"
-          placeholder="0"
-        >
+          placeholder="0">
+
       </div>
 
+
       <div class="field">
-        <label>Eggs / Stolen</label>
+
+        <label>
+          Eggs / Stolen
+        </label>
+
         <input
           id="fStolen"
           type="number"
           min="0"
           step="1"
-          placeholder="0"
-        >
+          placeholder="0">
+
       </div>
+
 
       <div class="field full">
-        <label>Catatan</label>
-        <input id="fNote" placeholder="opsional">
+
+        <label>
+          Catatan
+        </label>
+
+        <input
+          id="fNote"
+          placeholder="opsional">
+
       </div>
 
+
     </div>
+
 
     <div class="checkline">
-      <input id="fInclude" type="checkbox" checked>
+
+      <input
+        id="fInclude"
+        type="checkbox"
+        checked>
+
       Masukkan akun ini ke perhitungan harga
+
     </div>
+
 
     <div class="modal-actions">
-      <button class="btn ghost" type="button" onclick="closeModal()">
-        BATAL
-      </button>
-
-      <button class="btn primary" type="button" onclick="saveAccount()">
-        SIMPAN AKUN
-      </button>
-    </div>
-
-  </div>
-</div>
-
-
-<!-- AI INPUT MODAL -->
-<div class="modal-bg" id="aiBg">
-
-  <div class="ai-modal">
-
-    <h2>🤖 AI INPUT AKUN</h2>
-
-    <div class="notice">
-      Masukkan beberapa data akun sekaligus.
-      Parser lokal akan mencoba membaca nama akun, income, speed,
-      money, pets dan stolen/eggs secara otomatis.
-      <br><br>
-      Contoh:
-      <br>
-      <b>xilumatiy20 | income 15 B/s | speed 35 B | money 84.44T | pets 2</b>
-      <br>
-      <b>xilumatiy26 | income 10 B/s | speed 43 B | money 50T | pets 1</b>
-    </div>
-
-    <textarea
-      id="aiInput"
-      class="ai-textarea"
-      placeholder="Paste data akun Anda di sini..."
-    ></textarea>
-
-    <div id="aiStatus" class="ai-status"></div>
-
-    <div id="aiPreview" class="ai-preview"></div>
-
-    <div class="ai-actions">
 
       <button
         class="btn ghost"
-        type="button"
-        onclick="closeAI()"
-      >
+        onclick="closeModal()">
+
         BATAL
+
       </button>
 
       <button
-        class="btn"
-        type="button"
-        onclick="parseAI()"
-      >
-        🔍 BACA DATA
-      </button>
-
-      <button
-        id="aiAddBtn"
         class="btn primary"
-        type="button"
-        onclick="addAIResults()"
-        style="display:none"
-      >
-        ＋ TAMBAHKAN
+        onclick="safeSaveAccount()">
+
+        SIMPAN AKUN
+
       </button>
 
     </div>
 
   </div>
+
 </div>
 
 
 <script>
+
+/* =========================================================
+   ERROR HANDLER
+========================================================= */
+
+window.addEventListener('error',function(e){
+
+  console.error(
+    'Dashboard error:',
+    e.error || e.message
+  );
+
+  const msg =
+    e.error?.message ||
+    e.message ||
+    'JavaScript error';
+
+  let t=document.getElementById('appError');
+
+  if(!t){
+
+    t=document.createElement('div');
+
+    t.id='appError';
+
+    Object.assign(t.style,{
+      position:'fixed',
+      left:'18px',
+      right:'18px',
+      bottom:'18px',
+      zIndex:'9999',
+      background:'#2a0d15',
+      color:'#ffd9e0',
+      border:'1px solid #6b2638',
+      borderRadius:'10px',
+      padding:'12px 14px',
+      fontSize:'11px',
+      fontWeight:'700',
+      boxShadow:'0 20px 50px #000b'
+    });
+
+    document.body.appendChild(t);
+  }
+
+  t.textContent=
+    '⚠️ Dashboard error: '+msg;
+
+});
+
+
+/* =========================================================
+   DATA
+========================================================= */
 
 const KEY='sae_seller_dashboard_v2';
 
 let data;
 
 try{
-  data=JSON.parse(localStorage.getItem(KEY)||'null');
-}catch(e){
-  data=null;
-}
 
-if(!data || typeof data!=='object'){
+  data=
+    JSON.parse(
+      localStorage.getItem(KEY)||'null'
+    ) ||
+    {
+      accounts:[],
+      incomeRate:1000,
+      speedRate:1000
+    };
+
+}catch(err){
+
+  console.error(err);
+
   data={
     accounts:[],
     incomeRate:1000,
     speedRate:1000
   };
+
 }
+
+
+if(
+  data.rate!==undefined &&
+  data.incomeRate===undefined
+){
+
+  data.incomeRate=data.rate;
+  data.speedRate=data.rate;
+
+  delete data.rate;
+
+}
+
 
 if(!Array.isArray(data.accounts)){
   data.accounts=[];
 }
 
-if(data.incomeRate===undefined){
+
+if(!Number.isFinite(Number(data.incomeRate))){
   data.incomeRate=1000;
 }
 
-if(data.speedRate===undefined){
+
+if(!Number.isFinite(Number(data.speedRate))){
   data.speedRate=1000;
 }
 
-if(data.rate!==undefined){
-  if(data.incomeRate===undefined){
-    data.incomeRate=data.rate;
-  }
-
-  if(data.speedRate===undefined){
-    data.speedRate=data.rate;
-  }
-
-  delete data.rate;
-}
 
 let filter='all';
 let page=1;
 let pageSize=12;
 let editingId=null;
-let aiResults=[];
 
 
-function $(id){
-  return document.getElementById(id);
-}
+const $=id=>
+  document.getElementById(id);
 
+
+/* =========================================================
+   HELPERS
+========================================================= */
 
 function save(){
+
   try{
-    localStorage.setItem(KEY,JSON.stringify(data));
-  }catch(e){
-    console.error('Gagal menyimpan data:',e);
+
+    localStorage.setItem(
+      KEY,
+      JSON.stringify(data)
+    );
+
+  }catch(err){
+
+    console.error(err);
+
+    alert(
+      'Data gagal disimpan: '+
+      (err?.message||err)
+    );
+
   }
+
 }
 
 
 function num(v){
+
   const n=parseFloat(v);
-  return Number.isFinite(n)?n:0;
+
+  return Number.isFinite(n)
+    ? n
+    : 0;
+
 }
 
 
 function fmt(v){
-  return num(v).toLocaleString('id-ID',{
-    maximumFractionDigits:2
-  });
+
+  return num(v).toLocaleString(
+    'id-ID',
+    {
+      maximumFractionDigits:2
+    }
+  );
+
 }
 
 
 function rp(v){
-  return num(v).toLocaleString('id-ID',{
-    maximumFractionDigits:0
-  });
+
+  return num(v).toLocaleString(
+    'id-ID',
+    {
+      maximumFractionDigits:0
+    }
+  );
+
 }
 
 
 function esc(s){
-  return String(s??'').replace(
-    /[&<>"']/g,
-    m=>({
-      '&':'&amp;',
-      '<':'&lt;',
-      '>':'&gt;',
-      '"':'&quot;',
-      "'":'&#39;'
-    }[m])
-  );
+
+  return String(s??'')
+    .replace(
+      /[&<>"']/g,
+      m=>({
+        '&':'&amp;',
+        '<':'&lt;',
+        '>':'&gt;',
+        '"':'&quot;',
+        "'":'&#39;'
+      }[m])
+    );
+
 }
 
 
 function priceOf(a){
+
   return (
-    num(a.income)*num(data.incomeRate) +
-    num(a.speed)*num(data.speedRate)
+    num(a.income)*
+    num(data.incomeRate)
+  )+
+  (
+    num(a.speed)*
+    num(data.speedRate)
   );
+
 }
 
 
-/* =========================
-   SELLING RATE
-========================= */
+/* =========================================================
+   RATE PANEL
+========================================================= */
 
 function toggleRate(){
+
   const panel=$('ratePanel');
 
   if(!panel)return;
 
-  panel.classList.toggle('hidden-rate');
+  panel.classList.toggle(
+    'hidden-rate'
+  );
+
 }
 
 
-/* =========================
-   PASSWORD
-========================= */
+/* =========================================================
+   PASSWORD TOGGLE
+========================================================= */
 
 function toggleInput(id,b){
 
@@ -1318,63 +1798,114 @@ function toggleInput(id,b){
 
   if(!x)return;
 
-  x.type=x.type==='password'?'text':'password';
+  x.type=
+    x.type==='password'
+      ? 'text'
+      : 'password';
 
-  b.textContent=
-    x.type==='password'?'👁':'🙈';
+  if(b){
+
+    b.textContent=
+      x.type==='password'
+        ? '👁'
+        : '🙈';
+
+  }
+
 }
 
 
-/* =========================
-   ACCOUNT MODAL
-========================= */
+/* =========================================================
+   ADD ACCOUNT MODAL
+========================================================= */
 
 function openModal(){
 
-  editingId=null;
+  try{
 
-  $('modalTitle').textContent='＋ Tambah Akun';
+    editingId=null;
 
-  clearForm();
+    $('modalTitle').textContent=
+      '＋ Tambah Akun';
 
-  $('modalBg').classList.add('show');
+    clearForm();
 
-  setTimeout(()=>{
-    $('fName').focus();
-  },50);
+    $('modalBg')
+      .classList
+      .add('show');
+
+    setTimeout(()=>{
+      $('fName')?.focus();
+    },50);
+
+  }catch(err){
+
+    console.error(err);
+
+    alert(
+      'Form tambah akun gagal dibuka: '+
+      (err?.message||err)
+    );
+
+  }
+
 }
 
 
 function openEdit(id){
 
-  const a=data.accounts.find(x=>String(x.id)===String(id));
+  const a=
+    data.accounts.find(
+      x=>String(x.id)===String(id)
+    );
 
   if(!a)return;
 
   editingId=a.id;
 
-  $('modalTitle').textContent='✏️ Edit Spesifikasi Akun';
+  $('modalTitle').textContent=
+    '✏️ Edit Spesifikasi Akun';
 
-  $('fName').value=a.name||'';
-  $('fPass').value=a.password||'';
-  $('fMoney').value=a.money||'';
+  $('fName').value=
+    a.name||'';
 
-  $('fStatus').value=a.status||'ready';
+  $('fPass').value=
+    a.password||'';
 
-  $('fIncome').value=a.income??'';
-  $('fIncomeUnit').value=a.incomeUnit||'B/s';
+  $('fMoney').value=
+    a.money||'';
 
-  $('fSpeed').value=a.speed??'';
-  $('fSpeedUnit').value=a.speedUnit||'B';
+  $('fStatus').value=
+    a.status||'ready';
 
-  $('fPets').value=a.pets??'';
-  $('fStolen').value=a.stolen??'';
+  $('fIncome').value=
+    a.income??'';
 
-  $('fNote').value=a.note||'';
+  $('fIncomeUnit').value=
+    a.incomeUnit||'B/s';
 
-  $('fInclude').checked=a.include!==false;
+  $('fSpeed').value=
+    a.speed??'';
 
-  $('modalBg').classList.add('show');
+  $('fSpeedUnit').value=
+    a.speedUnit||'B';
+
+  $('fPets').value=
+    a.pets??'';
+
+  $('fStolen').value=
+    a.stolen??'';
+
+  $('fNote').value=
+    a.note||'';
+
+  $('fInclude').checked=
+    a.include!==false;
+
+  $('modalBg')
+    .classList
+    .add('show');
+
 }
 
 
@@ -1390,77 +1921,112 @@ function clearForm(){
     'fStolen',
     'fNote'
   ].forEach(id=>{
-    if($(id))$(id).value='';
+
+    const el=$(id);
+
+    if(el)el.value='';
+
   });
 
   $('fStatus').value='ready';
+
   $('fIncomeUnit').value='B/s';
+
   $('fSpeedUnit').value='B';
+
   $('fInclude').checked=true;
+
 }
 
 
 function closeModal(){
-  $('modalBg').classList.remove('show');
+
+  $('modalBg')
+    .classList
+    .remove('show');
+
 }
 
 
-/* =========================
-   SAVE ACCOUNT
-========================= */
-
 function saveAccount(){
 
-  const name=$('fName').value.trim();
+  const name=
+    $('fName').value.trim();
 
   if(!name){
-    alert('Nama akun wajib diisi.');
+
+    alert(
+      'Nama akun wajib diisi.'
+    );
+
     $('fName').focus();
+
     return;
+
   }
 
-  const account={
-    id:editingId || Date.now()+Math.random(),
+
+  const a={
+    id:
+      editingId ||
+      (
+        Date.now()+
+        Math.random()
+      ),
 
     name:name,
 
-    password:$('fPass').value,
+    password:
+      $('fPass').value,
 
-    money:$('fMoney').value.trim(),
+    money:
+      $('fMoney').value.trim(),
 
-    income:$('fIncome').value,
+    income:
+      $('fIncome').value,
 
-    incomeUnit:$('fIncomeUnit').value,
+    incomeUnit:
+      $('fIncomeUnit').value,
 
-    speed:$('fSpeed').value,
+    speed:
+      $('fSpeed').value,
 
-    speedUnit:$('fSpeedUnit').value,
+    speedUnit:
+      $('fSpeedUnit').value,
 
-    pets:$('fPets').value,
+    pets:
+      $('fPets').value,
 
-    stolen:$('fStolen').value,
+    stolen:
+      $('fStolen').value,
 
-    note:$('fNote').value.trim(),
+    note:
+      $('fNote').value.trim(),
 
-    status:$('fStatus').value,
+    status:
+      $('fStatus').value,
 
-    include:$('fInclude').checked
+    include:
+      $('fInclude').checked
   };
 
 
-  if(editingId!==null){
+  if(editingId){
 
-    const index=data.accounts.findIndex(
-      x=>String(x.id)===String(editingId)
-    );
+    const i=
+      data.accounts.findIndex(
+        x=>String(x.id)===String(editingId)
+      );
 
-    if(index!==-1){
-      data.accounts[index]=account;
+    if(i>=0){
+
+      data.accounts[i]=a;
+
     }
 
   }else{
 
-    data.accounts.push(account);
+    data.accounts.push(a);
 
   }
 
@@ -1472,83 +2038,109 @@ function saveAccount(){
   render();
 
   toast(
-    editingId!==null
+    editingId
       ? '✏️ Akun berhasil diperbarui'
       : '✅ Akun berhasil ditambahkan'
   );
 
-  editingId=null;
 }
 
 
-/* =========================
-   DELETE ACCOUNT
-========================= */
+function safeSaveAccount(){
+
+  try{
+
+    saveAccount();
+
+  }catch(err){
+
+    console.error(err);
+
+    alert(
+      'Gagal menyimpan akun: '+
+      (err?.message||err)
+    );
+
+  }
+
+}
+
+
+/* =========================================================
+   ACCOUNT ACTIONS
+========================================================= */
 
 function delAccount(id){
 
-  const account=data.accounts.find(
-    x=>String(x.id)===String(id)
-  );
-
-  if(!account)return;
-
-  if(!confirm(
-    'Hapus akun "'+
-    account.name+
-    '"?'
-  )){
-    return;
-  }
-
-  data.accounts=data.accounts.filter(
-    a=>String(a.id)!==String(id)
-  );
-
-  save();
-
-  render();
-
-  toast('🗑 Akun berhasil dihapus');
-}
-
-
-/* =========================
-   INCLUDE
-========================= */
-
-function toggleInclude(id){
-
-  const a=data.accounts.find(
-    x=>String(x.id)===String(id)
-  );
+  const a=
+    data.accounts.find(
+      x=>String(x.id)===String(id)
+    );
 
   if(!a)return;
 
-  a.include=!a.include;
+
+  if(
+    !confirm(
+      'Hapus akun "'+
+      (a.name||'akun ini')+
+      '"?'
+    )
+  ){
+
+    return;
+
+  }
+
+
+  data.accounts=
+    data.accounts.filter(
+      a=>String(a.id)!==String(id)
+    );
 
   save();
 
   render();
+
+  toast(
+    '🗑 Akun berhasil dihapus'
+  );
+
 }
 
 
-/* =========================
-   STATUS
-========================= */
+function toggleInclude(id){
+
+  const a=
+    data.accounts.find(
+      x=>String(x.id)===String(id)
+    );
+
+  if(!a)return;
+
+  a.include=
+    a.include===false;
+
+  save();
+
+  render();
+
+}
+
 
 function toggleStatus(id){
 
-  const a=data.accounts.find(
-    x=>String(x.id)===String(id)
-  );
+  const a=
+    data.accounts.find(
+      x=>String(x.id)===String(id)
+    );
 
   if(!a)return;
 
   a.status=
     a.status==='sold'
-      ?'ready'
-      :'sold';
+      ? 'ready'
+      : 'sold';
 
   save();
 
@@ -1556,385 +2148,448 @@ function toggleStatus(id){
 
   toast(
     a.status==='sold'
-      ?'🛒 Akun ditandai SOLD'
-      :'🟢 Akun ditandai READY'
+      ? '🛒 Akun ditandai SOLD'
+      : '🟢 Akun kembali READY'
   );
+
 }
 
 
-/* =========================
-   FILTER
-========================= */
+/* =========================================================
+   FILTER / PAGE
+========================================================= */
 
 function setFilter(f,b){
 
   filter=f;
+
   page=1;
 
   document
-    .querySelectorAll('.filter button')
-    .forEach(x=>x.classList.remove('active'));
+    .querySelectorAll(
+      '.filter button'
+    )
+    .forEach(x=>
+      x.classList.remove('active')
+    );
 
-  b.classList.add('active');
+  if(b){
+    b.classList.add('active');
+  }
 
   render();
+
 }
 
-
-/* =========================
-   PAGINATION
-========================= */
 
 function changePage(d){
 
   const arr=list();
 
-  const pages=Math.max(
-    1,
-    Math.ceil(arr.length/pageSize)
-  );
+  const pages=
+    Math.max(
+      1,
+      Math.ceil(
+        arr.length/pageSize
+      )
+    );
 
-  page=Math.max(
-    1,
-    Math.min(pages,page+d)
-  );
+  page=
+    Math.max(
+      1,
+      Math.min(
+        pages,
+        page+d
+      )
+    );
 
   render();
+
 }
 
 
-/* =========================
-   RATES
-========================= */
-
 function saveAndRender(){
 
-  data.incomeRate=num(
-    $('incomeRate').value
-  );
+  data.incomeRate=
+    num(
+      $('incomeRate').value
+    );
 
-  data.speedRate=num(
-    $('speedRate').value
-  );
+  data.speedRate=
+    num(
+      $('speedRate').value
+    );
 
   save();
 
   render();
+
 }
 
 
-/* =========================
-   LIST
-========================= */
+/* =========================================================
+   LIST / SORT
+========================================================= */
 
 function list(){
 
-  const searchEl=$('search');
-
   const q=
-    searchEl
-      ?searchEl.value.toLowerCase().trim()
-      :'';
+    $('search')
+      .value
+      .toLowerCase()
+      .trim();
 
   const only=
-    $('onlyIncluded')
-      ?$('onlyIncluded').checked
-      :false;
+    $('onlyIncluded')?.checked;
 
 
-  let arr=data.accounts.filter(a=>{
+  let a=
+    data.accounts.filter(x=>
 
-    const filterOK=
-      filter==='all' ||
-      a.status===filter;
+      (
+        filter==='all' ||
+        x.status===filter
+      )
 
-    const includedOK=
-      !only ||
-      a.include!==false;
+      &&
 
-    const searchOK=
-      !q ||
-      String(a.name||'')
-        .toLowerCase()
-        .includes(q);
+      (
+        !only ||
+        x.include
+      )
 
-    return filterOK &&
-           includedOK &&
-           searchOK;
-  });
+      &&
+
+      (
+        !q ||
+        String(x.name||'')
+          .toLowerCase()
+          .includes(q)
+      )
+
+    );
 
 
-  const sortEl=$('sort');
-
-  const s=sortEl
-    ?sortEl.value
-    :'default';
+  const s=
+    $('sort').value;
 
 
   if(s==='income'){
-    arr.sort(
-      (x,y)=>num(y.income)-num(x.income)
+
+    a.sort(
+      (x,y)=>
+        num(y.income)-
+        num(x.income)
     );
+
   }
+
 
   if(s==='speed'){
-    arr.sort(
-      (x,y)=>num(y.speed)-num(x.speed)
+
+    a.sort(
+      (x,y)=>
+        num(y.speed)-
+        num(x.speed)
     );
+
   }
+
 
   if(s==='price'){
-    arr.sort(
-      (x,y)=>priceOf(y)-priceOf(x)
+
+    a.sort(
+      (x,y)=>
+        priceOf(y)-
+        priceOf(x)
     );
+
   }
 
+
   if(s==='name'){
-    arr.sort(
+
+    a.sort(
       (x,y)=>
         String(x.name||'')
           .localeCompare(
             String(y.name||'')
           )
     );
+
   }
 
 
-  return arr;
+  return a;
+
 }
 
 
-/* =========================
-   MONEY PARSER
-========================= */
+/* =========================================================
+   MONEY
+========================================================= */
 
 function parseMoney(v){
 
-  const text=String(v||'')
-    .replace(/,/g,'.');
+  const m=
+    String(v||'')
+      .replace(/,/g,'.')
+      .match(
+        /\d+(?:\.\d+)?/
+      );
 
-  const match=text.match(
-    /\d+(?:\.\d+)?/
-  );
+  return m
+    ? num(m[0])
+    : 0;
 
-  return match
-    ?num(match[0])
-    :0;
 }
 
 
-/* =========================
-   RENDER
-========================= */
+/* =========================================================
+   MAIN RENDER
+========================================================= */
 
 function render(){
 
-  if($('incomeRate')){
-    $('incomeRate').value=data.incomeRate;
-  }
+  try{
 
-  if($('speedRate')){
-    $('speedRate').value=data.speedRate;
-  }
+    $('incomeRate').value=
+      data.incomeRate;
 
-
-  const calc=data.accounts.filter(
-    a=>a.include!==false
-  );
+    $('speedRate').value=
+      data.speedRate;
 
 
-  const income=calc.reduce(
-    (sum,a)=>sum+num(a.income),
-    0
-  );
-
-
-  const speed=calc.reduce(
-    (sum,a)=>sum+num(a.speed),
-    0
-  );
-
-
-  const total=
-    income*num(data.incomeRate)+
-    speed*num(data.speedRate);
-
-
-  $('readyCount').textContent=
-    data.accounts.filter(
-      a=>a.status==='ready'
-    ).length;
-
-
-  $('readySub').textContent=
-    `${data.accounts.length} total accounts`;
-
-
-  $('soldCount').textContent=
-    data.accounts.filter(
-      a=>a.status==='sold'
-    ).length;
-
-
-  $('moneyTotal').textContent=
-    '$'+
-    data.accounts
-      .reduce(
-        (sum,a)=>sum+parseMoney(a.money),
-        0
-      )
-      .toLocaleString(
-        'id-ID',
-        {maximumFractionDigits:2}
+    const calc=
+      data.accounts.filter(
+        a=>a.include
       );
 
 
-  $('incomeTotal').textContent=
-    fmt(income)+' pts';
+    const income=
+      calc.reduce(
+        (s,a)=>
+          s+num(a.income),
+        0
+      );
 
 
-  $('speedTotal').textContent=
-    fmt(speed)+' pts';
+    const speed=
+      calc.reduce(
+        (s,a)=>
+          s+num(a.speed),
+        0
+      );
 
 
-  /* 
-     HANYA NILAI HARGA.
-     Rumus di bawah Estimated Selling Price
-     sengaja tidak dibuat.
-  */
-
-  $('priceTotal').textContent=
-    'Rp'+rp(total);
+    const total=
+      income*num(data.incomeRate)+
+      speed*num(data.speedRate);
 
 
-  const arr=list();
-
-  const pages=Math.max(
-    1,
-    Math.ceil(arr.length/pageSize)
-  );
+    $('readyCount').textContent=
+      data.accounts.filter(
+        a=>a.status==='ready'
+      ).length;
 
 
-  if(page>pages){
-    page=pages;
-  }
+    $('readySub').textContent=
+      `${data.accounts.length} total accounts`;
 
 
-  const slice=arr.slice(
-    (page-1)*pageSize,
-    page*pageSize
-  );
+    $('soldCount').textContent=
+      data.accounts.filter(
+        a=>a.status==='sold'
+      ).length;
 
 
-  const hideN=
-    $('hideNames')
-      ?$('hideNames').checked
-      :false;
-
-  const hideP=
-    $('hidePasswords')
-      ?$('hidePasswords').checked
-      :false;
-
-
-  if(!slice.length){
-
-    $('rows').innerHTML=
-      `<div class="empty">
-        Belum ada akun yang sesuai.
-        Tekan ＋ ADD ACCOUNT untuk menambahkan.
-      </div>`;
-
-  }else{
-
-    $('rows').innerHTML=
-      slice.map(a=>{
-
-        const inc=
-          a.income!=='' &&
-          a.income!==null &&
-          a.income!==undefined
-            ?`${fmt(a.income)} ${esc(a.incomeUnit||'B/s')}`
-            :'—';
+    $('moneyTotal').textContent=
+      '$'+
+      data.accounts
+        .reduce(
+          (s,a)=>
+            s+parseMoney(a.money),
+          0
+        )
+        .toLocaleString(
+          'id-ID',
+          {
+            maximumFractionDigits:2
+          }
+        );
 
 
-        const sp=
-          a.speed!=='' &&
-          a.speed!==null &&
-          a.speed!==undefined
-            ?`${fmt(a.speed)} ${esc(a.speedUnit||'B')}`
-            :'—';
+    $('incomeTotal').textContent=
+      fmt(income)+' pts';
 
 
-        const passwordText=
-          hideP
-            ?'🔒 Password hidden'
-            :(a.password
-              ?'🔑 '+esc(a.password)
-              :'No password');
+    $('speedTotal').textContent=
+      fmt(speed)+' pts';
 
 
-        return `
+    /* 
+       ESTIMATED SELLING PRICE
+       Hanya menampilkan harga.
+       Rumus di bawahnya sengaja dihilangkan.
+    */
+
+    $('priceTotal').textContent=
+      'Rp'+rp(total);
+
+
+    const arr=list();
+
+
+    const pages=
+      Math.max(
+        1,
+        Math.ceil(
+          arr.length/pageSize
+        )
+      );
+
+
+    if(page>pages){
+      page=pages;
+    }
+
+
+    const slice=
+      arr.slice(
+        (page-1)*pageSize,
+        page*pageSize
+      );
+
+
+    const hideN=
+      $('hideNames').checked;
+
+    const hideP=
+      $('hidePasswords').checked;
+
+
+    if(!slice.length){
+
+      $('rows').innerHTML=
+        `<div class="empty">
+          Belum ada akun yang sesuai.
+          Tekan ＋ ADD ACCOUNT untuk menambahkan.
+        </div>`;
+
+    }else{
+
+      $('rows').innerHTML=
+        slice.map(a=>{
+
+          const inc=
+            a.income!==''
+              ? `${fmt(a.income)} ${esc(a.incomeUnit||'B/s')}`
+              : '—';
+
+
+          const sp=
+            a.speed!==''
+              ? `${fmt(a.speed)} ${esc(a.speedUnit||'B')}`
+              : '—';
+
+
+          const passwordText=
+            hideP
+              ? '🔒 Password hidden'
+              : (
+                  a.password
+                    ? '🔑 '+esc(a.password)
+                    : 'No password'
+                );
+
+
+          return `
           <div class="row">
 
             <div class="cell">
+
               <div class="account">
 
-                <div class="avatar">👤</div>
+                <div class="avatar">
+                  👤
+                </div>
 
                 <div style="min-width:0">
 
-                  <div class="name ${hideN?'masked':''}">
+                  <div
+                    class="name ${hideN?'masked':''}">
+
                     ${
                       hideN
-                        ?'••••••••'
-                        :esc(a.name)
+                        ? '••••••••'
+                        : esc(a.name)
                     }
+
                   </div>
 
                   <div class="meta">
+
                     ${passwordText}
+
                     ${
                       a.note
-                        ?' · '+esc(a.note)
-                        :''
+                        ? ' · '+esc(a.note)
+                        : ''
                     }
+
                   </div>
 
                 </div>
 
               </div>
+
             </div>
 
+
             <div class="cell val money">
-              ${a.money?esc(a.money):'—'}
+              ${
+                a.money
+                  ? esc(a.money)
+                  : '—'
+              }
             </div>
+
 
             <div class="cell val income">
               ${inc}
             </div>
 
+
             <div class="cell val speed">
               ${sp}
             </div>
+
 
             <div class="cell val pets">
               🐾 ${num(a.pets)}
             </div>
 
+
             <div class="cell val stolen">
               🥚 ${num(a.stolen)}
             </div>
 
+
             <div class="cell">
-              <span class="status ${a.status}">
+
+              <span
+                class="status ${a.status}">
+
                 ${
                   a.status==='sold'
-                    ?'SOLD'
-                    :'READY'
+                    ? 'SOLD'
+                    : 'READY'
                 }
+
               </span>
+
             </div>
+
 
             <div class="cell row-actions">
 
@@ -1942,94 +2597,225 @@ function render(){
                 class="include"
                 type="checkbox"
                 title="Ikut perhitungan"
-                ${a.include!==false?'checked':''}
-                onchange="toggleInclude('${String(a.id)}')"
-              >
+                ${
+                  a.include
+                    ? 'checked'
+                    : ''
+                }
+                onchange="toggleInclude('${String(a.id).replace(/'/g,"\\'")}')">
+
 
               <button
                 class="action"
-                type="button"
                 title="Edit spesifikasi"
-                onclick="openEdit('${String(a.id)}')"
-              >✏️</button>
+                onclick="openEdit('${String(a.id).replace(/'/g,"\\'")}')">
+
+                ✏️
+
+              </button>
+
 
               <button
                 class="action"
-                type="button"
                 title="Ready / Sold"
-                onclick="toggleStatus('${String(a.id)}')"
-              >↔</button>
+                onclick="toggleStatus('${String(a.id).replace(/'/g,"\\'")}')">
+
+                ↔
+
+              </button>
+
 
               <button
                 class="action"
-                type="button"
                 title="Hapus"
-                onclick="delAccount('${String(a.id)}')"
-              >🗑</button>
+                onclick="delAccount('${String(a.id).replace(/'/g,"\\'")}')">
+
+                🗑
+
+              </button>
 
             </div>
 
           </div>
-        `;
+          `;
 
-      }).join('');
+        }).join('');
+
+    }
+
+
+    $('pageInfo').textContent=
+      `Page ${page} of ${pages}`;
+
+
+  }catch(err){
+
+    console.error(
+      'Render error:',
+      err
+    );
+
+    alert(
+      'Gagal menampilkan dashboard: '+
+      (err?.message||err)
+    );
+
   }
 
-
-  $('pageInfo').textContent=
-    `Page ${page} of ${pages}`;
 }
 
 
-/* =========================
+/* =========================================================
    EXPORT
-========================= */
+========================================================= */
 
 function exportData(){
 
-  const blob=new Blob(
-    [
-      JSON.stringify(
-        data,
-        null,
-        2
-      )
-    ],
-    {
-      type:'application/json'
-    }
-  );
+  try{
+
+    const blob=
+      new Blob(
+        [
+          JSON.stringify(
+            data,
+            null,
+            2
+          )
+        ],
+        {
+          type:
+            'application/json'
+        }
+      );
 
 
-  const url=
-    URL.createObjectURL(blob);
+    const url=
+      URL.createObjectURL(blob);
 
 
-  const a=
-    document.createElement('a');
+    const a=
+      document.createElement('a');
 
-  a.href=url;
+    a.href=url;
 
-  a.download=
-    'sae-seller-dashboard-backup.json';
+    a.download=
+      'sae-seller-dashboard-backup.json';
 
-  document.body.appendChild(a);
+    document.body.appendChild(a);
 
-  a.click();
+    a.click();
 
-  a.remove();
+    a.remove();
 
-  setTimeout(()=>{
-    URL.revokeObjectURL(url);
-  },1000);
+    setTimeout(
+      ()=>URL.revokeObjectURL(url),
+      1000
+    );
 
-  toast('📦 Backup berhasil diexport');
+
+    toast(
+      '↗ Backup berhasil diexport'
+    );
+
+  }catch(err){
+
+    console.error(err);
+
+    alert(
+      'Export gagal: '+
+      (err?.message||err)
+    );
+
+  }
+
 }
 
 
-/* =========================
+/* =========================================================
+   IMPORT
+========================================================= */
+
+function importData(e){
+
+  const f=
+    e?.target?.files?.[0];
+
+  if(!f)return;
+
+
+  const r=
+    new FileReader();
+
+
+  r.onload=()=>{
+
+    try{
+
+      const x=
+        JSON.parse(r.result);
+
+
+      if(
+        !x ||
+        !Array.isArray(x.accounts)
+      ){
+
+        throw new Error(
+          'Format backup tidak valid'
+        );
+
+      }
+
+
+      data=x;
+
+
+      data.incomeRate=
+        num(
+          data.incomeRate||
+          1000
+        );
+
+
+      data.speedRate=
+        num(
+          data.speedRate||
+          1000
+        );
+
+
+      save();
+
+      render();
+
+      alert(
+        'Data berhasil diimport'
+      );
+
+
+    }catch(err){
+
+      console.error(err);
+
+      alert(
+        'File backup tidak valid'
+      );
+
+    }
+
+  };
+
+
+  r.readAsText(f);
+
+  e.target.value='';
+
+}
+
+
+/* =========================================================
    RESET
-========================= */
+========================================================= */
 
 function clearAll(){
 
@@ -2038,7 +2824,9 @@ function clearAll(){
       'Hapus semua akun dan reset dashboard?'
     )
   ){
+
     return;
+
   }
 
 
@@ -2055,49 +2843,64 @@ function clearAll(){
 
   render();
 
-  toast('♻️ Dashboard berhasil direset');
+  toast(
+    '♻️ Dashboard berhasil direset'
+  );
+
 }
 
 
-/* =========================
+/* =========================================================
    AI INPUT
-========================= */
+========================================================= */
+
+let aiResults=[];
+
 
 function openAI(){
 
-  $('aiBg').classList.add('show');
+  $('aiBg')
+    .classList
+    .add('show');
 
   $('aiInput').focus();
 
-  $('aiPreview').style.display='none';
+  $('aiPreview').style.display=
+    'none';
 
-  $('aiStatus').style.display='none';
+  $('aiStatus').style.display=
+    'none';
 
-  $('aiAddBtn').style.display='none';
-
-  $('aiInput').value='';
+  $('aiAddBtn').style.display=
+    'none';
 
   aiResults=[];
+
 }
 
 
 function closeAI(){
 
-  $('aiBg').classList.remove('show');
+  $('aiBg')
+    .classList
+    .remove('show');
+
 }
 
 
-function aiStatus(text){
+function aiStatus(t){
 
-  $('aiStatus').style.display='block';
+  $('aiStatus').style.display=
+    'block';
 
-  $('aiStatus').innerHTML=text;
+  $('aiStatus').innerHTML=t;
+
 }
 
 
-/* =========================
-   AI / LOCAL PARSER
-========================= */
+/* =========================================================
+   AI PARSER
+========================================================= */
 
 function parseAI(){
 
@@ -2112,6 +2915,7 @@ function parseAI(){
     );
 
     return;
+
   }
 
 
@@ -2125,156 +2929,220 @@ function parseAI(){
   const out=[];
 
 
+  const cleanNum=(v)=>
+    String(v||'')
+      .replace(/,/g,'.')
+      .match(
+        /\d+(?:\.\d+)?/
+      )?.[0]||'';
+
+
   for(const line of lines){
 
     if(
-      /^(kelompok|group)\s+\d+\s*b?$/i.test(line) ||
-      /^\d+\s*b$/i.test(line)
+      /^(kelompok|group|account|akun)\s*\d*\s*[:\-]?$/i
+        .test(line)
     ){
+
       continue;
+
     }
 
 
-    /*
-      Nama akun:
-      ambil token pertama yang terlihat
-      seperti username.
-    */
+    /* NAME */
 
-    let nameMatch=
-      line.match(
-        /(?:^|\s)([A-Za-z0-9_]{3,})/
+    let name='';
+
+
+    const beforeField=
+      line.split(
+        /\s+(?:income|speed|money|cash|balance|pets?|stolen|eggs?|password|pass)\s*[:=]/i
+      )[0];
+
+
+    const nm=
+      beforeField.match(
+        /^\s*[@#]?([A-Za-z0-9_.-]{3,})/
       );
 
 
-    /*
-      Jika format menggunakan:
-      Username: abc
-      Account: abc
-      Name: abc
-    */
+    if(nm){
 
-    const explicitName=
-      line.match(
-        /(?:username|account|name|akun)\s*[:=]\s*([A-Za-z0-9_.-]{3,})/i
-      );
+      name=nm[1];
 
-
-    if(explicitName){
-      nameMatch=[
-        explicitName[0],
-        explicitName[1]
-      ];
     }
 
 
-    if(!nameMatch){
+    if(!name){
+
+      const first=
+        line
+          .split(/\s*[\-|•|]\s*/)
+          [0]
+          .trim();
+
+
+      const m=
+        first.match(
+          /^[@#]?([A-Za-z0-9_.-]{3,})$/
+        );
+
+
+      if(m){
+
+        name=m[1];
+
+      }
+
+    }
+
+
+    if(!name){
+
       continue;
+
     }
 
+
+    /* INCOME */
 
     const incomeMatch=
+
       line.match(
-        /(?:income|income\s*\/?\s*sec|income\/sec)\s*[:=]?\s*(\d+(?:[.,]\d+)?)\s*(B|M)\s*(?:\/s)?/i
+        /(?:income|⚡)?\s*[:=]?\s*(\d+(?:[.,]\d+)?)\s*(B|M)\s*(?:\/s|money\/s)\b/i
       )
+
       ||
+
       line.match(
-        /(\d+(?:[.,]\d+)?)\s*(B|M)\s*\/s/i
+        /(\d+(?:[.,]\d+)?)\s*(B|M)\s*\/s\b/i
       );
 
+
+    /* SPEED */
 
     const speedMatch=
       line.match(
-        /speed\s*[:=]?\s*(\d+(?:[.,]\d+)?)\s*(B|M)?/i
-      )
-      ||
-      line.match(
-        /(?:^|[,\s])speed\s*(\d+(?:[.,]\d+)?)\s*(B|M)?/i
+        /(?:speed|🚀)\s*[:=]?\s*(\d+(?:[.,]\d+)?)\s*(B|M)?\b/i
       );
 
+
+    /* MONEY */
 
     const moneyMatch=
       line.match(
-        /(?:money|cash|balance)\s*[:=]?\s*\$?\s*([\d.,]+(?:\s*[KMBT])?)/i
+        /(?:money|cash|balance|💰)\s*[:=]?\s*\$?\s*([\d.,]+)\s*([KMBT])?/i
       );
 
+
+    /* PETS */
 
     const petsMatch=
       line.match(
-        /pets?\s*[:=]?\s*(\d+)/i
+        /(?:pets?|🐾)\s*[:=]?\s*(\d+)/i
       );
 
+
+    /* EGGS / STOLEN */
 
     const stolenMatch=
       line.match(
-        /(?:stolen|egg|eggs?)\s*[:=]?\s*(\d+)/i
+        /(?:stolen|eggs?|egg|🥚)\s*[:=]?\s*(\d+)/i
       );
 
 
-    let income='';
-    let incomeUnit='B/s';
+    /* PASSWORD */
+
+    const passMatch=
+      line.match(
+        /(?:pass(?:word)?|password)\s*[:=]\s*([^\s|,;]+)/i
+      );
 
 
-    if(incomeMatch){
+    let income=
+      incomeMatch
+        ? cleanNum(incomeMatch[1])
+        : '';
+
+
+    let incomeUnit=
+      incomeMatch
+        ? incomeMatch[2].toUpperCase()+'/s'
+        : 'B/s';
+
+
+    let speed=
+      speedMatch
+        ? cleanNum(speedMatch[1])
+        : '';
+
+
+    let speedUnit=
+      (
+        speedMatch &&
+        speedMatch[2]
+      )
+        ? speedMatch[2].toUpperCase()
+        : 'B';
+
+
+    /* COMPACT INCOME */
+
+    const compact=
+      line.match(
+        /(?:^|\s|-)\s*(\d+(?:[.,]\d+)?)\s*(B|M)\s*\/s\b/i
+      );
+
+
+    if(
+      !income &&
+      compact
+    ){
 
       income=
-        incomeMatch[1]
-          .replace(',','.');
+        cleanNum(compact[1]);
 
       incomeUnit=
-        (
-          incomeMatch[2] ||
-          'B'
-        ).toUpperCase()+'/s';
-    }
+        compact[2].toUpperCase()+
+        '/s';
 
-
-    let speed='';
-    let speedUnit='B';
-
-
-    if(speedMatch){
-
-      speed=
-        speedMatch[1]
-          .replace(',','.');
-
-      speedUnit=
-        (
-          speedMatch[2] ||
-          'B'
-        ).toUpperCase();
     }
 
 
     out.push({
 
-      name:nameMatch[1],
+      name:name,
 
-      password:'',
+      password:
+        passMatch
+          ? passMatch[1]
+          : '',
 
       money:
         moneyMatch
-          ?moneyMatch[1]
-          :'',
+          ? moneyMatch[1]+
+            (moneyMatch[2]||'')
+          : '',
 
       income:income,
 
-      incomeUnit:incomeUnit,
+      incomeUnit:
+        incomeUnit,
 
       speed:speed,
 
-      speedUnit:speedUnit,
+      speedUnit:
+        speedUnit,
 
       pets:
         petsMatch
-          ?petsMatch[1]
-          :'',
+          ? petsMatch[1]
+          : '',
 
       stolen:
         stolenMatch
-          ?stolenMatch[1]
-          :'',
+          ? stolenMatch[1]
+          : '',
 
       note:'',
 
@@ -2283,36 +3151,44 @@ function parseAI(){
       include:true
 
     });
+
   }
 
 
-  /*
-    Hilangkan duplicate yang identik
-    dari input yang sama.
-  */
+  /* REMOVE DUPLICATES */
 
   const unique=[];
 
-  const seen=new Set();
+  const seen=
+    new Set();
 
 
-  for(const item of out){
+  for(const a of out){
 
     const key=
       [
-        item.name,
-        item.income,
-        item.speed,
-        item.money
-      ].join('|');
+        a.name,
+        a.password,
+        a.income,
+        a.speed,
+        a.money,
+        a.pets,
+        a.stolen
+      ]
+        .join('|')
+        .toLowerCase();
 
 
-    if(!seen.has(key)){
+    if(
+      !seen.has(key)
+    ){
 
       seen.add(key);
 
-      unique.push(item);
+      unique.push(a);
+
     }
+
   }
 
 
@@ -2322,192 +3198,314 @@ function parseAI(){
   if(!aiResults.length){
 
     aiStatus(
-      '❌ Belum berhasil mengenali akun.<br><br>'+
-      'Coba gunakan format seperti:<br>'+
-      '<b>xilumatiy20 | income 15 B/s | speed 35 B | money 84.44T</b>'
+      '❌ Belum berhasil mengenali akun. '+
+      'Coba format: '+
+      '<b>nama - password:abc123 - 15 B/s - speed 35 B - money 84.44T - pets 12</b>'
     );
 
+
+    $('aiPreview').style.display=
+      'none';
+
+    $('aiAddBtn').style.display=
+      'none';
+
     return;
+
   }
 
 
   aiStatus(
-    `✅ Terbaca <b>${aiResults.length} akun</b>.
-     Periksa hasilnya sebelum memasukkan ke dashboard.`
+    `✅ Terbaca <b>${aiResults.length} akun</b>. `+
+    `Periksa password jika perlu, centang akun yang ingin dimasukkan, `+
+    `lalu tekan <b>TAMBAHKAN</b>.`
   );
 
 
-  $('aiPreview').style.display='block';
+  $('aiPreview').style.display=
+    'block';
 
+
+  /* =====================================================
+     AI PREVIEW WITH PASSWORD INPUT
+  ===================================================== */
 
   $('aiPreview').innerHTML=
-    `
-      <div class="table">
+
+    `<div class="table">
+
+      <div
+        class="thead"
+        style="
+          grid-template-columns:
+          1.8fr
+          1fr
+          1fr
+          1fr
+          1.5fr
+          .6fr
+        ">
+
+        <div>ACCOUNT</div>
+        <div>INCOME</div>
+        <div>SPEED</div>
+        <div>MONEY</div>
+        <div>PASSWORD</div>
+        <div>ADD</div>
+
+      </div>`+
+
+      aiResults.map(
+        (a,i)=>`
 
         <div
-          class="thead"
-          style="grid-template-columns:2fr 1fr 1fr 1fr .7fr"
-        >
-          <div>ACCOUNT</div>
-          <div>INCOME</div>
-          <div>SPEED</div>
-          <div>MONEY</div>
-          <div>ADD</div>
+          class="row"
+          style="
+            grid-template-columns:
+            1.8fr
+            1fr
+            1fr
+            1fr
+            1.5fr
+            .6fr
+          ">
+
+          <div class="name">
+            ${esc(a.name)}
+          </div>
+
+
+          <div class="val income">
+            ${
+              a.income
+                ? esc(
+                    a.income+
+                    ' '+
+                    a.incomeUnit
+                  )
+                : '—'
+            }
+          </div>
+
+
+          <div class="val speed">
+            ${
+              a.speed
+                ? esc(
+                    a.speed+
+                    ' '+
+                    a.speedUnit
+                  )
+                : '—'
+            }
+          </div>
+
+
+          <div class="val money">
+            ${
+              esc(
+                a.money||'—'
+              )
+            }
+          </div>
+
+
+          <div>
+
+            <input
+              class="ai-password"
+              type="text"
+              id="aipass${i}"
+              value="${esc(a.password||'')}"
+              placeholder="Password">
+
+          </div>
+
+
+          <div>
+
+            <input
+              class="include"
+              type="checkbox"
+              id="air${i}"
+              checked
+              title="Pilih akun">
+
+          </div>
+
         </div>
 
-        ${
-          aiResults.map((a,i)=>`
+        `
+      ).join('')+
 
-            <div
-              class="row"
-              style="grid-template-columns:2fr 1fr 1fr 1fr .7fr"
-            >
-
-              <div class="name">
-                ${esc(a.name)}
-              </div>
-
-              <div class="val income">
-                ${
-                  a.income
-                    ?esc(
-                      a.income+
-                      ' '+
-                      a.incomeUnit
-                    )
-                    :'—'
-                }
-              </div>
-
-              <div class="val speed">
-                ${
-                  a.speed
-                    ?esc(
-                      a.speed+
-                      ' '+
-                      a.speedUnit
-                    )
-                    :'—'
-                }
-              </div>
-
-              <div class="val money">
-                ${esc(a.money||'—')}
-              </div>
-
-              <div>
-                <input
-                  class="include"
-                  type="checkbox"
-                  id="air${i}"
-                  checked
-                >
-              </div>
-
-            </div>
-
-          `).join('')
-        }
-
-      </div>
-    `;
+    `</div>`;
 
 
   $('aiAddBtn').style.display=
     'inline-block';
+
 }
 
 
-/* =========================
+/* =========================================================
    ADD AI RESULTS
-========================= */
+========================================================= */
 
 function addAIResults(){
 
-  const selected=
-    aiResults.filter(
-      (_,i)=>{
-        const checkbox=$('air'+i);
-        return checkbox && checkbox.checked;
-      }
-    );
+  try{
+
+    const selected=
+      aiResults
+        .map((a,i)=>{
+
+          const passwordEl=
+            $('aipass'+i);
 
 
-  if(!selected.length){
+          return {
 
-    alert(
-      'Pilih minimal satu akun terlebih dahulu.'
-    );
+            ...a,
 
-    return;
-  }
+            password:
+              passwordEl
+                ? passwordEl.value
+                : (
+                    a.password||''
+                  )
+
+          };
+
+        })
+        .filter(
+          (_,i)=>
+            $('air'+i)?.checked
+        );
 
 
-  selected.forEach(a=>{
+    if(!selected.length){
 
-    data.accounts.push({
+      toast(
+        '⚠️ Tidak ada akun yang dipilih'
+      );
 
-      ...a,
+      return;
 
-      id:Date.now()+
-         Math.random(),
+    }
 
-      include:true
+
+    selected.forEach(a=>{
+
+      data.accounts.push({
+
+        ...a,
+
+        id:
+          Date.now()+
+          Math.random()
+
+      });
 
     });
 
-  });
+
+    save();
+
+    render();
+
+    closeAI();
+
+    toast(
+      `✨ ${selected.length} akun berhasil ditambahkan`
+    );
 
 
-  save();
+  }catch(err){
 
-  render();
+    console.error(err);
 
-  closeAI();
+    alert(
+      'Gagal menambahkan hasil AI: '+
+      (err?.message||err)
+    );
 
-  toast(
-    `✨ ${selected.length} akun berhasil ditambahkan`
-  );
+  }
+
 }
 
 
-/* =========================
+/* =========================================================
    TOAST
-========================= */
+========================================================= */
 
 function toast(message){
 
   const old=
-    document.querySelector('.toast');
+    document.getElementById(
+      'appToast'
+    );
+
 
   if(old){
+
     old.remove();
+
   }
 
 
-  const el=
+  const t=
     document.createElement('div');
 
-  el.className='toast';
 
-  el.textContent=message;
-
-  document.body.appendChild(el);
+  t.id='appToast';
 
 
-  setTimeout(()=>{
-    el.remove();
-  },2500);
+  t.textContent=
+    message;
+
+
+  Object.assign(
+    t.style,
+    {
+      position:'fixed',
+      left:'50%',
+      bottom:'28px',
+      transform:'translateX(-50%)',
+      zIndex:'100',
+      background:'#0d1822',
+      color:'#bff5ff',
+      border:'1px solid #16465a',
+      borderRadius:'10px',
+      padding:'11px 16px',
+      fontSize:'11px',
+      fontWeight:'800',
+      boxShadow:'0 15px 40px #0008'
+    }
+  );
+
+
+  document.body.appendChild(t);
+
+
+  setTimeout(
+    ()=>{
+      if(t.parentNode){
+        t.remove();
+      }
+    },
+    2800
+  );
+
 }
 
 
-/* =========================
+/* =========================================================
    KEYBOARD
-========================= */
+========================================================= */
 
 document.addEventListener(
   'keydown',
-  function(e){
+  e=>{
 
     if(e.key==='Escape'){
 
@@ -2521,16 +3519,21 @@ document.addEventListener(
 );
 
 
-/* =========================
-   CLICK OUTSIDE MODALS
-========================= */
+/* =========================================================
+   MODAL BACKDROP
+========================================================= */
 
 $('modalBg').addEventListener(
   'click',
-  function(e){
+  e=>{
 
-    if(e.target===this){
+    if(
+      e.target===
+      $('modalBg')
+    ){
+
       closeModal();
+
     }
 
   }
@@ -2539,29 +3542,48 @@ $('modalBg').addEventListener(
 
 $('aiBg').addEventListener(
   'click',
-  function(e){
+  e=>{
 
-    if(e.target===this){
+    if(
+      e.target===
+      $('aiBg')
+    ){
+
       closeAI();
+
     }
 
   }
 );
 
 
-/* =========================
+/* =========================================================
    INITIALIZE
-========================= */
+========================================================= */
 
-save();
+try{
 
-$('incomeRate').value=
-  data.incomeRate;
+  $('incomeRate').value=
+    data.incomeRate;
 
-$('speedRate').value=
-  data.speedRate;
+  $('speedRate').value=
+    data.speedRate;
 
-render();
+  render();
+
+}catch(err){
+
+  console.error(
+    'Initialization error:',
+    err
+  );
+
+  alert(
+    'Dashboard gagal dimuat: '+
+    (err?.message||err)
+  );
+
+}
 
 </script>
 
