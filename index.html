@@ -23,58 +23,59 @@
 <style>
 :root{
   --bg:#050505;--panel:#0b0b0b;--panel2:#11100c;--gold:#d4af37;--gold2:#f0d66a;
-  --line:#3b3015;--text:#f5f0df;--muted:#91886d;--green:#25d69a;--cyan:#48d8ff;
+  --line:#3b3015;--text:#ffffff;--muted:#b5ad95;--green:#25d69a;--cyan:#48d8ff;
   --purple:#d17cff;--red:#ff6677;--shadow:0 18px 60px rgba(0,0,0,.45)
 }
-*{box-sizing:border-box} body{margin:0;background:radial-gradient(circle at 50% -20%,#1a1407 0,#050505 42%,#000 100%);color:var(--text);font-family:Inter,Segoe UI,Arial,sans-serif}
+*{box-sizing:border-box} 
+body{margin:0;background:radial-gradient(circle at 50% -20%,#1a1407 0,#050505 42%,#000 100%);color:var(--text);font-family:Inter,Segoe UI,Arial,sans-serif;-webkit-font-smoothing:antialiased}
 button,input,select{font:inherit} button{cursor:pointer}
-.app{max-width:98vw;margin:auto;padding:1vw 1.5vw}
+.app{max-width:100%;margin:auto;padding:8px 14px}
 
 /* HEADER STYLES */
 .brand-title-center {
   text-align: center;
   font-family: 'Cinzel', serif;
-  font-size: clamp(28px, 2.5vw, 46px);
+  font-size: clamp(26px, 2.5vw, 42px);
   font-weight: 900;
-  letter-spacing: 4px;
+  letter-spacing: 3px;
   color: var(--gold2);
   text-shadow: 0 0 20px rgba(212,175,55,0.4), 0 2px 4px rgba(0,0,0,0.8);
   margin-bottom: 2px;
 }
 
-.topbar{display:flex;justify-space:between;gap:15px;align-items:flex-start;border-bottom:1px solid var(--line);padding:4px 0 10px}
-.eyebrow{font-size:clamp(10px, 0.7vw, 12px);letter-spacing:2px;color:var(--gold);font-weight:900}
-h1{font-size:clamp(18px, 1.4vw, 26px);margin:2px 0 0;letter-spacing:.4px;text-transform:uppercase}
+.topbar{display:flex;justify-space:between;gap:12px;align-items:center;border-bottom:1px solid var(--line);padding:4px 0 8px}
+.eyebrow{font-size:clamp(10px, 0.8vw, 13px);letter-spacing:2px;color:var(--gold);font-weight:900}
+h1{font-size:clamp(16px, 1.4vw, 24px);margin:2px 0 0;letter-spacing:.4px;text-transform:uppercase;font-weight:900}
 .top-actions{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
-.btn{border:1px solid var(--line);background:#0e0d09;color:var(--gold2);padding:6px 10px;border-radius:8px;font-size:clamp(11px, 0.75vw, 13px);font-weight:900}.btn:hover{border-color:var(--gold);box-shadow:0 0 0 2px rgba(212,175,55,.07)}.btn.primary{background:linear-gradient(#e1bb3f,#b58a13);color:#090806;border-color:#f1d96b}.btn.danger{color:#ff7d8c;border-color:#5a222b}.btn.ghost{background:transparent}
+.btn{border:1px solid var(--line);background:#0e0d09;color:var(--gold2);padding:6px 10px;border-radius:7px;font-size:clamp(11px, 0.9vw, 14px);font-weight:900}.btn:hover{border-color:var(--gold);box-shadow:0 0 0 2px rgba(212,175,55,.07)}.btn.primary{background:linear-gradient(#e1bb3f,#b58a13);color:#090806;border-color:#f1d96b}.btn.danger{color:#ff7d8c;border-color:#5a222b}.btn.ghost{background:transparent}
 
-.cards{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin:10px 0}.card{background:linear-gradient(145deg,#0d0d0d,#080806);border:1px solid var(--line);border-radius:10px;padding:8px 12px;min-height:auto;box-shadow:var(--shadow)}.card-label{font-size:clamp(9px, 0.65vw, 11px);font-weight:900;color:var(--gold2);letter-spacing:.8px}.card-value{font-size:clamp(18px, 1.3vw, 26px);font-weight:950;margin-top:4px}.card-sub{font-size:clamp(8px, 0.55vw, 10px);color:var(--muted);margin-top:2px}.green{color:var(--green)}.cyan{color:var(--cyan)}.purple{color:var(--purple)}.yellow{color:var(--gold2)}
-.controls{display:flex;gap:8px;align-items:center;flex-wrap:wrap;background:#0a0a09;border:1px solid var(--line);padding:6px 10px;border-radius:10px;margin-bottom:8px}.filter{display:flex;gap:4px}.filter button{background:#0d0c09;border:1px solid var(--line);color:var(--muted);padding:5px 9px;border-radius:6px;font-size:clamp(10px, 0.65vw, 12px);font-weight:900}.filter button.active{background:var(--gold);color:#090806;border-color:var(--gold)}.search{margin-left:auto;background:#070707;border:1px solid #2e291b;color:var(--text);padding:5px 9px;border-radius:7px;min-width:200px;font-size:clamp(11px, 0.75vw, 13px);outline:none}.search:focus{border-color:var(--gold)}
+.cards{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin:8px 0}.card{background:linear-gradient(145deg,#0d0d0d,#080806);border:1px solid var(--line);border-radius:10px;padding:8px 12px;min-height:70px;box-shadow:var(--shadow)}.card-label{font-size:clamp(10px, 0.8vw, 13px);font-weight:900;color:var(--gold2);letter-spacing:.8px}.card-value{font-size:clamp(18px, 1.6vw, 28px);font-weight:950;margin-top:4px}.card-sub{font-size:clamp(9px, 0.75vw, 12px);color:var(--muted);margin-top:2px;font-weight:700}.green{color:var(--green)}.cyan{color:var(--cyan)}.purple{color:var(--purple)}.yellow{color:var(--gold2)}
+.controls{display:flex;gap:8px;align-items:center;flex-wrap:wrap;background:#0a0a09;border:1px solid var(--line);padding:6px 10px;border-radius:10px;margin-bottom:8px}.filter{display:flex;gap:4px}.filter button{background:#0d0c09;border:1px solid var(--line);color:var(--muted);padding:5px 9px;border-radius:6px;font-size:clamp(10px, 0.8vw, 13px);font-weight:900}.filter button.active{background:var(--gold);color:#090806;border-color:var(--gold)}.search{margin-left:auto;background:#070707;border:1px solid #2e291b;color:var(--text);padding:6px 10px;border-radius:7px;min-width:200px;font-size:clamp(11px, 0.85vw, 14px);outline:none}.search:focus{border-color:var(--gold)}
 
-/* TABLE STYLES - DENGAN UKURAN TEKS KECIL KUSTOM SAAT ZOOM OUT */
-.table{border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#080808}.thead,.row{display:grid;grid-template-columns:1.5fr .9fr 1fr .7fr .6fr .6fr .75fr .6fr .75fr .65fr 1fr;align-items:center}.thead{background:#12100b;color:var(--gold2);font-size:clamp(10px, 0.7vw, 12px);font-weight:950;letter-spacing:.6px;padding:6px 10px}.row{min-height:clamp(28px, 3vh, 36px);border-top:1px solid #211c12;padding:3px 10px}.row:hover{background:#0e0d0a}.cell{min-width:0}.account{display:flex;gap:6px;align-items:center}.avatar{width:22px;height:22px;border:1px solid #5b4a1b;border-radius:50%;display:grid;place-items:center;background:#12100a;font-size:clamp(10px, 0.7vw, 12px)}.name{font-weight:900;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:clamp(12px, 0.85vw, 15px)}.meta{font-size:clamp(9px, 0.6vw, 11px);color:var(--muted);margin-top:1px;display:flex;align-items:center;gap:4px}.val{font-weight:900;font-size:clamp(12px, 0.85vw, 15px)}.money{color:var(--green)}.income{color:var(--cyan)}.speed{color:var(--purple)}.pets{color:#59e5bb}.eggs{color:var(--gold2)}.treadmill{color:#ff7e9a}.pen{color:#8aa8ff}
+/* TABLE STYLES - 11 COLUMNS SKALA ZOOM BESAR */
+.table{border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#080808}.thead,.row{display:grid;grid-template-columns:1.5fr .9fr 1fr .7fr .6fr .6fr .75fr .6fr .75fr .65fr 1fr;align-items:center}.thead{background:#12100b;color:var(--gold2);font-size:clamp(10px, 0.85vw, 14px);font-weight:950;letter-spacing:.6px;padding:6px 10px}.row{min-height:28px;border-top:1px solid #211c12;padding:3px 10px}.row:hover{background:#0e0d0a}.cell{min-width:0}.account{display:flex;gap:7px;align-items:center}.avatar{width:24px;height:24px;border:1px solid #5b4a1b;border-radius:50%;display:grid;place-items:center;background:#12100a;font-size:12px;flex-shrink:0}.name{font-weight:900;font-size:clamp(12px, 0.95vw, 16px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.meta{font-size:clamp(10px, 0.8vw, 13px);color:var(--muted);margin-top:1px;display:flex;align-items:center;gap:4px;font-weight:700}.val{font-weight:950;font-size:clamp(13px, 1.05vw, 17px)}.money{color:var(--green)}.income{color:var(--cyan)}.speed{color:var(--purple)}.pets{color:#59e5bb}.eggs{color:var(--gold2)}.treadmill{color:#ff7e9a}.pen{color:#8aa8ff}
 
 /* TOGGLE BADGE STYLES (DATPOL & STATUS) */
-.datpol-badge, .status-badge{font-size:clamp(9px, 0.6vw, 11px);font-weight:900;padding:3px 6px;border-radius:5px;cursor:pointer;user-select:none;display:inline-block;transition:all 0.2s}
+.datpol-badge, .status-badge{font-size:clamp(9px, 0.75vw, 12px);font-weight:950;padding:3px 6px;border-radius:5px;cursor:pointer;user-select:none;display:inline-block;transition:all 0.2s}
 .datpol-badge.datpol{background:#092918;color:#25d69a;border:1px solid #145e3b}
 .datpol-badge.unclean{background:#2b1908;color:#ffab40;border:1px solid #6b3e0c}
 
 .status-badge.ready{background:#09251c;color:#54e0b4;border:1px solid #1c604d}
 .status-badge.sold{background:#29100f;color:#ff8490;border:1px solid #743039}
 
-.actions{display:flex;gap:3px;justify-content:flex-end}.action{background:#11100d;border:1px solid var(--line);color:#c9bc91;padding:3px 5px;border-radius:5px;font-size:clamp(10px, 0.65vw, 12px)}.empty{padding:20px;text-align:center;color:var(--muted);font-size:clamp(12px, 0.8vw, 14px)}.bottom{display:flex;justify-content:center;align-items:center;gap:12px;padding:6px;border-top:1px solid #211c12;color:var(--muted);font-size:clamp(10px, 0.7vw, 12px)}.bottom button{background:#0e0d09;border:1px solid var(--line);color:var(--gold2);padding:4px 8px;border-radius:6px;font-size:clamp(10px, 0.7vw, 12px)}
+.actions{display:flex;gap:3px;justify-content:flex-end}.action{background:#11100d;border:1px solid var(--line);color:#c9bc91;padding:3px 6px;border-radius:5px;font-size:clamp(11px, 0.85vw, 14px)}.empty{padding:30px;text-align:center;color:var(--muted);font-size:14px}.bottom{display:flex;justify-content:center;gap:16px;padding:6px;border-top:1px solid #211c12;color:var(--muted);font-size:clamp(11px, 0.85vw, 14px);font-weight:700}.bottom button{background:#0e0d09;border:1px solid var(--line);color:var(--gold2);padding:4px 10px;border-radius:6px;font-weight:900}
 
 /* FLOATING RATE WIDGET */
-.rate-widget-container {position:fixed;right:18px;bottom:18px;z-index:20;display:flex;flex-direction:column;align-items:flex-end}
+.rate-widget-container {position:fixed;right:14px;bottom:14px;z-index:20;display:flex;flex-direction:column;align-items:flex-end}
 .rate-toggle-btn {box-shadow:0 4px 15px rgba(0,0,0,0.5);display:flex;align-items:center;gap:6px}
 .rate-panel{width:330px;background:#0b0a08;border:1px solid var(--line);border-radius:13px;padding:12px;box-shadow:var(--shadow);margin-bottom:8px;display:block}
 .rate-panel.hidden{display:none}
-.rate-head{display:flex;justify-space:between;align-items:center;color:var(--gold2);font-size:10px;font-weight:900}
+.rate-head{display:flex;justify-space:between;align-items:center;color:var(--gold2);font-size:11px;font-weight:900}
 .rate-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:9px}
-.rate-box label{display:block;font-size:8px;color:var(--muted);margin-bottom:4px}
-.rate-box input{width:100%;background:#050505;color:var(--text);border:1px solid #302a1b;border-radius:7px;padding:7px}
+.rate-box label{display:block;font-size:9px;color:var(--muted);margin-bottom:4px;font-weight:700}
+.rate-box input{width:100%;background:#050505;color:var(--text);border:1px solid #302a1b;border-radius:7px;padding:7px;font-weight:800}
 
-.modal-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,.82);backdrop-filter:blur(7px);z-index:100;padding:22px;overflow:auto}.modal-bg.show{display:flex;align-items:center;justify-content:center}.modal{width:min(1120px,100%);background:linear-gradient(145deg,#0d0c09,#070707);border:1px solid var(--gold);border-radius:16px;padding:18px;box-shadow:0 30px 100px rgba(0,0,0,.8)}.modal h2{margin:0 0 12px;color:var(--gold2);font-size:17px}.notice{background:#090c10;border:1px solid #1f2b36;border-radius:10px;padding:11px;color:#8f9eaa;font-size:10px;line-height:1.55}.notice b{color:#d8d1bd}.paste-zone{margin-top:12px;min-height:220px;border:2px dashed #8a7020;border-radius:14px;background:radial-gradient(circle at 50% 20%,#171209,#070707 70%);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:16px;text-align:center;outline:none}.paste-zone:focus,.paste-zone.drag{border-color:var(--gold2);box-shadow:0 0 0 3px rgba(212,175,55,.08)}.paste-icon{font-size:38px}.paste-title{font-size:17px;font-weight:950;color:var(--gold2);margin-top:8px}.paste-sub{font-size:11px;color:#bdb294;margin-top:7px}.paste-status{font-size:10px;color:var(--gold2);margin-top:10px;font-weight:bold;transition:color 0.3s}.preview-wrap{display:none;margin-top:12px;border:1px solid #332a14;border-radius:12px;background:#050505;padding:10px}.preview-wrap.show{display:block}.preview-wrap img{display:block;width:100%;max-height:360px;object-fit:contain;border-radius:8px}.analysis{display:none;margin-top:10px}.analysis.show{display:block}.analysis-head{display:flex;justify-space:between;align-items:center;color:var(--gold2);font-size:10px;font-weight:900}.analysis-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-top:8px}.ai-field{background:#090908;border:1px solid #292314;border-radius:8px;padding:8px}.ai-field small{display:block;color:var(--muted);font-size:8px}.ai-field strong{display:block;margin-top:5px;font-size:12px;word-break:break-all}.ai-field.ok strong{color:#8ce9c8}.ai-field.warn{border-color:#654e18}.ai-field.warn strong{color:#f1d05b}.ai-field.bad{border-color:#5c252c}.ai-field.bad strong{color:#ff8c98}.confidence{margin-top:8px;color:var(--muted);font-size:9px}.ai-table{margin-top:10px;border:1px solid var(--line);border-radius:10px;overflow:auto}.ai-row{display:grid;grid-template-columns:1.5fr .9fr 1fr .7fr .7fr .7fr .8fr .7fr 1.2fr .45fr;min-width:880px;padding:9px;border-top:1px solid #211c12;align-items:center;font-size:10px}.ai-head{border-top:0;background:#12100b;color:var(--gold2);font-weight:900}.manual-pass{width:100%;background:#050505;border:1px solid #302a1b;color:var(--text);padding:7px;padding-right:28px;border-radius:7px}.modal-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:12px}.hidden-input{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}
+.modal-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,.82);backdrop-filter:blur(7px);z-index:100;padding:22px;overflow:auto}.modal-bg.show{display:flex;align-items:center;justify-content:center}.modal{width:min(1120px,100%);background:linear-gradient(145deg,#0d0c09,#070707);border:1px solid var(--gold);border-radius:16px;padding:18px;box-shadow:0 30px 100px rgba(0,0,0,.8)}.modal h2{margin:0 0 12px;color:var(--gold2);font-size:17px}.notice{background:#090c10;border:1px solid #1f2b36;border-radius:10px;padding:11px;color:#8f9eaa;font-size:11px;line-height:1.55}.notice b{color:#d8d1bd}.paste-zone{margin-top:12px;min-height:220px;border:2px dashed #8a7020;border-radius:14px;background:radial-gradient(circle at 50% 20%,#171209,#070707 70%);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:16px;text-align:center;outline:none}.paste-zone:focus,.paste-zone.drag{border-color:var(--gold2);box-shadow:0 0 0 3px rgba(212,175,55,.08)}.paste-icon{font-size:38px}.paste-title{font-size:17px;font-weight:950;color:var(--gold2);margin-top:8px}.paste-sub{font-size:11px;color:#bdb294;margin-top:7px}.paste-status{font-size:11px;color:var(--gold2);margin-top:10px;font-weight:bold;transition:color 0.3s}.preview-wrap{display:none;margin-top:12px;border:1px solid #332a14;border-radius:12px;background:#050505;padding:10px}.preview-wrap.show{display:block}.preview-wrap img{display:block;width:100%;max-height:360px;object-fit:contain;border-radius:8px}.analysis{display:none;margin-top:10px}.analysis.show{display:block}.analysis-head{display:flex;justify-space:between;align-items:center;color:var(--gold2);font-size:11px;font-weight:900}.analysis-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-top:8px}.ai-field{background:#090908;border:1px solid #292314;border-radius:8px;padding:8px}.ai-field small{display:block;color:var(--muted);font-size:9px}.ai-field strong{display:block;margin-top:5px;font-size:13px;word-break:break-all;font-weight:900}.ai-field.ok strong{color:#8ce9c8}.ai-field.warn{border-color:#654e18}.ai-field.warn strong{color:#f1d05b}.ai-field.bad{border-color:#5c252c}.ai-field.bad strong{color:#ff8c98}.confidence{margin-top:8px;color:var(--muted);font-size:10px;font-weight:700}.ai-table{margin-top:10px;border:1px solid var(--line);border-radius:10px;overflow:auto}.ai-row{display:grid;grid-template-columns:1.5fr .9fr 1fr .7fr .7fr .7fr .8fr .7fr 1.2fr .45fr;min-width:880px;padding:9px;border-top:1px solid #211c12;align-items:center;font-size:11px;font-weight:700}.ai-head{border-top:0;background:#12100b;color:var(--gold2);font-weight:900}.manual-pass{width:100%;background:#050505;border:1px solid #302a1b;color:var(--text);padding:7px;padding-right:28px;border-radius:7px;font-weight:800}.modal-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:12px}.hidden-input{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}
 .pass-wrapper{position:relative;display:flex;align-items:center;width:100%}
 .pass-toggle-btn{position:absolute;right:8px;background:none;border:none;color:var(--gold2);font-size:12px;padding:0;cursor:pointer;line-height:1;z-index:2}
 
@@ -88,14 +89,14 @@ h1{font-size:clamp(18px, 1.4vw, 26px);margin:2px 0 0;letter-spacing:.4px;text-tr
 /* GEMINI STATUS BOX */
 .api-status-box{background:#070a0e;border:1px solid #1a2636;border-radius:10px;padding:10px;margin-top:10px}
 .api-status-header{display:flex;justify-space:between;align-items:center}
-.api-badge{font-size:9px;font-weight:900;padding:4px 8px;border-radius:6px;text-transform:uppercase}
+.api-badge{font-size:10px;font-weight:900;padding:4px 8px;border-radius:6px;text-transform:uppercase}
 .api-badge.ready{background:#092918;color:#25d69a;border:1px solid #145e3b}
 .api-badge.not-ready{background:#3b1216;color:#ff6677;border:1px solid #6e222a}
 .api-badge.empty{background:#262314;color:#f0d66a;border:1px solid #574e27}
-.reset-timer{font-size:9px;color:var(--cyan);margin-top:6px;font-weight:bold}
+.reset-timer{font-size:10px;color:var(--cyan);margin-top:6px;font-weight:bold}
 
 @media(max-width:1100px){.cards{grid-template-columns:repeat(3,1fr)}.thead,.row{grid-template-columns:1.5fr .8fr 1fr .7fr .6fr .6fr .75fr .6fr .75fr .6fr 1fr;min-width:980px}.table{overflow:auto}.thead{display:grid}.search{margin-left:0;width:100%}}
-@media(max-width:700px){.app{padding:12px}.topbar{flex-direction:column}.top-actions{justify-content:flex-start}.cards{grid-template-columns:1fr 1fr}.analysis-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:700px){.app{padding:8px}.topbar{flex-direction:column}.top-actions{justify-content:flex-start}.cards{grid-template-columns:1fr 1fr}.analysis-grid{grid-template-columns:1fr 1fr}}
 </style>
 </head>
 <body>
@@ -136,7 +137,7 @@ h1{font-size:clamp(18px, 1.4vw, 26px);margin:2px 0 0;letter-spacing:.4px;text-tr
       <button onclick="setFilter('ready',this)">READY</button>
       <button onclick="setFilter('sold',this)">SOLD</button>
     </div>
-    <label style="font-size:clamp(9px, 0.6vw, 11px);color:var(--muted)"><input id="onlyIncluded" type="checkbox" onchange="render()"> Included Only</label>
+    <label style="font-size:clamp(10px, 0.8vw, 13px);color:var(--muted);font-weight:700"><input id="onlyIncluded" type="checkbox" onchange="render()"> Included Only</label>
     <select id="sort" class="search" style="min-width:160px" onchange="render()">
       <option value="default">Default Sort</option><option value="income">Income ↓</option><option value="speed">Speed ↓</option><option value="price">Price ↓</option><option value="name">Username A–Z</option>
     </select>
@@ -173,24 +174,24 @@ h1{font-size:clamp(18px, 1.4vw, 26px);margin:2px 0 0;letter-spacing:.4px;text-tr
   <h2 id="manualTitle">＋ Tambah Akun</h2>
   <div class="notice">Password hanya diisi manual. AI tidak pernah membaca password dari screenshot.</div>
   <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:10px">
-    <label style="font-size:9px;color:var(--muted)">USERNAME<input id="fName" style="width:100%;margin-top:5px;background:#050505;border:1px solid #302a1b;color:var(--text);padding:9px;border-radius:7px"></label>
-    <label style="font-size:9px;color:var(--muted)">PASSWORD
+    <label style="font-size:10px;color:var(--muted);font-weight:700">USERNAME<input id="fName" style="width:100%;margin-top:5px;background:#050505;border:1px solid #302a1b;color:var(--text);padding:9px;border-radius:7px;font-weight:800"></label>
+    <label style="font-size:10px;color:var(--muted);font-weight:700">PASSWORD
       <div class="pass-wrapper" style="margin-top:5px">
-        <input id="fPass" type="password" style="width:100%;background:#050505;border:1px solid #302a1b;color:var(--text);padding:9px;padding-right:32px;border-radius:7px">
+        <input id="fPass" type="password" style="width:100%;background:#050505;border:1px solid #302a1b;color:var(--text);padding:9px;padding-right:32px;border-radius:7px;font-weight:800">
         <button type="button" class="pass-toggle-btn" onclick="toggleManualPass()" id="fPassToggleBtn">👁</button>
       </div>
     </label>
-    <label style="font-size:9px;color:var(--muted)">MONEY<input id="fMoney" placeholder="2.64T" style="width:100%;margin-top:5px;background:#050505;border:1px solid #302a1b;color:var(--text);padding:9px;border-radius:7px"></label>
-    <label style="font-size:9px;color:var(--muted)">INCOME / SEC<input id="fIncome" placeholder="3.168" type="number" step="any" style="width:100%;margin-top:5px;background:#050505;border:1px solid #302a1b;color:var(--text);padding:9px;border-radius:7px"></label>
-    <label style="font-size:9px;color:var(--muted)">INCOME UNIT<select id="fIncomeUnit" style="width:100%;margin-top:5px;background:#050505;border:1px solid #302a1b;color:var(--text);padding:9px;border-radius:7px"><option>B/s</option><option>M/s</option></select></label>
-    <label style="font-size:9px;color:var(--muted)">SPEED<input id="fSpeed" placeholder="10" style="width:100%;margin-top:5px;background:#050505;border:1px solid #302a1b;color:var(--text);padding:9px;border-radius:7px"></label>
-    <label style="font-size:9px;color:var(--muted)">SPEED UNIT<select id="fSpeedUnit" style="width:100%;margin-top:5px;background:#050505;border:1px solid #302a1b;color:var(--text);padding:9px;border-radius:7px"><option>B</option><option>T</option><option>M</option><option value="">Tanpa Unit</option></select></label>
-    <label style="font-size:9px;color:var(--muted)">PETS<input id="fPets" type="number" min="0" step="1" placeholder="1" style="width:100%;margin-top:5px;background:#050505;border:1px solid #302a1b;color:var(--text);padding:9px;border-radius:7px"></label>
-    <label style="font-size:9px;color:var(--muted)">EGGS<input id="fEggs" type="number" min="0" step="1" placeholder="0" style="width:100%;margin-top:5px;background:#050505;border:1px solid #302a1b;color:var(--text);padding:9px;border-radius:7px"></label>
-    <label style="font-size:9px;color:var(--muted)">TREADMILL LEVEL<input id="fTreadmill" type="number" min="0" step="1" placeholder="1" style="width:100%;margin-top:5px;background:#050505;border:1px solid #302a1b;color:var(--text);padding:9px;border-radius:7px"></label>
-    <label style="font-size:9px;color:var(--muted)">PEN LEVEL<input id="fPen" type="number" min="0" step="1" placeholder="8" style="width:100%;margin-top:5px;background:#050505;border:1px solid #302a1b;color:var(--text);padding:9px;border-radius:7px"></label>
-    <label style="font-size:9px;color:var(--muted)">TIPE DATA AKUN<select id="fDatpol" style="width:100%;margin-top:5px;background:#050505;border:1px solid #302a1b;color:var(--text);padding:9px;border-radius:7px"><option value="datpol">🟢 DATPOL (Data Polos)</option><option value="unclean">🟠 UNCLEAN (Ada Email/Data)</option></select></label>
-    <label style="font-size:9px;color:var(--muted)">STATUS<select id="fStatus" style="width:100%;margin-top:5px;background:#050505;border:1px solid #302a1b;color:var(--text);padding:9px;border-radius:7px"><option value="ready">READY</option><option value="sold">SOLD</option></select></label>
+    <label style="font-size:10px;color:var(--muted);font-weight:700">MONEY<input id="fMoney" placeholder="2.64T" style="width:100%;margin-top:5px;background:#050505;border:1px solid #302a1b;color:var(--text);padding:9px;border-radius:7px;font-weight:800"></label>
+    <label style="font-size:10px;color:var(--muted);font-weight:700">INCOME / SEC<input id="fIncome" placeholder="3.168" type="number" step="any" style="width:100%;margin-top:5px;background:#050505;border:1px solid #302a1b;color:var(--text);padding:9px;border-radius:7px;font-weight:800"></label>
+    <label style="font-size:10px;color:var(--muted);font-weight:700">INCOME UNIT<select id="fIncomeUnit" style="width:100%;margin-top:5px;background:#050505;border:1px solid #302a1b;color:var(--text);padding:9px;border-radius:7px;font-weight:800"><option>B/s</option><option>M/s</option></select></label>
+    <label style="font-size:10px;color:var(--muted);font-weight:700">SPEED<input id="fSpeed" placeholder="10" style="width:100%;margin-top:5px;background:#050505;border:1px solid #302a1b;color:var(--text);padding:9px;border-radius:7px;font-weight:800"></label>
+    <label style="font-size:10px;color:var(--muted);font-weight:700">SPEED UNIT<select id="fSpeedUnit" style="width:100%;margin-top:5px;background:#050505;border:1px solid #302a1b;color:var(--text);padding:9px;border-radius:7px;font-weight:800"><option>B</option><option>T</option><option>M</option><option value="">Tanpa Unit</option></select></label>
+    <label style="font-size:10px;color:var(--muted);font-weight:700">PETS<input id="fPets" type="number" min="0" step="1" placeholder="1" style="width:100%;margin-top:5px;background:#050505;border:1px solid #302a1b;color:var(--text);padding:9px;border-radius:7px;font-weight:800"></label>
+    <label style="font-size:10px;color:var(--muted);font-weight:700">EGGS<input id="fEggs" type="number" min="0" step="1" placeholder="0" style="width:100%;margin-top:5px;background:#050505;border:1px solid #302a1b;color:var(--text);padding:9px;border-radius:7px;font-weight:800"></label>
+    <label style="font-size:10px;color:var(--muted);font-weight:700">TREADMILL LEVEL<input id="fTreadmill" type="number" min="0" step="1" placeholder="1" style="width:100%;margin-top:5px;background:#050505;border:1px solid #302a1b;color:var(--text);padding:9px;border-radius:7px;font-weight:800"></label>
+    <label style="font-size:10px;color:var(--muted);font-weight:700">PEN LEVEL<input id="fPen" type="number" min="0" step="1" placeholder="8" style="width:100%;margin-top:5px;background:#050505;border:1px solid #302a1b;color:var(--text);padding:9px;border-radius:7px;font-weight:800"></label>
+    <label style="font-size:10px;color:var(--muted);font-weight:700">TIPE DATA AKUN<select id="fDatpol" style="width:100%;margin-top:5px;background:#050505;border:1px solid #302a1b;color:var(--text);padding:9px;border-radius:7px;font-weight:800"><option value="datpol">🟢 DATPOL (Data Polos)</option><option value="unclean">🟠 UNCLEAN (Ada Email/Data)</option></select></label>
+    <label style="font-size:10px;color:var(--muted);font-weight:700">STATUS<select id="fStatus" style="width:100%;margin-top:5px;background:#050505;border:1px solid #302a1b;color:var(--text);padding:9px;border-radius:7px;font-weight:800"><option value="ready">READY</option><option value="sold">SOLD</option></select></label>
   </div>
   <div class="modal-actions"><button class="btn ghost" onclick="closeManual()">BATAL</button><button class="btn primary" onclick="saveManual()">SIMPAN AKUN</button></div>
  </div>
@@ -208,14 +209,14 @@ h1{font-size:clamp(18px, 1.4vw, 26px);margin:2px 0 0;letter-spacing:.4px;text-tr
   <div class="api-status-box">
     <div class="api-status-header">
       <div style="display:flex;align-items:center;gap:8px">
-        <label style="font-size:10px;color:var(--gold2);font-weight:bold">GEMINI API KEY STATUS:</label>
+        <label style="font-size:11px;color:var(--gold2);font-weight:bold">GEMINI API KEY STATUS:</label>
         <span id="apiStatusBadge" class="api-badge empty">NOT SET</span>
       </div>
-      <span id="apiUsageBadge" style="font-size:9px;color:var(--cyan);font-weight:bold">Pemakaian Hari Ini: 0 / 1500</span>
+      <span id="apiUsageBadge" style="font-size:10px;color:var(--cyan);font-weight:bold">Pemakaian Hari Ini: 0 / 1500</span>
     </div>
     <div class="pass-wrapper" style="margin-top:8px">
       <input id="geminiApiKey" type="password" placeholder="Masukkan API Key Gemini di sini..." 
-             style="width:100%;background:#050505;border:1px solid #302a1b;color:var(--text);padding:8px;padding-right:32px;border-radius:7px;font-size:11px"
+             style="width:100%;background:#050505;border:1px solid #302a1b;color:var(--text);padding:8px;padding-right:32px;border-radius:7px;font-size:12px;font-weight:800"
              oninput="updateApiKey(this.value)">
       <button type="button" class="pass-toggle-btn" onclick="toggleGeminiKeyVis()" id="geminiKeyToggleBtn">👁</button>
     </div>
@@ -247,7 +248,7 @@ h1{font-size:clamp(18px, 1.4vw, 26px);margin:2px 0 0;letter-spacing:.4px;text-tr
 <script>
 const $=id=>document.getElementById(id);
 let state=JSON.parse(localStorage.getItem('sae_gold_v13')||'null')||{accounts:[],incomeRate:1000,speedRate:1000};
-let filter='all',page=1,pageSize=30,editingId=null,hideMode=false;
+let filter='all',page=1,pageSize=24,editingId=null,hideMode=false;
 
 let showAllPasswords = false;
 
@@ -683,7 +684,7 @@ window.analyzeImage = async function(blob, pass = 1) {
     Keluarkan respons murni dalam JSON.`;
 
     const response = await ai.models.generateContent({
-      model: 'gemini-2.5-flash',
+      model: 'gemini-3.6-flash',
       contents: [prompt, imagePart],
       config: {
         responseMimeType: "application/json",
