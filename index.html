@@ -28,41 +28,41 @@
 }
 *{box-sizing:border-box} body{margin:0;background:radial-gradient(circle at 50% -20%,#1a1407 0,#050505 42%,#000 100%);color:var(--text);font-family:Inter,Segoe UI,Arial,sans-serif}
 button,input,select{font:inherit} button{cursor:pointer}
-.app{max-width:1600px;margin:auto;padding:22px}
+.app{max-width:98vw;margin:auto;padding:1vw 1.5vw}
 
 /* HEADER STYLES */
 .brand-title-center {
   text-align: center;
   font-family: 'Cinzel', serif;
-  font-size: 42px;
+  font-size: clamp(28px, 2.5vw, 46px);
   font-weight: 900;
   letter-spacing: 4px;
   color: var(--gold2);
   text-shadow: 0 0 20px rgba(212,175,55,0.4), 0 2px 4px rgba(0,0,0,0.8);
-  margin-bottom: 5px;
+  margin-bottom: 2px;
 }
 
-.topbar{display:flex;justify-space:between;gap:20px;align-items:flex-start;border-bottom:1px solid var(--line);padding:8px 0 20px}
-.eyebrow{font-size:10px;letter-spacing:2px;color:var(--gold);font-weight:900}
-h1{font-size:23px;margin:4px 0 0;letter-spacing:.4px;text-transform:uppercase}
-.top-actions{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
-.btn{border:1px solid var(--line);background:#0e0d09;color:var(--gold2);padding:10px 13px;border-radius:9px;font-size:11px;font-weight:900}.btn:hover{border-color:var(--gold);box-shadow:0 0 0 2px rgba(212,175,55,.07)}.btn.primary{background:linear-gradient(#e1bb3f,#b58a13);color:#090806;border-color:#f1d96b}.btn.danger{color:#ff7d8c;border-color:#5a222b}.btn.ghost{background:transparent}
+.topbar{display:flex;justify-space:between;gap:15px;align-items:flex-start;border-bottom:1px solid var(--line);padding:4px 0 10px}
+.eyebrow{font-size:clamp(10px, 0.7vw, 12px);letter-spacing:2px;color:var(--gold);font-weight:900}
+h1{font-size:clamp(18px, 1.4vw, 26px);margin:2px 0 0;letter-spacing:.4px;text-transform:uppercase}
+.top-actions{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+.btn{border:1px solid var(--line);background:#0e0d09;color:var(--gold2);padding:6px 10px;border-radius:8px;font-size:clamp(11px, 0.75vw, 13px);font-weight:900}.btn:hover{border-color:var(--gold);box-shadow:0 0 0 2px rgba(212,175,55,.07)}.btn.primary{background:linear-gradient(#e1bb3f,#b58a13);color:#090806;border-color:#f1d96b}.btn.danger{color:#ff7d8c;border-color:#5a222b}.btn.ghost{background:transparent}
 
-.cards{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin:16px 0}.card{background:linear-gradient(145deg,#0d0d0d,#080806);border:1px solid var(--line);border-radius:13px;padding:14px;min-height:105px;box-shadow:var(--shadow)}.card-label{font-size:10px;font-weight:900;color:var(--gold2);letter-spacing:.8px}.card-value{font-size:23px;font-weight:950;margin-top:12px}.card-sub{font-size:9px;color:var(--muted);margin-top:7px}.green{color:var(--green)}.cyan{color:var(--cyan)}.purple{color:var(--purple)}.yellow{color:var(--gold2)}
-.controls{display:flex;gap:9px;align-items:center;flex-wrap:wrap;background:#0a0a09;border:1px solid var(--line);padding:10px;border-radius:12px;margin-bottom:12px}.filter{display:flex;gap:5px}.filter button{background:#0d0c09;border:1px solid var(--line);color:var(--muted);padding:7px 11px;border-radius:7px;font-size:10px;font-weight:900}.filter button.active{background:var(--gold);color:#090806;border-color:var(--gold)}.search{margin-left:auto;background:#070707;border:1px solid #2e291b;color:var(--text);padding:9px 11px;border-radius:8px;min-width:240px;outline:none}.search:focus{border-color:var(--gold)}
+.cards{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin:10px 0}.card{background:linear-gradient(145deg,#0d0d0d,#080806);border:1px solid var(--line);border-radius:10px;padding:8px 12px;min-height:auto;box-shadow:var(--shadow)}.card-label{font-size:clamp(9px, 0.65vw, 11px);font-weight:900;color:var(--gold2);letter-spacing:.8px}.card-value{font-size:clamp(18px, 1.3vw, 26px);font-weight:950;margin-top:4px}.card-sub{font-size:clamp(8px, 0.55vw, 10px);color:var(--muted);margin-top:2px}.green{color:var(--green)}.cyan{color:var(--cyan)}.purple{color:var(--purple)}.yellow{color:var(--gold2)}
+.controls{display:flex;gap:8px;align-items:center;flex-wrap:wrap;background:#0a0a09;border:1px solid var(--line);padding:6px 10px;border-radius:10px;margin-bottom:8px}.filter{display:flex;gap:4px}.filter button{background:#0d0c09;border:1px solid var(--line);color:var(--muted);padding:5px 9px;border-radius:6px;font-size:clamp(10px, 0.65vw, 12px);font-weight:900}.filter button.active{background:var(--gold);color:#090806;border-color:var(--gold)}.search{margin-left:auto;background:#070707;border:1px solid #2e291b;color:var(--text);padding:5px 9px;border-radius:7px;min-width:200px;font-size:clamp(11px, 0.75vw, 13px);outline:none}.search:focus{border-color:var(--gold)}
 
-/* TABLE STYLES - 11 COLUMNS */
-.table{border:1px solid var(--line);border-radius:13px;overflow:hidden;background:#080808}.thead,.row{display:grid;grid-template-columns:1.5fr .9fr 1fr .7fr .6fr .6fr .75fr .6fr .75fr .65fr 1fr;align-items:center}.thead{background:#12100b;color:var(--gold2);font-size:9px;font-weight:950;letter-spacing:.6px;padding:12px}.row{min-height:72px;border-top:1px solid #211c12;padding:10px 12px}.row:hover{background:#0e0d0a}.cell{min-width:0}.account{display:flex;gap:9px;align-items:center}.avatar{width:32px;height:32px;border:1px solid #5b4a1b;border-radius:50%;display:grid;place-items:center;background:#12100a}.name{font-weight:900;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.meta{font-size:9px;color:var(--muted);margin-top:4px;display:flex;align-items:center;gap:4px}.val{font-weight:900;font-size:12px}.money{color:var(--green)}.income{color:var(--cyan)}.speed{color:var(--purple)}.pets{color:#59e5bb}.eggs{color:var(--gold2)}.treadmill{color:#ff7e9a}.pen{color:#8aa8ff}
+/* TABLE STYLES - DENGAN UKURAN TEKS KECIL KUSTOM SAAT ZOOM OUT */
+.table{border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#080808}.thead,.row{display:grid;grid-template-columns:1.5fr .9fr 1fr .7fr .6fr .6fr .75fr .6fr .75fr .65fr 1fr;align-items:center}.thead{background:#12100b;color:var(--gold2);font-size:clamp(10px, 0.7vw, 12px);font-weight:950;letter-spacing:.6px;padding:6px 10px}.row{min-height:clamp(28px, 3vh, 36px);border-top:1px solid #211c12;padding:3px 10px}.row:hover{background:#0e0d0a}.cell{min-width:0}.account{display:flex;gap:6px;align-items:center}.avatar{width:22px;height:22px;border:1px solid #5b4a1b;border-radius:50%;display:grid;place-items:center;background:#12100a;font-size:clamp(10px, 0.7vw, 12px)}.name{font-weight:900;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:clamp(12px, 0.85vw, 15px)}.meta{font-size:clamp(9px, 0.6vw, 11px);color:var(--muted);margin-top:1px;display:flex;align-items:center;gap:4px}.val{font-weight:900;font-size:clamp(12px, 0.85vw, 15px)}.money{color:var(--green)}.income{color:var(--cyan)}.speed{color:var(--purple)}.pets{color:#59e5bb}.eggs{color:var(--gold2)}.treadmill{color:#ff7e9a}.pen{color:#8aa8ff}
 
 /* TOGGLE BADGE STYLES (DATPOL & STATUS) */
-.datpol-badge, .status-badge{font-size:9px;font-weight:900;padding:5px 7px;border-radius:6px;cursor:pointer;user-select:none;display:inline-block;transition:all 0.2s}
+.datpol-badge, .status-badge{font-size:clamp(9px, 0.6vw, 11px);font-weight:900;padding:3px 6px;border-radius:5px;cursor:pointer;user-select:none;display:inline-block;transition:all 0.2s}
 .datpol-badge.datpol{background:#092918;color:#25d69a;border:1px solid #145e3b}
 .datpol-badge.unclean{background:#2b1908;color:#ffab40;border:1px solid #6b3e0c}
 
 .status-badge.ready{background:#09251c;color:#54e0b4;border:1px solid #1c604d}
 .status-badge.sold{background:#29100f;color:#ff8490;border:1px solid #743039}
 
-.actions{display:flex;gap:4px;justify-content:flex-end}.action{background:#11100d;border:1px solid var(--line);color:#c9bc91;padding:6px 7px;border-radius:6px}.empty{padding:50px;text-align:center;color:var(--muted)}.bottom{display:flex;justify-center;gap:16px;padding:13px;border-top:1px solid #211c12;color:var(--muted);font-size:11px}.bottom button{background:#0e0d09;border:1px solid var(--line);color:var(--gold2);padding:7px 10px;border-radius:7px}
+.actions{display:flex;gap:3px;justify-content:flex-end}.action{background:#11100d;border:1px solid var(--line);color:#c9bc91;padding:3px 5px;border-radius:5px;font-size:clamp(10px, 0.65vw, 12px)}.empty{padding:20px;text-align:center;color:var(--muted);font-size:clamp(12px, 0.8vw, 14px)}.bottom{display:flex;justify-content:center;align-items:center;gap:12px;padding:6px;border-top:1px solid #211c12;color:var(--muted);font-size:clamp(10px, 0.7vw, 12px)}.bottom button{background:#0e0d09;border:1px solid var(--line);color:var(--gold2);padding:4px 8px;border-radius:6px;font-size:clamp(10px, 0.7vw, 12px)}
 
 /* FLOATING RATE WIDGET */
 .rate-widget-container {position:fixed;right:18px;bottom:18px;z-index:20;display:flex;flex-direction:column;align-items:flex-end}
@@ -136,7 +136,7 @@ h1{font-size:23px;margin:4px 0 0;letter-spacing:.4px;text-transform:uppercase}
       <button onclick="setFilter('ready',this)">READY</button>
       <button onclick="setFilter('sold',this)">SOLD</button>
     </div>
-    <label style="font-size:9px;color:var(--muted)"><input id="onlyIncluded" type="checkbox" onchange="render()"> Included Only</label>
+    <label style="font-size:clamp(9px, 0.6vw, 11px);color:var(--muted)"><input id="onlyIncluded" type="checkbox" onchange="render()"> Included Only</label>
     <select id="sort" class="search" style="min-width:160px" onchange="render()">
       <option value="default">Default Sort</option><option value="income">Income ↓</option><option value="speed">Speed ↓</option><option value="price">Price ↓</option><option value="name">Username A–Z</option>
     </select>
@@ -247,7 +247,7 @@ h1{font-size:23px;margin:4px 0 0;letter-spacing:.4px;text-transform:uppercase}
 <script>
 const $=id=>document.getElementById(id);
 let state=JSON.parse(localStorage.getItem('sae_gold_v13')||'null')||{accounts:[],incomeRate:1000,speedRate:1000};
-let filter='all',page=1,pageSize=20,editingId=null,hideMode=false;
+let filter='all',page=1,pageSize=30,editingId=null,hideMode=false;
 
 let showAllPasswords = false;
 
@@ -683,7 +683,7 @@ window.analyzeImage = async function(blob, pass = 1) {
     Keluarkan respons murni dalam JSON.`;
 
     const response = await ai.models.generateContent({
-      model: 'gemini-3.6-flash',
+      model: 'gemini-2.5-flash',
       contents: [prompt, imagePart],
       config: {
         responseMimeType: "application/json",
