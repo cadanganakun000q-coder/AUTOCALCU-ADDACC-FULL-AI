@@ -28,7 +28,7 @@
 }
 *{box-sizing:border-box} body{margin:0;background:radial-gradient(circle at 50% -20%,#1a1407 0,#050505 42%,#000 100%);color:var(--text);font-family:Inter,Segoe UI,Arial,sans-serif}
 button,input,select{font:inherit} button{cursor:pointer}
-.app{max-width:1500px;margin:auto;padding:22px}
+.app{max-width:1600px;margin:auto;padding:22px}
 
 /* HEADER STYLES */
 .brand-title-center {
@@ -50,45 +50,42 @@ h1{font-size:23px;margin:4px 0 0;letter-spacing:.4px;text-transform:uppercase}
 
 .cards{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin:16px 0}.card{background:linear-gradient(145deg,#0d0d0d,#080806);border:1px solid var(--line);border-radius:13px;padding:14px;min-height:105px;box-shadow:var(--shadow)}.card-label{font-size:10px;font-weight:900;color:var(--gold2);letter-spacing:.8px}.card-value{font-size:23px;font-weight:950;margin-top:12px}.card-sub{font-size:9px;color:var(--muted);margin-top:7px}.green{color:var(--green)}.cyan{color:var(--cyan)}.purple{color:var(--purple)}.yellow{color:var(--gold2)}
 .controls{display:flex;gap:9px;align-items:center;flex-wrap:wrap;background:#0a0a09;border:1px solid var(--line);padding:10px;border-radius:12px;margin-bottom:12px}.filter{display:flex;gap:5px}.filter button{background:#0d0c09;border:1px solid var(--line);color:var(--muted);padding:7px 11px;border-radius:7px;font-size:10px;font-weight:900}.filter button.active{background:var(--gold);color:#090806;border-color:var(--gold)}.search{margin-left:auto;background:#070707;border:1px solid #2e291b;color:var(--text);padding:9px 11px;border-radius:8px;min-width:240px;outline:none}.search:focus{border-color:var(--gold)}
-.table{border:1px solid var(--line);border-radius:13px;overflow:hidden;background:#080808}.thead,.row{display:grid;grid-template-columns:1.65fr .95fr 1.15fr .75fr .65fr .65fr .85fr .7fr .7fr 1.05fr;align-items:center}.thead{background:#12100b;color:var(--gold2);font-size:9px;font-weight:950;letter-spacing:.6px;padding:12px}.row{min-height:72px;border-top:1px solid #211c12;padding:10px 12px}.row:hover{background:#0e0d0a}.cell{min-width:0}.account{display:flex;gap:9px;align-items:center}.avatar{width:32px;height:32px;border:1px solid #5b4a1b;border-radius:50%;display:grid;place-items:center;background:#12100a}.name{font-weight:900;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.meta{font-size:9px;color:var(--muted);margin-top:4px;display:flex;align-items:center;gap:4px}.val{font-weight:900;font-size:12px}.money{color:var(--green)}.income{color:var(--cyan)}.speed{color:var(--purple)}.pets{color:#59e5bb}.eggs{color:var(--gold2)}.treadmill{color:#ff7e9a}.pen{color:#8aa8ff}.status{font-size:9px;font-weight:900;padding:5px 7px;border-radius:6px;display:inline-block}.status.ready{background:#09251c;color:#54e0b4;border:1px solid #1c604d}.status.sold{background:#29100f;color:#ff8490;border:1px solid #743039}.actions{display:flex;gap:4px;justify-content:flex-end}.action{background:#11100d;border:1px solid var(--line);color:#c9bc91;padding:6px 7px;border-radius:6px}.empty{padding:50px;text-align:center;color:var(--muted)}.bottom{display:flex;justify-content:center;gap:16px;padding:13px;border-top:1px solid #211c12;color:var(--muted);font-size:11px}.bottom button{background:#0e0d09;border:1px solid var(--line);color:var(--gold2);padding:7px 10px;border-radius:7px}
+
+/* TABLE STYLES - 11 COLUMNS */
+.table{border:1px solid var(--line);border-radius:13px;overflow:hidden;background:#080808}.thead,.row{display:grid;grid-template-columns:1.5fr .9fr 1fr .7fr .6fr .6fr .75fr .6fr .75fr .65fr 1fr;align-items:center}.thead{background:#12100b;color:var(--gold2);font-size:9px;font-weight:950;letter-spacing:.6px;padding:12px}.row{min-height:72px;border-top:1px solid #211c12;padding:10px 12px}.row:hover{background:#0e0d0a}.cell{min-width:0}.account{display:flex;gap:9px;align-items:center}.avatar{width:32px;height:32px;border:1px solid #5b4a1b;border-radius:50%;display:grid;place-items:center;background:#12100a}.name{font-weight:900;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.meta{font-size:9px;color:var(--muted);margin-top:4px;display:flex;align-items:center;gap:4px}.val{font-weight:900;font-size:12px}.money{color:var(--green)}.income{color:var(--cyan)}.speed{color:var(--purple)}.pets{color:#59e5bb}.eggs{color:var(--gold2)}.treadmill{color:#ff7e9a}.pen{color:#8aa8ff}.status{font-size:9px;font-weight:900;padding:5px 7px;border-radius:6px;display:inline-block}.status.ready{background:#09251c;color:#54e0b4;border:1px solid #1c604d}.status.sold{background:#29100f;color:#ff8490;border:1px solid #743039}
+
+/* DATPOL / UNCLEAN TOGGLE STYLES */
+.datpol-badge{font-size:9px;font-weight:900;padding:4px 7px;border-radius:6px;cursor:pointer;user-select:none;display:inline-block;transition:all 0.2s}
+.datpol-badge.datpol{background:#092918;color:#25d69a;border:1px solid #145e3b}
+.datpol-badge.unclean{background:#2b1908;color:#ffab40;border:1px solid #6b3e0c}
+
+.actions{display:flex;gap:4px;justify-content:flex-end}.action{background:#11100d;border:1px solid var(--line);color:#c9bc91;padding:6px 7px;border-radius:6px}.empty{padding:50px;text-align:center;color:var(--muted)}.bottom{display:flex;justify-content:center;gap:16px;padding:13px;border-top:1px solid #211c12;color:var(--muted);font-size:11px}.bottom button{background:#0e0d09;border:1px solid var(--line);color:var(--gold2);padding:7px 10px;border-radius:7px}
 
 /* FLOATING RATE WIDGET */
-.rate-widget-container {
-  position: fixed;
-  right: 18px;
-  bottom: 18px;
-  z-index: 20;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-}
-.rate-toggle-btn {
-  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-.rate-panel{
-  width: 330px;
-  background: #0b0a08;
-  border: 1px solid var(--line);
-  border-radius: 13px;
-  padding: 12px;
-  box-shadow: var(--shadow);
-  margin-bottom: 8px;
-  display: block;
-}
-.rate-panel.hidden{ display: none; }
+.rate-widget-container {position:fixed;right:18px;bottom:18px;z-index:20;display:flex;flex-direction:column;align-items:flex-end}
+.rate-toggle-btn {box-shadow:0 4px 15px rgba(0,0,0,0.5);display:flex;align-items:center;gap:6px}
+.rate-panel{width:330px;background:#0b0a08;border:1px solid var(--line);border-radius:13px;padding:12px;box-shadow:var(--shadow);margin-bottom:8px;display:block}
+.rate-panel.hidden{display:none}
 .rate-head{display:flex;justify-space:between;align-items:center;color:var(--gold2);font-size:10px;font-weight:900}
 .rate-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:9px}
 .rate-box label{display:block;font-size:8px;color:var(--muted);margin-bottom:4px}
 .rate-box input{width:100%;background:#050505;color:var(--text);border:1px solid #302a1b;border-radius:7px;padding:7px}
 
-.modal-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,.82);backdrop-filter:blur(7px);z-index:100;padding:22px;overflow:auto}.modal-bg.show{display:flex;align-items:center;justify-content:center}.modal{width:min(1120px,100%);background:linear-gradient(145deg,#0d0c09,#070707);border:1px solid var(--gold);border-radius:16px;padding:18px;box-shadow:0 30px 100px rgba(0,0,0,.8)}.modal h2{margin:0 0 12px;color:var(--gold2);font-size:17px}.notice{background:#090c10;border:1px solid #1f2b36;border-radius:10px;padding:11px;color:#8f9eaa;font-size:10px;line-height:1.55}.notice b{color:#d8d1bd}.paste-zone{margin-top:12px;min-height:220px;border:2px dashed #8a7020;border-radius:14px;background:radial-gradient(circle at 50% 20%,#171209,#070707 70%);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:16px;text-align:center;outline:none}.paste-zone:focus,.paste-zone.drag{border-color:var(--gold2);box-shadow:0 0 0 3px rgba(212,175,55,.08)}.paste-icon{font-size:38px}.paste-title{font-size:17px;font-weight:950;color:var(--gold2);margin-top:8px}.paste-sub{font-size:11px;color:#bdb294;margin-top:7px}.paste-status{font-size:10px;color:var(--gold2);margin-top:10px;font-weight:bold;transition:color 0.3s}.preview-wrap{display:none;margin-top:12px;border:1px solid #332a14;border-radius:12px;background:#050505;padding:10px}.preview-wrap.show{display:block}.preview-wrap img{display:block;width:100%;max-height:360px;object-fit:contain;border-radius:8px}.analysis{display:none;margin-top:10px}.analysis.show{display:block}.analysis-head{display:flex;justify-content:space-between;align-items:center;color:var(--gold2);font-size:10px;font-weight:900}.analysis-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-top:8px}.ai-field{background:#090908;border:1px solid #292314;border-radius:8px;padding:8px}.ai-field small{display:block;color:var(--muted);font-size:8px}.ai-field strong{display:block;margin-top:5px;font-size:12px;word-break:break-all}.ai-field.ok strong{color:#8ce9c8}.ai-field.warn{border-color:#654e18}.ai-field.warn strong{color:#f1d05b}.ai-field.bad{border-color:#5c252c}.ai-field.bad strong{color:#ff8c98}.confidence{margin-top:8px;color:var(--muted);font-size:9px}.ai-table{margin-top:10px;border:1px solid var(--line);border-radius:10px;overflow:auto}.ai-row{display:grid;grid-template-columns:1.5fr .9fr 1fr .7fr .7fr .7fr .8fr .7fr 1.2fr .45fr;min-width:880px;padding:9px;border-top:1px solid #211c12;align-items:center;font-size:10px}.ai-head{border-top:0;background:#12100b;color:var(--gold2);font-weight:900}.manual-pass{width:100%;background:#050505;border:1px solid #302a1b;color:var(--text);padding:7px;padding-right:28px;border-radius:7px}.modal-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:12px}.hidden-input{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}
+.modal-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,.82);backdrop-filter:blur(7px);z-index:100;padding:22px;overflow:auto}.modal-bg.show{display:flex;align-items:center;justify-content:center}.modal{width:min(1120px,100%);background:linear-gradient(145deg,#0d0c09,#070707);border:1px solid var(--gold);border-radius:16px;padding:18px;box-shadow:0 30px 100px rgba(0,0,0,.8)}.modal h2{margin:0 0 12px;color:var(--gold2);font-size:17px}.notice{background:#090c10;border:1px solid #1f2b36;border-radius:10px;padding:11px;color:#8f9eaa;font-size:10px;line-height:1.55}.notice b{color:#d8d1bd}.paste-zone{margin-top:12px;min-height:220px;border:2px dashed #8a7020;border-radius:14px;background:radial-gradient(circle at 50% 20%,#171209,#070707 70%);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:16px;text-align:center;outline:none}.paste-zone:focus,.paste-zone.drag{border-color:var(--gold2);box-shadow:0 0 0 3px rgba(212,175,55,.08)}.paste-icon{font-size:38px}.paste-title{font-size:17px;font-weight:950;color:var(--gold2);margin-top:8px}.paste-sub{font-size:11px;color:#bdb294;margin-top:7px}.paste-status{font-size:10px;color:var(--gold2);margin-top:10px;font-weight:bold;transition:color 0.3s}.preview-wrap{display:none;margin-top:12px;border:1px solid #332a14;border-radius:12px;background:#050505;padding:10px}.preview-wrap.show{display:block}.preview-wrap img{display:block;width:100%;max-height:360px;object-fit:contain;border-radius:8px}.analysis{display:none;margin-top:10px}.analysis.show{display:block}.analysis-head{display:flex;justify-space:between;align-items:center;color:var(--gold2);font-size:10px;font-weight:900}.analysis-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-top:8px}.ai-field{background:#090908;border:1px solid #292314;border-radius:8px;padding:8px}.ai-field small{display:block;color:var(--muted);font-size:8px}.ai-field strong{display:block;margin-top:5px;font-size:12px;word-break:break-all}.ai-field.ok strong{color:#8ce9c8}.ai-field.warn{border-color:#654e18}.ai-field.warn strong{color:#f1d05b}.ai-field.bad{border-color:#5c252c}.ai-field.bad strong{color:#ff8c98}.confidence{margin-top:8px;color:var(--muted);font-size:9px}.ai-table{margin-top:10px;border:1px solid var(--line);border-radius:10px;overflow:auto}.ai-row{display:grid;grid-template-columns:1.5fr .9fr 1fr .7fr .7fr .7fr .8fr .7fr 1.2fr .45fr;min-width:880px;padding:9px;border-top:1px solid #211c12;align-items:center;font-size:10px}.ai-head{border-top:0;background:#12100b;color:var(--gold2);font-weight:900}.manual-pass{width:100%;background:#050505;border:1px solid #302a1b;color:var(--text);padding:7px;padding-right:28px;border-radius:7px}.modal-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:12px}.hidden-input{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}
 .pass-wrapper{position:relative;display:flex;align-items:center;width:100%}
 .pass-toggle-btn{position:absolute;right:8px;background:none;border:none;color:var(--gold2);font-size:12px;padding:0;cursor:pointer;line-height:1;z-index:2}
 .screenshot-mode .secret,.screenshot-mode .username-sensitive{filter:blur(7px);user-select:none}.screenshot-mode .secret:hover,.screenshot-mode .username-sensitive:hover{filter:blur(7px)}
-@media(max-width:1100px){.cards{grid-template-columns:repeat(3,1fr)}.thead,.row{grid-template-columns:1.5fr .8fr 1fr .7fr .6fr .6fr .75fr .6fr .6fr .9fr;min-width:900px}.table{overflow:auto}.thead{display:grid}.search{margin-left:0;width:100%}}
+
+/* GEMINI STATUS BOX */
+.api-status-box{background:#070a0e;border:1px solid #1a2636;border-radius:10px;padding:10px;margin-top:10px}
+.api-status-header{display:flex;justify-space:between;align-items:center}
+.api-badge{font-size:9px;font-weight:900;padding:4px 8px;border-radius:6px;text-transform:uppercase}
+.api-badge.ready{background:#092918;color:#25d69a;border:1px solid #145e3b}
+.api-badge.not-ready{background:#3b1216;color:#ff6677;border:1px solid #6e222a}
+.api-badge.empty{background:#262314;color:#f0d66a;border:1px solid #574e27}
+.reset-timer{font-size:9px;color:var(--cyan);margin-top:6px;font-weight:bold}
+
+@media(max-width:1100px){.cards{grid-template-columns:repeat(3,1fr)}.thead,.row{grid-template-columns:1.5fr .8fr 1fr .7fr .6fr .6fr .75fr .6fr .75fr .6fr 1fr;min-width:980px}.table{overflow:auto}.thead{display:grid}.search{margin-left:0;width:100%}}
 @media(max-width:700px){.app{padding:12px}.topbar{flex-direction:column}.top-actions{justify-content:flex-start}.cards{grid-template-columns:1fr 1fr}.analysis-grid{grid-template-columns:1fr 1fr}}
 </style>
 </head>
@@ -139,7 +136,7 @@ h1{font-size:23px;margin:4px 0 0;letter-spacing:.4px;text-transform:uppercase}
 
   <div class="table">
     <div class="thead">
-      <div>USERNAME</div><div>💸 MONEY</div><div>⚡ INCOME / SEC</div><div>🚀 SPEED</div><div>🐾 PETS</div><div>🥚 EGGS</div><div>🏃 TREADMILL</div><div>🏠 PEN</div><div>STATUS</div><div>ACTIONS</div>
+      <div>USERNAME</div><div>💸 MONEY</div><div>⚡ INCOME / SEC</div><div>🚀 SPEED</div><div>🐾 PETS</div><div>🥚 EGGS</div><div>🏃 TREADMILL</div><div>🏠 PEN</div><div>DATPOL / DATA</div><div>STATUS</div><div>ACTIONS</div>
     </div>
     <div id="rows"></div>
     <div class="bottom"><button onclick="changePage(-1)">Prev</button><span id="pageInfo">Page 1</span><button onclick="changePage(1)">Next</button></div>
@@ -183,6 +180,7 @@ h1{font-size:23px;margin:4px 0 0;letter-spacing:.4px;text-transform:uppercase}
     <label style="font-size:9px;color:var(--muted)">EGGS<input id="fEggs" type="number" min="0" step="1" placeholder="0" style="width:100%;margin-top:5px;background:#050505;border:1px solid #302a1b;color:var(--text);padding:9px;border-radius:7px"></label>
     <label style="font-size:9px;color:var(--muted)">TREADMILL LEVEL<input id="fTreadmill" type="number" min="0" step="1" placeholder="1" style="width:100%;margin-top:5px;background:#050505;border:1px solid #302a1b;color:var(--text);padding:9px;border-radius:7px"></label>
     <label style="font-size:9px;color:var(--muted)">PEN LEVEL<input id="fPen" type="number" min="0" step="1" placeholder="8" style="width:100%;margin-top:5px;background:#050505;border:1px solid #302a1b;color:var(--text);padding:9px;border-radius:7px"></label>
+    <label style="font-size:9px;color:var(--muted)">TIPE DATA AKUN<select id="fDatpol" style="width:100%;margin-top:5px;background:#050505;border:1px solid #302a1b;color:var(--text);padding:9px;border-radius:7px"><option value="datpol">🟢 DATPOL (Data Polos)</option><option value="unclean">🟠 UNCLEAN (Ada Email/Data)</option></select></label>
     <label style="font-size:9px;color:var(--muted)">STATUS<select id="fStatus" style="width:100%;margin-top:5px;background:#050505;border:1px solid #302a1b;color:var(--text);padding:9px;border-radius:7px"><option value="ready">READY</option><option value="sold">SOLD</option></select></label>
   </div>
   <div class="modal-actions"><button class="btn ghost" onclick="closeManual()">BATAL</button><button class="btn primary" onclick="saveManual()">SIMPAN AKUN</button></div>
@@ -197,18 +195,24 @@ h1{font-size:23px;margin:4px 0 0;letter-spacing:.4px;text-transform:uppercase}
     <b>PASTE-ONLY VISION WORKFLOW</b><br>
     Tempel screenshot dengan <b>Ctrl + V</b>. Sistem membaca <b>USERNAME, MONEY, INCOME/SEC, SPEED, PETS, EGGS, TREADMILL LEVEL, PEN LEVEL</b> saja.
   </div>
-  <div style="margin-top:10px">
-    <div style="display:flex;justify-space:between;align-items:center">
-      <label style="font-size:9px;color:var(--gold2);font-weight:bold">GEMINI API KEY:</label>
-      <span id="apiUsageBadge" style="font-size:9px;color:var(--cyan);font-weight:bold">Pemakaian Hari Ini: 0 / 1500 Request</span>
+  
+  <div class="api-status-box">
+    <div class="api-status-header">
+      <div style="display:flex;align-items:center;gap:8px">
+        <label style="font-size:10px;color:var(--gold2);font-weight:bold">GEMINI API KEY STATUS:</label>
+        <span id="apiStatusBadge" class="api-badge empty">NOT SET</span>
+      </div>
+      <span id="apiUsageBadge" style="font-size:9px;color:var(--cyan);font-weight:bold">Pemakaian Hari Ini: 0 / 1500</span>
     </div>
-    <div class="pass-wrapper" style="margin-top:4px">
+    <div class="pass-wrapper" style="margin-top:8px">
       <input id="geminiApiKey" type="password" placeholder="Masukkan API Key Gemini di sini..." 
              style="width:100%;background:#050505;border:1px solid #302a1b;color:var(--text);padding:8px;padding-right:32px;border-radius:7px;font-size:11px"
              oninput="updateApiKey(this.value)">
       <button type="button" class="pass-toggle-btn" onclick="toggleGeminiKeyVis()" id="geminiKeyToggleBtn">👁</button>
     </div>
+    <div id="resetTimer" class="reset-timer">🕒 Kuota harian tereset otomatis dalam: --j --m --d</div>
   </div>
+
   <div id="pasteZone" class="paste-zone" tabindex="0">
     <div class="paste-icon">📋</div>
     <div class="paste-title">TEMPEL SCREENSHOT DI SINI</div>
@@ -352,6 +356,15 @@ function toggleShowAllPasswords() {
   render();
 }
 
+function toggleDatpolStatus(id) {
+  const a = state.accounts.find(x => String(x.id) === String(id));
+  if (a) {
+    a.datpol = (a.datpol === 'unclean') ? 'datpol' : 'unclean';
+    save();
+    render();
+  }
+}
+
 function render(){
   const activeAccounts = state.accounts.filter(a=>a.include!==false);
   
@@ -387,6 +400,11 @@ function render(){
       ? (showAllPasswords ? esc(a.password) : '🔑 ••••••••') 
       : 'Password manual';
 
+    const isDatpol = (a.datpol !== 'unclean'); 
+    const datpolBadge = isDatpol 
+      ? `<span class="datpol-badge datpol" onclick="toggleDatpolStatus('${a.id}')" title="Klik untuk ubah status">🟢 DATPOL</span>`
+      : `<span class="datpol-badge unclean" onclick="toggleDatpolStatus('${a.id}')" title="Klik untuk ubah status">🟠 UNCLEAN</span>`;
+
     return `<div class="row">
 <div class="cell">
   <div class="account">
@@ -399,10 +417,21 @@ function render(){
     </div>
   </div>
 </div>
-<div class="cell val money">${esc(moneyText(a.money))}</div><div class="cell val income">${a.income!==''?fmt(a.income)+' '+esc(a.incomeUnit||'M/s'):'—'}</div>
-<div class="cell val speed">${getFormattedSpeed(a)}</div><div class="cell val pets">${a.pets!==''?'🐾 '+fmt(a.pets):'—'}</div><div class="cell val eggs">${a.eggs!==''?'🥚 '+fmt(a.eggs):'—'}</div>
-<div class="cell val treadmill">${a.treadmill!==''?'LV '+fmt(a.treadmill):'—'}</div><div class="cell val pen">${a.pen!==''?'LV '+fmt(a.pen):'—'}</div>
-<div class="cell"><span class="status ${a.status}">${a.status.toUpperCase()}</span></div><div class="cell actions"><input type="checkbox" ${a.include!==false?'checked':''} onchange="toggleInclude('${a.id}')"><button class="action" onclick="editAccount('${a.id}')">✏️</button><button class="action" onclick="toggleSold('${a.id}')">↔</button><button class="action" onclick="deleteAccount('${a.id}')">🗑</button></div></div>`;
+<div class="cell val money">${esc(moneyText(a.money))}</div>
+<div class="cell val income">${a.income!==''?fmt(a.income)+' '+esc(a.incomeUnit||'M/s'):'—'}</div>
+<div class="cell val speed">${getFormattedSpeed(a)}</div>
+<div class="cell val pets">${a.pets!==''?'🐾 '+fmt(a.pets):'—'}</div>
+<div class="cell val eggs">${a.eggs!==''?'🥚 '+fmt(a.eggs):'—'}</div>
+<div class="cell val treadmill">${a.treadmill!==''?'LV '+fmt(a.treadmill):'—'}</div>
+<div class="cell val pen">${a.pen!==''?'LV '+fmt(a.pen):'—'}</div>
+<div class="cell">${datpolBadge}</div>
+<div class="cell"><span class="status ${a.status}">${a.status.toUpperCase()}</span></div>
+<div class="cell actions">
+  <input type="checkbox" ${a.include!==false?'checked':''} onchange="toggleInclude('${a.id}')">
+  <button class="action" onclick="editAccount('${a.id}')">✏️</button>
+  <button class="action" onclick="toggleSold('${a.id}')">↔</button>
+  <button class="action" onclick="deleteAccount('${a.id}')">🗑</button>
+</div></div>`;
   }).join('')
 }
 
@@ -411,7 +440,7 @@ function changePage(d){page=Math.max(1,page+d);render()}
 function toggleInclude(id){const a=state.accounts.find(x=>String(x.id)===String(id));if(a){a.include=!a.include;save();render()}}
 function toggleSold(id){const a=state.accounts.find(x=>String(x.id)===String(id));if(a){a.status=a.status==='sold'?'ready':'sold';save();render()}}
 function deleteAccount(id){if(confirm('Hapus akun ini?')){state.accounts=state.accounts.filter(x=>String(x.id)!==String(id));save();render()}}
-function openManual(){editingId=null;$('manualTitle').textContent='＋ Tambah Akun';['fName','fPass','fMoney','fIncome','fSpeed','fPets','fEggs','fTreadmill','fPen'].forEach(id=>$(id).value='');$('fPass').type='password';if($('fPassToggleBtn'))$('fPassToggleBtn').textContent='👁';$('fIncomeUnit').value='B/s';$('fSpeedUnit').value='B';$('fStatus').value='ready';$('manualBg').classList.add('show')}
+function openManual(){editingId=null;$('manualTitle').textContent='＋ Tambah Akun';['fName','fPass','fMoney','fIncome','fSpeed','fPets','fEggs','fTreadmill','fPen'].forEach(id=>$(id).value='');$('fPass').type='password';if($('fPassToggleBtn'))$('fPassToggleBtn').textContent='👁';$('fIncomeUnit').value='B/s';$('fSpeedUnit').value='B';$('fDatpol').value='datpol';$('fStatus').value='ready';$('manualBg').classList.add('show')}
 function closeManual(){$('manualBg').classList.remove('show')}
 function toggleManualPass(){const input=$('fPass'),btn=$('fPassToggleBtn');if(input.type==='password'){input.type='text';btn.textContent='🙈'}else{input.type='password';btn.textContent='👁'}}
 function toggleAIPass(){const input=$('aiPass'),btn=$('aiPassToggleBtn');if(input.type==='password'){input.type='text';btn.textContent='🙈'}else{input.type='password';btn.textContent='👁'}}
@@ -422,9 +451,10 @@ function toggleGeminiKeyVis(){
 }
 function updateApiKey(val){
   localStorage.setItem('gemini_api_key', val.trim());
+  if (window.updateApiStatusUI) window.updateApiStatusUI();
 }
-function editAccount(id){const a=state.accounts.find(x=>String(x.id)===String(id));if(!a)return;editingId=a.id;$('manualTitle').textContent='✏️ Edit Akun';$('fName').value=a.name||'';$('fPass').value=a.password||'';$('fPass').type='password';if($('fPassToggleBtn'))$('fPassToggleBtn').textContent='👁';$('fMoney').value=a.money||'';$('fIncome').value=a.income??'';$('fIncomeUnit').value=a.incomeUnit||'B/s';$('fSpeed').value=a.speed??'';$('fSpeedUnit').value=a.speedUnit||'';$('fPets').value=a.pets??'';$('fEggs').value=a.eggs??'';$('fTreadmill').value=a.treadmill??'';$('fPen').value=a.pen??'';$('fStatus').value=a.status||'ready';$('manualBg').classList.show?true:$('manualBg').classList.add('show')}
-function saveManual(){const name=$('fName').value.trim();if(!name)return alert('Username wajib diisi.');const a={id:editingId||Date.now()+Math.random(),name,password:$('fPass').value,money:$('fMoney').value.trim(),income:$('fIncome').value,incomeUnit:$('fIncomeUnit').value,speed:$('fSpeed').value,speedUnit:$('fSpeedUnit').value,pets:$('fPets').value,eggs:$('fEggs').value,treadmill:$('fTreadmill').value,pen:$('fPen').value,status:$('fStatus').value,include:true};if(editingId)state.accounts=state.accounts.map(x=>String(x.id)===String(editingId)?a:x);else state.accounts.push(a);save();closeManual();render()}
+function editAccount(id){const a=state.accounts.find(x=>String(x.id)===String(id));if(!a)return;editingId=a.id;$('manualTitle').textContent='✏️ Edit Akun';$('fName').value=a.name||'';$('fPass').value=a.password||'';$('fPass').type='password';if($('fPassToggleBtn'))$('fPassToggleBtn').textContent='👁';$('fMoney').value=a.money||'';$('fIncome').value=a.income??'';$('fIncomeUnit').value=a.incomeUnit||'B/s';$('fSpeed').value=a.speed??'';$('fSpeedUnit').value=a.speedUnit||'';$('fPets').value=a.pets??'';$('fEggs').value=a.eggs??'';$('fTreadmill').value=a.treadmill??'';$('fPen').value=a.pen??'';$('fDatpol').value=a.datpol||'datpol';$('fStatus').value=a.status||'ready';$('manualBg').classList.show?true:$('manualBg').classList.add('show')}
+function saveManual(){const name=$('fName').value.trim();if(!name)return alert('Username wajib diisi.');const a={id:editingId||Date.now()+Math.random(),name,password:$('fPass').value,money:$('fMoney').value.trim(),income:$('fIncome').value,incomeUnit:$('fIncomeUnit').value,speed:$('fSpeed').value,speedUnit:$('fSpeedUnit').value,pets:$('fPets').value,eggs:$('fEggs').value,treadmill:$('fTreadmill').value,pen:$('fPen').value,datpol:$('fDatpol').value,status:$('fStatus').value,include:true};if(editingId)state.accounts=state.accounts.map(x=>String(x.id)===String(editingId)?a:x);else state.accounts.push(a);save();closeManual();render()}
 function toggleRates(){$('ratePanel').classList.toggle('hidden')}
 function saveRates(){state.incomeRate=n($('incomeRate').value);state.speedRate=n($('speedRate').value);save();render()}
 function toggleHide(){hideMode=!hideMode;document.body.classList.toggle('screenshot-mode',hideMode);$('hideBtn').textContent=hideMode?'🛡 SCREENSHOT HIDE: ON':'🛡 SCREENSHOT HIDE';}
@@ -437,6 +467,8 @@ render();
 
 <script type="module">
 import { GoogleGenAI, Type } from '@google/genai';
+
+let apiLimitTime = null; // Menyimpan timestamp cooldown jika 429
 
 function getApiUsage() {
   const today = new Date().toISOString().slice(0, 10);
@@ -460,14 +492,59 @@ function updateUsageDisplay() {
   const count = getApiUsage();
   const badge = $('apiUsageBadge');
   if (badge) {
-    badge.textContent = `Pemakaian Hari Ini: ${count} / 1500 Request`;
-    if (count >= 1400) {
-      badge.style.color = 'var(--red)';
-    } else {
-      badge.style.color = 'var(--cyan)';
-    }
+    badge.textContent = `Pemakaian Hari Ini: ${count} / 1500`;
+    badge.style.color = (count >= 1400) ? 'var(--red)' : 'var(--cyan)';
   }
 }
+
+// TIMER COUNTDOWN UNTUK RESET KUOTA UTC (JAM 07:00 WIB)
+function startDailyResetTimer() {
+  setInterval(() => {
+    const now = new Date();
+    const nextReset = new Date();
+    nextReset.setUTCHours(24, 0, 0, 0); // Reset Google API gratis terjadi jam 00:00 UTC
+    
+    const diff = nextReset - now;
+    if (diff > 0) {
+      const hours = Math.floor(diff / (1000 * 60 * 60));
+      const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const secs = Math.floor((diff % (1000 * 60)) / 1000);
+      
+      if ($('resetTimer')) {
+        if (apiLimitTime && new Date() < apiLimitTime) {
+          const waitSecs = Math.ceil((apiLimitTime - new Date()) / 1000);
+          $('resetTimer').textContent = `⏳ Terkena Cooldown 429! Siap digunakan lagi dalam: ${waitSecs} detik`;
+          $('resetTimer').style.color = 'var(--red)';
+        } else {
+          $('resetTimer').textContent = `🕒 Kuota harian reset otomatis dalam: ${hours}j ${mins}m ${secs}d`;
+          $('resetTimer').style.color = 'var(--cyan)';
+        }
+      }
+    }
+  }, 1000);
+}
+
+window.updateApiStatusUI = function() {
+  const apiKey = $('geminiApiKey')?.value || localStorage.getItem('gemini_api_key');
+  const count = getApiUsage();
+  const badge = $('apiStatusBadge');
+  
+  if (!badge) return;
+
+  if (!apiKey) {
+    badge.textContent = 'NOT SET';
+    badge.className = 'api-badge empty';
+  } else if (apiLimitTime && new Date() < apiLimitTime) {
+    badge.textContent = 'NOT READY TO USE (LIMIT EXCEEDED)';
+    badge.className = 'api-badge not-ready';
+  } else if (count >= 1500) {
+    badge.textContent = 'NOT READY TO USE (DAILY LIMIT)';
+    badge.className = 'api-badge not-ready';
+  } else {
+    badge.textContent = 'READY TO USE';
+    badge.className = 'api-badge ready';
+  }
+};
 
 document.addEventListener('DOMContentLoaded', () => {
   const savedKey = localStorage.getItem('gemini_api_key');
@@ -475,11 +552,16 @@ document.addEventListener('DOMContentLoaded', () => {
     $('geminiApiKey').value = savedKey;
   }
   updateUsageDisplay();
+  window.updateApiStatusUI();
+  startDailyResetTimer();
 });
 
 let aiState = {blob:null, pass:0, result:null, busy:false};
 
 function startCooldown(seconds = 60) {
+  apiLimitTime = new Date(Date.now() + (seconds * 1000));
+  window.updateApiStatusUI();
+
   let remaining = seconds;
   const pasteStatus = $('pasteStatus');
   const pasteButton = $('pasteButton');
@@ -496,12 +578,14 @@ function startCooldown(seconds = 60) {
 
     if (remaining < 0) {
       clearInterval(timer);
+      apiLimitTime = null;
       aiState.busy = false;
       if (pasteButton) pasteButton.disabled = false;
       if (pasteStatus) {
         pasteStatus.textContent = '✅ Siap menerima screenshot (Ready to Paste)';
         pasteStatus.style.color = 'var(--gold2)';
       }
+      window.updateApiStatusUI();
     }
   }, 1000);
 }
@@ -588,6 +672,7 @@ window.analyzeImage = async function(blob, pass = 1) {
     });
 
     incrementApiUsage();
+    window.updateApiStatusUI();
 
     const parsedData = JSON.parse(response.text);
 
@@ -662,6 +747,7 @@ window.openAI = function(){
   $('pasteStatus').style.color='var(--gold2)';
   $('reanalyzeBtn').style.display='none';$('addAI').style.display='none';
   updateUsageDisplay();
+  window.updateApiStatusUI();
   setTimeout(()=>$('pasteZone').focus(),50);
 };
 
@@ -721,7 +807,7 @@ window.addAI = function(){
   state.accounts.push({
     id:Date.now()+Math.random(),name:a.name,password:$('aiPass')?.value||'',
     money:a.money,income:a.income,incomeUnit:a.incomeUnit,speed:a.speed,speedUnit:a.speedUnit,
-    pets:a.pets,eggs:a.eggs,treadmill:a.treadmill,pen:a.pen,status:'ready',include:true
+    pets:a.pets,eggs:a.eggs,treadmill:a.treadmill,pen:a.pen,datpol:'datpol',status:'ready',include:true
   });
   save();render();closeAI();
 };
