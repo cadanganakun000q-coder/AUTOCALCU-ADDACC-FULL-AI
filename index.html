@@ -52,14 +52,17 @@ h1{font-size:23px;margin:4px 0 0;letter-spacing:.4px;text-transform:uppercase}
 .controls{display:flex;gap:9px;align-items:center;flex-wrap:wrap;background:#0a0a09;border:1px solid var(--line);padding:10px;border-radius:12px;margin-bottom:12px}.filter{display:flex;gap:5px}.filter button{background:#0d0c09;border:1px solid var(--line);color:var(--muted);padding:7px 11px;border-radius:7px;font-size:10px;font-weight:900}.filter button.active{background:var(--gold);color:#090806;border-color:var(--gold)}.search{margin-left:auto;background:#070707;border:1px solid #2e291b;color:var(--text);padding:9px 11px;border-radius:8px;min-width:240px;outline:none}.search:focus{border-color:var(--gold)}
 
 /* TABLE STYLES - 11 COLUMNS */
-.table{border:1px solid var(--line);border-radius:13px;overflow:hidden;background:#080808}.thead,.row{display:grid;grid-template-columns:1.5fr .9fr 1fr .7fr .6fr .6fr .75fr .6fr .75fr .65fr 1fr;align-items:center}.thead{background:#12100b;color:var(--gold2);font-size:9px;font-weight:950;letter-spacing:.6px;padding:12px}.row{min-height:72px;border-top:1px solid #211c12;padding:10px 12px}.row:hover{background:#0e0d0a}.cell{min-width:0}.account{display:flex;gap:9px;align-items:center}.avatar{width:32px;height:32px;border:1px solid #5b4a1b;border-radius:50%;display:grid;place-items:center;background:#12100a}.name{font-weight:900;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.meta{font-size:9px;color:var(--muted);margin-top:4px;display:flex;align-items:center;gap:4px}.val{font-weight:900;font-size:12px}.money{color:var(--green)}.income{color:var(--cyan)}.speed{color:var(--purple)}.pets{color:#59e5bb}.eggs{color:var(--gold2)}.treadmill{color:#ff7e9a}.pen{color:#8aa8ff}.status{font-size:9px;font-weight:900;padding:5px 7px;border-radius:6px;display:inline-block}.status.ready{background:#09251c;color:#54e0b4;border:1px solid #1c604d}.status.sold{background:#29100f;color:#ff8490;border:1px solid #743039}
+.table{border:1px solid var(--line);border-radius:13px;overflow:hidden;background:#080808}.thead,.row{display:grid;grid-template-columns:1.5fr .9fr 1fr .7fr .6fr .6fr .75fr .6fr .75fr .65fr 1fr;align-items:center}.thead{background:#12100b;color:var(--gold2);font-size:9px;font-weight:950;letter-spacing:.6px;padding:12px}.row{min-height:72px;border-top:1px solid #211c12;padding:10px 12px}.row:hover{background:#0e0d0a}.cell{min-width:0}.account{display:flex;gap:9px;align-items:center}.avatar{width:32px;height:32px;border:1px solid #5b4a1b;border-radius:50%;display:grid;place-items:center;background:#12100a}.name{font-weight:900;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.meta{font-size:9px;color:var(--muted);margin-top:4px;display:flex;align-items:center;gap:4px}.val{font-weight:900;font-size:12px}.money{color:var(--green)}.income{color:var(--cyan)}.speed{color:var(--purple)}.pets{color:#59e5bb}.eggs{color:var(--gold2)}.treadmill{color:#ff7e9a}.pen{color:#8aa8ff}
 
-/* DATPOL / UNCLEAN TOGGLE STYLES */
-.datpol-badge{font-size:9px;font-weight:900;padding:4px 7px;border-radius:6px;cursor:pointer;user-select:none;display:inline-block;transition:all 0.2s}
+/* TOGGLE BADGE STYLES (DATPOL & STATUS) */
+.datpol-badge, .status-badge{font-size:9px;font-weight:900;padding:5px 7px;border-radius:6px;cursor:pointer;user-select:none;display:inline-block;transition:all 0.2s}
 .datpol-badge.datpol{background:#092918;color:#25d69a;border:1px solid #145e3b}
 .datpol-badge.unclean{background:#2b1908;color:#ffab40;border:1px solid #6b3e0c}
 
-.actions{display:flex;gap:4px;justify-content:flex-end}.action{background:#11100d;border:1px solid var(--line);color:#c9bc91;padding:6px 7px;border-radius:6px}.empty{padding:50px;text-align:center;color:var(--muted)}.bottom{display:flex;justify-content:center;gap:16px;padding:13px;border-top:1px solid #211c12;color:var(--muted);font-size:11px}.bottom button{background:#0e0d09;border:1px solid var(--line);color:var(--gold2);padding:7px 10px;border-radius:7px}
+.status-badge.ready{background:#09251c;color:#54e0b4;border:1px solid #1c604d}
+.status-badge.sold{background:#29100f;color:#ff8490;border:1px solid #743039}
+
+.actions{display:flex;gap:4px;justify-content:flex-end}.action{background:#11100d;border:1px solid var(--line);color:#c9bc91;padding:6px 7px;border-radius:6px}.empty{padding:50px;text-align:center;color:var(--muted)}.bottom{display:flex;justify-center;gap:16px;padding:13px;border-top:1px solid #211c12;color:var(--muted);font-size:11px}.bottom button{background:#0e0d09;border:1px solid var(--line);color:var(--gold2);padding:7px 10px;border-radius:7px}
 
 /* FLOATING RATE WIDGET */
 .rate-widget-container {position:fixed;right:18px;bottom:18px;z-index:20;display:flex;flex-direction:column;align-items:flex-end}
@@ -74,7 +77,13 @@ h1{font-size:23px;margin:4px 0 0;letter-spacing:.4px;text-transform:uppercase}
 .modal-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,.82);backdrop-filter:blur(7px);z-index:100;padding:22px;overflow:auto}.modal-bg.show{display:flex;align-items:center;justify-content:center}.modal{width:min(1120px,100%);background:linear-gradient(145deg,#0d0c09,#070707);border:1px solid var(--gold);border-radius:16px;padding:18px;box-shadow:0 30px 100px rgba(0,0,0,.8)}.modal h2{margin:0 0 12px;color:var(--gold2);font-size:17px}.notice{background:#090c10;border:1px solid #1f2b36;border-radius:10px;padding:11px;color:#8f9eaa;font-size:10px;line-height:1.55}.notice b{color:#d8d1bd}.paste-zone{margin-top:12px;min-height:220px;border:2px dashed #8a7020;border-radius:14px;background:radial-gradient(circle at 50% 20%,#171209,#070707 70%);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:16px;text-align:center;outline:none}.paste-zone:focus,.paste-zone.drag{border-color:var(--gold2);box-shadow:0 0 0 3px rgba(212,175,55,.08)}.paste-icon{font-size:38px}.paste-title{font-size:17px;font-weight:950;color:var(--gold2);margin-top:8px}.paste-sub{font-size:11px;color:#bdb294;margin-top:7px}.paste-status{font-size:10px;color:var(--gold2);margin-top:10px;font-weight:bold;transition:color 0.3s}.preview-wrap{display:none;margin-top:12px;border:1px solid #332a14;border-radius:12px;background:#050505;padding:10px}.preview-wrap.show{display:block}.preview-wrap img{display:block;width:100%;max-height:360px;object-fit:contain;border-radius:8px}.analysis{display:none;margin-top:10px}.analysis.show{display:block}.analysis-head{display:flex;justify-space:between;align-items:center;color:var(--gold2);font-size:10px;font-weight:900}.analysis-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-top:8px}.ai-field{background:#090908;border:1px solid #292314;border-radius:8px;padding:8px}.ai-field small{display:block;color:var(--muted);font-size:8px}.ai-field strong{display:block;margin-top:5px;font-size:12px;word-break:break-all}.ai-field.ok strong{color:#8ce9c8}.ai-field.warn{border-color:#654e18}.ai-field.warn strong{color:#f1d05b}.ai-field.bad{border-color:#5c252c}.ai-field.bad strong{color:#ff8c98}.confidence{margin-top:8px;color:var(--muted);font-size:9px}.ai-table{margin-top:10px;border:1px solid var(--line);border-radius:10px;overflow:auto}.ai-row{display:grid;grid-template-columns:1.5fr .9fr 1fr .7fr .7fr .7fr .8fr .7fr 1.2fr .45fr;min-width:880px;padding:9px;border-top:1px solid #211c12;align-items:center;font-size:10px}.ai-head{border-top:0;background:#12100b;color:var(--gold2);font-weight:900}.manual-pass{width:100%;background:#050505;border:1px solid #302a1b;color:var(--text);padding:7px;padding-right:28px;border-radius:7px}.modal-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:12px}.hidden-input{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}
 .pass-wrapper{position:relative;display:flex;align-items:center;width:100%}
 .pass-toggle-btn{position:absolute;right:8px;background:none;border:none;color:var(--gold2);font-size:12px;padding:0;cursor:pointer;line-height:1;z-index:2}
-.screenshot-mode .secret,.screenshot-mode .username-sensitive{filter:blur(7px);user-select:none}.screenshot-mode .secret:hover,.screenshot-mode .username-sensitive:hover{filter:blur(7px)}
+
+/* SCREENSHOT MODE CONFIGURATION */
+.screenshot-mode .secret,
+.screenshot-mode .username-sensitive,
+.screenshot-mode .btn-sensitive {
+  display: none !important;
+}
 
 /* GEMINI STATUS BOX */
 .api-status-box{background:#070a0e;border:1px solid #1a2636;border-radius:10px;padding:10px;margin-top:10px}
@@ -100,12 +109,12 @@ h1{font-size:23px;margin:4px 0 0;letter-spacing:.4px;text-transform:uppercase}
       <h1>STOCK ACCOUNT</h1>
     </div>
     <div class="top-actions">
-      <!-- TOMBOL GLOBAL SHOW/HIDE ALL PASSWORDS -->
-      <button class="btn" id="showAllPassBtn" onclick="toggleShowAllPasswords()">👁 SHOW ALL PASSWORDS</button>
-      <button class="btn" onclick="openManual()">＋ ADD ACCOUNT</button>
-      <button class="btn" onclick="openAI()">✨ AI INPUT</button>
-      <button class="btn" onclick="exportJSON()">↗ EXPORT</button>
-      <button class="btn" onclick="document.getElementById('importFile').click()">↙ IMPORT</button>
+      <!-- TOMBOL DENGAN CLASS btn-sensitive HANYA DI-HIDE SAAT MODE SCREENSHOT -->
+      <button class="btn btn-sensitive" id="showAllPassBtn" onclick="toggleShowAllPasswords()">👁 SHOW ALL PASSWORDS</button>
+      <button class="btn btn-sensitive" onclick="openManual()">＋ ADD ACCOUNT</button>
+      <button class="btn btn-sensitive" onclick="openAI()">✨ AI INPUT</button>
+      <button class="btn btn-sensitive" onclick="exportJSON()">↗ EXPORT</button>
+      <button class="btn btn-sensitive" onclick="document.getElementById('importFile').click()">↙ IMPORT</button>
       <button class="btn danger" onclick="resetAll()">RESET</button>
       <button class="btn" id="hideBtn" onclick="toggleHide()">🛡 SCREENSHOT HIDE</button>
       <input id="importFile" class="hidden-input" type="file" accept="application/json" onchange="importJSON(event)">
@@ -365,6 +374,15 @@ function toggleDatpolStatus(id) {
   }
 }
 
+function toggleStatusBadge(id) {
+  const a = state.accounts.find(x => String(x.id) === String(id));
+  if (a) {
+    a.status = (a.status === 'sold') ? 'ready' : 'sold';
+    save();
+    render();
+  }
+}
+
 function render(){
   const activeAccounts = state.accounts.filter(a=>a.include!==false);
   
@@ -405,6 +423,11 @@ function render(){
       ? `<span class="datpol-badge datpol" onclick="toggleDatpolStatus('${a.id}')" title="Klik untuk ubah status">🟢 DATPOL</span>`
       : `<span class="datpol-badge unclean" onclick="toggleDatpolStatus('${a.id}')" title="Klik untuk ubah status">🟠 UNCLEAN</span>`;
 
+    const isReady = (a.status === 'ready');
+    const statusBadge = isReady
+      ? `<span class="status-badge ready" onclick="toggleStatusBadge('${a.id}')" title="Klik untuk ubah status">READY</span>`
+      : `<span class="status-badge sold" onclick="toggleStatusBadge('${a.id}')" title="Klik untuk ubah status">SOLD</span>`;
+
     return `<div class="row">
 <div class="cell">
   <div class="account">
@@ -425,11 +448,10 @@ function render(){
 <div class="cell val treadmill">${a.treadmill!==''?'LV '+fmt(a.treadmill):'—'}</div>
 <div class="cell val pen">${a.pen!==''?'LV '+fmt(a.pen):'—'}</div>
 <div class="cell">${datpolBadge}</div>
-<div class="cell"><span class="status ${a.status}">${a.status.toUpperCase()}</span></div>
+<div class="cell">${statusBadge}</div>
 <div class="cell actions">
   <input type="checkbox" ${a.include!==false?'checked':''} onchange="toggleInclude('${a.id}')">
   <button class="action" onclick="editAccount('${a.id}')">✏️</button>
-  <button class="action" onclick="toggleSold('${a.id}')">↔</button>
   <button class="action" onclick="deleteAccount('${a.id}')">🗑</button>
 </div></div>`;
   }).join('')
@@ -438,7 +460,6 @@ function render(){
 function setFilter(f,b){filter=f;page=1;document.querySelectorAll('.filter button').forEach(x=>x.classList.remove('active'));b.classList.add('active');render()}
 function changePage(d){page=Math.max(1,page+d);render()}
 function toggleInclude(id){const a=state.accounts.find(x=>String(x.id)===String(id));if(a){a.include=!a.include;save();render()}}
-function toggleSold(id){const a=state.accounts.find(x=>String(x.id)===String(id));if(a){a.status=a.status==='sold'?'ready':'sold';save();render()}}
 function deleteAccount(id){if(confirm('Hapus akun ini?')){state.accounts=state.accounts.filter(x=>String(x.id)!==String(id));save();render()}}
 function openManual(){editingId=null;$('manualTitle').textContent='＋ Tambah Akun';['fName','fPass','fMoney','fIncome','fSpeed','fPets','fEggs','fTreadmill','fPen'].forEach(id=>$(id).value='');$('fPass').type='password';if($('fPassToggleBtn'))$('fPassToggleBtn').textContent='👁';$('fIncomeUnit').value='B/s';$('fSpeedUnit').value='B';$('fDatpol').value='datpol';$('fStatus').value='ready';$('manualBg').classList.add('show')}
 function closeManual(){$('manualBg').classList.remove('show')}
