@@ -43,7 +43,7 @@ button,input,select{font:inherit} button{cursor:pointer}
   margin-bottom: 2px;
 }
 
-.topbar{display:flex;justify-space:between;gap:12px;align-items:center;border-bottom:1px solid var(--line);padding:4px 0 8px}
+.topbar{display:flex;justify-content:space-between;gap:12px;align-items:center;border-bottom:1px solid var(--line);padding:4px 0 8px}
 .eyebrow{font-size:clamp(10px, 0.8vw, 13px);letter-spacing:2px;color:var(--gold);font-weight:900}
 h1{font-size:clamp(16px, 1.4vw, 24px);margin:2px 0 0;letter-spacing:.4px;text-transform:uppercase;font-weight:900}
 .top-actions{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
@@ -52,8 +52,8 @@ h1{font-size:clamp(16px, 1.4vw, 24px);margin:2px 0 0;letter-spacing:.4px;text-tr
 .cards{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin:8px 0}.card{background:linear-gradient(145deg,#0d0d0d,#080806);border:1px solid var(--line);border-radius:10px;padding:8px 12px;min-height:70px;box-shadow:var(--shadow)}.card-label{font-size:clamp(10px, 0.8vw, 13px);font-weight:900;color:var(--gold2);letter-spacing:.8px}.card-value{font-size:clamp(18px, 1.6vw, 28px);font-weight:950;margin-top:4px}.card-sub{font-size:clamp(9px, 0.75vw, 12px);color:var(--muted);margin-top:2px;font-weight:700}.green{color:var(--green)}.cyan{color:var(--cyan)}.purple{color:var(--purple)}.yellow{color:var(--gold2)}
 .controls{display:flex;gap:8px;align-items:center;flex-wrap:wrap;background:#0a0a09;border:1px solid var(--line);padding:6px 10px;border-radius:10px;margin-bottom:8px}.filter{display:flex;gap:4px}.filter button{background:#0d0c09;border:1px solid var(--line);color:var(--muted);padding:5px 9px;border-radius:6px;font-size:clamp(10px, 0.8vw, 13px);font-weight:900}.filter button.active{background:var(--gold);color:#090806;border-color:var(--gold)}.search{margin-left:auto;background:#070707;border:1px solid #2e291b;color:var(--text);padding:6px 10px;border-radius:7px;min-width:200px;font-size:clamp(11px, 0.85vw, 14px);outline:none}.search:focus{border-color:var(--gold)}
 
-/* TABLE STYLES - 11 COLUMNS SKALA ZOOM BESAR */
-.table{border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#080808}.thead,.row{display:grid;grid-template-columns:1.5fr .9fr 1fr .7fr .6fr .6fr .75fr .6fr .75fr .65fr 1fr;align-items:center}.thead{background:#12100b;color:var(--gold2);font-size:clamp(10px, 0.85vw, 14px);font-weight:950;letter-spacing:.6px;padding:6px 10px}.row{min-height:28px;border-top:1px solid #211c12;padding:3px 10px}.row:hover{background:#0e0d0a}.cell{min-width:0}.account{display:flex;gap:7px;align-items:center}.avatar{width:24px;height:24px;border:1px solid #5b4a1b;border-radius:50%;display:grid;place-items:center;background:#12100a;font-size:12px;flex-shrink:0}.name{font-weight:900;font-size:clamp(12px, 0.95vw, 16px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.meta{font-size:clamp(10px, 0.8vw, 13px);color:var(--muted);margin-top:1px;display:flex;align-items:center;gap:4px;font-weight:700}.val{font-weight:950;font-size:clamp(13px, 1.05vw, 17px)}.money{color:var(--green)}.income{color:var(--cyan)}.speed{color:var(--purple)}.pets{color:#59e5bb}.eggs{color:var(--gold2)}.treadmill{color:#ff7e9a}.pen{color:#8aa8ff}
+/* TABLE STYLES - 12 COLUMNS SKALA ZOOM BESAR */
+.table{border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#080808}.thead,.row{display:grid;grid-template-columns:0.3fr 1.5fr .9fr 1fr .7fr .6fr .6fr .75fr .6fr .75fr .65fr 1fr;align-items:center}.thead{background:#12100b;color:var(--gold2);font-size:clamp(10px, 0.85vw, 14px);font-weight:950;letter-spacing:.6px;padding:6px 10px}.row{min-height:28px;border-top:1px solid #211c12;padding:3px 10px}.row:hover{background:#0e0d0a}.cell{min-width:0}.account{display:flex;gap:7px;align-items:center}.avatar{width:24px;height:24px;border:1px solid #5b4a1b;border-radius:50%;display:grid;place-items:center;background:#12100a;font-size:12px;flex-shrink:0}.name{font-weight:900;font-size:clamp(12px, 0.95vw, 16px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.meta{font-size:clamp(10px, 0.8vw, 13px);color:var(--muted);margin-top:1px;display:flex;align-items:center;gap:4px;font-weight:700}.val{font-weight:950;font-size:clamp(13px, 1.05vw, 17px)}.money{color:var(--green)}.income{color:var(--cyan)}.speed{color:var(--purple)}.pets{color:#59e5bb}.eggs{color:var(--gold2)}.treadmill{color:#ff7e9a}.pen{color:#8aa8ff}
 
 /* TOGGLE BADGE STYLES (DATPOL & STATUS) */
 .datpol-badge, .status-badge{font-size:clamp(9px, 0.75vw, 12px);font-weight:950;padding:3px 6px;border-radius:5px;cursor:pointer;user-select:none;display:inline-block;transition:all 0.2s}
@@ -63,7 +63,7 @@ h1{font-size:clamp(16px, 1.4vw, 24px);margin:2px 0 0;letter-spacing:.4px;text-tr
 .status-badge.ready{background:#09251c;color:#54e0b4;border:1px solid #1c604d}
 .status-badge.sold{background:#29100f;color:#ff8490;border:1px solid #743039}
 
-.actions{display:flex;gap:3px;justify-content:flex-end}.action{background:#11100d;border:1px solid var(--line);color:#c9bc91;padding:3px 6px;border-radius:5px;font-size:clamp(11px, 0.85vw, 14px)}.empty{padding:30px;text-align:center;color:var(--muted);font-size:14px}.bottom{display:flex;justify-content:center;gap:16px;padding:6px;border-top:1px solid #211c12;color:var(--muted);font-size:clamp(11px, 0.85vw, 14px);font-weight:700}.bottom button{background:#0e0d09;border:1px solid var(--line);color:var(--gold2);padding:4px 10px;border-radius:6px;font-weight:900}
+.actions{display:flex;gap:3px;justify-content:flex-end;align-items:center}.action{background:#11100d;border:1px solid var(--line);color:#c9bc91;padding:3px 6px;border-radius:5px;font-size:clamp(11px, 0.85vw, 14px)}.empty{padding:30px;text-align:center;color:var(--muted);font-size:14px}.bottom{display:flex;justify-content:center;gap:16px;padding:6px;border-top:1px solid #211c12;color:var(--muted);font-size:clamp(11px, 0.85vw, 14px);font-weight:700}.bottom button{background:#0e0d09;border:1px solid var(--line);color:var(--gold2);padding:4px 10px;border-radius:6px;font-weight:900}
 
 /* FLOATING RATE WIDGET */
 .rate-widget-container {position:fixed;right:14px;bottom:14px;z-index:20;display:flex;flex-direction:column;align-items:flex-end}
@@ -95,7 +95,7 @@ h1{font-size:clamp(16px, 1.4vw, 24px);margin:2px 0 0;letter-spacing:.4px;text-tr
 .api-badge.empty{background:#262314;color:#f0d66a;border:1px solid #574e27}
 .reset-timer{font-size:10px;color:var(--cyan);margin-top:6px;font-weight:bold}
 
-@media(max-width:1100px){.cards{grid-template-columns:repeat(3,1fr)}.thead,.row{grid-template-columns:1.5fr .8fr 1fr .7fr .6fr .6fr .75fr .6fr .75fr .6fr 1fr;min-width:980px}.table{overflow:auto}.thead{display:grid}.search{margin-left:0;width:100%}}
+@media(max-width:1100px){.cards{grid-template-columns:repeat(3,1fr)}.thead,.row{grid-template-columns:0.3fr 1.5fr .8fr 1fr .7fr .6fr .6fr .75fr .6fr .75fr .6fr 1fr;min-width:980px}.table{overflow:auto}.thead{display:grid}.search{margin-left:0;width:100%}}
 @media(max-width:700px){.app{padding:8px}.topbar{flex-direction:column}.top-actions{justify-content:flex-start}.cards{grid-template-columns:1fr 1fr}.analysis-grid{grid-template-columns:1fr 1fr}}
 </style>
 </head>
@@ -146,7 +146,11 @@ h1{font-size:clamp(16px, 1.4vw, 24px);margin:2px 0 0;letter-spacing:.4px;text-tr
 
   <div class="table">
     <div class="thead">
-      <div>USERNAME</div><div>💸 MONEY</div><div>⚡ INCOME / SEC</div><div>🚀 SPEED</div><div>🐾 PETS</div><div>🥚 EGGS</div><div>🏃 TREADMILL</div><div>🏠 PEN</div><div>DATPOL / DATA</div><div>STATUS</div><div>ACTIONS</div>
+      <div>#</div><div>USERNAME</div><div>💸 MONEY</div><div>⚡ INCOME / SEC</div><div>🚀 SPEED</div><div>🐾 PETS</div><div>🥚 EGGS</div><div>🏃 TREADMILL</div><div>🏠 PEN</div><div>DATPOL / DATA</div><div>STATUS</div>
+      <div style="display:flex;align-items:center;justify-content:flex-end;gap:5px;">
+        <input type="checkbox" id="selectAllCheckbox" onchange="toggleSelectAll(this)" title="Select/Deselect All">
+        <span>ACTIONS</span>
+      </div>
     </div>
     <div id="rows"></div>
     <div class="bottom"><button onclick="changePage(-1)">Prev</button><span id="pageInfo">Page 1</span><button onclick="changePage(1)">Next</button></div>
@@ -297,7 +301,9 @@ function parseSpeedValueStrict(a) {
   if (fullSpeed.includes('M') || fullSpeed.includes('K')) return 0;
 
   const match = fullSpeed.match(/[\d.]+/);
-  return match ? parseFloat(match[0]) : 0;
+  if (!match) return 0;
+  // HANYA MENGAMBIL ANGKA BULAT DI DEPAN KOMA/TITIK UNTUK HUKUM AUTO CALCU
+  return Math.floor(parseFloat(match[0]));
 }
 
 function getFormattedSpeed(a) {
@@ -344,7 +350,9 @@ function calcTotalSpeedInfo(accounts) {
 
 function priceOf(a){
   const validSpeedVal = parseSpeedValueStrict(a); 
-  return (n(a.income) * n(state.incomeRate)) + (validSpeedVal * n(state.speedRate));
+  // HANYA MENGAMBIL ANGKA BULAT DI DEPAN KOMA/TITIK PADA INCOME
+  const integerIncome = Math.floor(n(a.income));
+  return (integerIncome * n(state.incomeRate)) + (validSpeedVal * n(state.speedRate));
 }
 
 function list(){
@@ -384,6 +392,19 @@ function toggleStatusBadge(id) {
   }
 }
 
+function toggleSelectAll(masterCert) {
+  const isChecked = masterCert.checked;
+  const currentDisplayedList = list();
+  
+  // Mengubah semua akun yang tampil saat ini
+  currentDisplayedList.forEach(a => {
+    a.include = isChecked;
+  });
+  
+  save();
+  render();
+}
+
 function render(){
   const activeAccounts = state.accounts.filter(a=>a.include!==false);
   
@@ -409,12 +430,22 @@ function render(){
   const slice=arr.slice((page-1)*pageSize,page*pageSize);
   $('pageInfo').textContent=`Page ${page} of ${pages}`;
   
+  // Menyesuaikan status checkbox Select All
+  if(slice.length > 0) {
+    const allChecked = slice.every(a => a.include !== false);
+    $('selectAllCheckbox').checked = allChecked;
+  } else {
+    $('selectAllCheckbox').checked = false;
+  }
+
   if(!slice.length){
     $('rows').innerHTML='<div class="empty">Belum ada akun.</div>';
     return;
   }
   
-  $('rows').innerHTML=slice.map(a=>{
+  $('rows').innerHTML=slice.map((a, index)=>{
+    const rowNumber = ((page - 1) * pageSize) + (index + 1);
+    
     const passDisplay = a.password 
       ? (showAllPasswords ? esc(a.password) : '🔑 ••••••••') 
       : 'Password manual';
@@ -430,6 +461,7 @@ function render(){
       : `<span class="status-badge sold" onclick="toggleStatusBadge('${a.id}')" title="Klik untuk ubah status">SOLD</span>`;
 
     return `<div class="row">
+<div class="cell" style="font-weight:900;color:var(--muted);font-size:12px">${rowNumber}</div>
 <div class="cell">
   <div class="account">
     <div class="avatar">👤</div>
