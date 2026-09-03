@@ -52,8 +52,8 @@ h1{font-size:clamp(16px, 1.4vw, 24px);margin:2px 0 0;letter-spacing:.4px;text-tr
 .cards{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin:8px 0}.card{background:linear-gradient(145deg,#0d0d0d,#080806);border:1px solid var(--line);border-radius:10px;padding:8px 12px;min-height:70px;box-shadow:var(--shadow)}.card-label{font-size:clamp(10px, 0.8vw, 13px);font-weight:900;color:var(--gold2);letter-spacing:.8px}.card-value{font-size:clamp(18px, 1.6vw, 28px);font-weight:950;margin-top:4px}.card-sub{font-size:clamp(9px, 0.75vw, 12px);color:var(--muted);margin-top:2px;font-weight:700}.green{color:var(--green)}.cyan{color:var(--cyan)}.purple{color:var(--purple)}.yellow{color:var(--gold2)}
 .controls{display:flex;gap:8px;align-items:center;flex-wrap:wrap;background:#0a0a09;border:1px solid var(--line);padding:6px 10px;border-radius:10px;margin-bottom:8px}.filter{display:flex;gap:4px}.filter button{background:#0d0c09;border:1px solid var(--line);color:var(--muted);padding:5px 9px;border-radius:6px;font-size:clamp(10px, 0.8vw, 13px);font-weight:900}.filter button.active{background:var(--gold);color:#090806;border-color:var(--gold)}.search{margin-left:auto;background:#070707;border:1px solid #2e291b;color:var(--text);padding:6px 10px;border-radius:7px;min-width:200px;font-size:clamp(11px, 0.85vw, 14px);outline:none}.search:focus{border-color:var(--gold)}
 
-/* TABLE STYLES - 12 COLUMNS SKALA ZOOM BESAR */
-.table{border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#080808}.thead,.row{display:grid;grid-template-columns:0.3fr 1.5fr .9fr 1fr .7fr .6fr .6fr .75fr .6fr .75fr .65fr 1fr;align-items:center}.thead{background:#12100b;color:var(--gold2);font-size:clamp(10px, 0.85vw, 14px);font-weight:950;letter-spacing:.6px;padding:6px 10px}.row{min-height:28px;border-top:1px solid #211c12;padding:3px 10px;transition:all 0.2s}.row:hover{background:#0e0d0a}.cell{min-width:0}.account{display:flex;gap:7px;align-items:center}.avatar{width:24px;height:24px;border:1px solid #5b4a1b;border-radius:50%;display:grid;place-items:center;background:#12100a;font-size:12px;flex-shrink:0}.name{font-weight:900;font-size:clamp(12px, 0.95vw, 16px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.meta{font-size:clamp(10px, 0.8vw, 13px);color:var(--muted);margin-top:1px;display:flex;align-items:center;gap:4px;font-weight:700}.val{font-weight:950;font-size:clamp(13px, 1.05vw, 17px)}.money{color:var(--green)}.income{color:var(--cyan)}.speed{color:var(--purple)}.pets{color:#59e5bb}.eggs{color:var(--gold2)}.treadmill{color:#ff7e9a}.pen{color:#8aa8ff}
+/* TABLE STYLES - DITINGKATKAN KETAJAMAN & SKALA TEKS UNTUK ZOOM SCREENSHOT 50 AKUN */
+.table{border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#080808}.thead,.row{display:grid;grid-template-columns:0.3fr 1.5fr .9fr 1fr .7fr .6fr .6fr .75fr .6fr .75fr .65fr 1fr;align-items:center}.thead{background:#12100b;color:var(--gold2);font-size:13px;font-weight:900;letter-spacing:.6px;padding:8px 10px}.row{min-height:30px;border-top:1px solid #211c12;padding:4px 10px;transition:all 0.2s}.row:hover{background:#0e0d0a}.cell{min-width:0}.account{display:flex;gap:7px;align-items:center}.avatar{width:22px;height:22px;border:1px solid #5b4a1b;border-radius:50%;display:grid;place-items:center;background:#12100a;font-size:11px;flex-shrink:0}.name{font-weight:900;font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#ffffff;text-shadow:0 1px 2px rgba(0,0,0,0.8)}.meta{font-size:11px;color:var(--muted);margin-top:1px;display:flex;align-items:center;gap:4px;font-weight:800}.val{font-weight:900;font-size:14px;letter-spacing:0.3px}.money{color:var(--green)}.income{color:var(--cyan)}.speed{color:var(--purple)}.pets{color:#59e5bb}.eggs{color:var(--gold2)}.treadmill{color:#ff7e9a}.pen{color:#8aa8ff}
 
 /* STYLE BARIS SOLD (RED HIGHLIGHT & GLOW) */
 .row.row-sold {
@@ -67,21 +67,21 @@ h1{font-size:clamp(16px, 1.4vw, 24px);margin:2px 0 0;letter-spacing:.4px;text-tr
 }
 
 /* TOGGLE BADGE STYLES (DATPOL & STATUS) */
-.datpol-badge, .status-badge{font-size:clamp(9px, 0.75vw, 12px);font-weight:950;padding:3px 6px;border-radius:5px;cursor:pointer;user-select:none;display:inline-block;transition:all 0.2s}
+.datpol-badge, .status-badge{font-size:11px;font-weight:900;padding:2px 6px;border-radius:5px;cursor:pointer;user-select:none;display:inline-block;transition:all 0.2s;letter-spacing:0.3px}
 .datpol-badge.datpol{background:#092918;color:#25d69a;border:1px solid #145e3b}
 .datpol-badge.unclean{background:#2b1908;color:#ffab40;border:1px solid #6b3e0c}
 
 .status-badge.ready{background:#09251c;color:#54e0b4;border:1px solid #1c604d}
 .status-badge.sold{background:#29100f;color:#ff8490;border:1px solid #743039}
 
-.actions{display:flex;gap:3px;justify-content:flex-end;align-items:center}.action{background:#11100d;border:1px solid var(--line);color:#c9bc91;padding:3px 6px;border-radius:5px;font-size:clamp(11px, 0.85vw, 14px)}.empty{padding:30px;text-align:center;color:var(--muted);font-size:14px}.bottom{display:flex;justify-content:center;gap:16px;padding:6px;border-top:1px solid #211c12;color:var(--muted);font-size:clamp(11px, 0.85vw, 14px);font-weight:700}.bottom button{background:#0e0d09;border:1px solid var(--line);color:var(--gold2);padding:4px 10px;border-radius:6px;font-weight:900}
+.actions{display:flex;gap:3px;justify-content:flex-end;align-items:center}.action{background:#11100d;border:1px solid var(--line);color:#c9bc91;padding:3px 6px;border-radius:5px;font-size:12px;font-weight:800}.empty{padding:30px;text-align:center;color:var(--muted);font-size:14px}.bottom{display:flex;justify-content:center;gap:16px;padding:6px;border-top:1px solid #211c12;color:var(--muted);font-size:clamp(11px, 0.85vw, 14px);font-weight:700}.bottom button{background:#0e0d09;border:1px solid var(--line);color:var(--gold2);padding:4px 10px;border-radius:6px;font-weight:900}
 
 /* FLOATING RATE WIDGET */
 .rate-widget-container {position:fixed;right:14px;bottom:14px;z-index:20;display:flex;flex-direction:column;align-items:flex-end}
 .rate-toggle-btn {box-shadow:0 4px 15px rgba(0,0,0,0.5);display:flex;align-items:center;gap:6px}
 .rate-panel{width:330px;background:#0b0a08;border:1px solid var(--line);border-radius:13px;padding:12px;box-shadow:var(--shadow);margin-bottom:8px;display:block}
 .rate-panel.hidden{display:none}
-.rate-head{display:flex;justify-space:between;align-items:center;color:var(--gold2);font-size:11px;font-weight:900}
+.rate-head{display:flex;justify-content:space-between;align-items:center;color:var(--gold2);font-size:11px;font-weight:900}
 .rate-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:9px}
 .rate-box label{display:block;font-size:9px;color:var(--muted);margin-bottom:4px;font-weight:700}
 .rate-box input{width:100%;background:#050505;color:var(--text);border:1px solid #302a1b;border-radius:7px;padding:7px;font-weight:800}
@@ -263,7 +263,7 @@ h1{font-size:clamp(16px, 1.4vw, 24px);margin:2px 0 0;letter-spacing:.4px;text-tr
 <script>
 const $=id=>document.getElementById(id);
 let state=JSON.parse(localStorage.getItem('sae_gold_v13')||'null')||{accounts:[],incomeRate:1000,speedRate:1000};
-let filter='all',page=1,pageSize=24,editingId=null,hideMode=false;
+let filter='all',page=1,pageSize=50,editingId=null,hideMode=false; // PAGE SIZE DISET 50
 
 let showAllPasswords = false;
 
@@ -313,7 +313,6 @@ function parseSpeedValueStrict(a) {
 
   const match = fullSpeed.match(/[\d.]+/);
   if (!match) return 0;
-  // HANYA MENGAMBIL ANGKA BULAT DI DEPAN KOMA/TITIK UNTUK HUKUM AUTO CALCU
   return Math.floor(parseFloat(match[0]));
 }
 
@@ -361,7 +360,6 @@ function calcTotalSpeedInfo(accounts) {
 
 function priceOf(a){
   const validSpeedVal = parseSpeedValueStrict(a); 
-  // HANYA MENGAMBIL ANGKA BULAT DI DEPAN KOMA/TITIK PADA INCOME
   const integerIncome = Math.floor(n(a.income));
   return (integerIncome * n(state.incomeRate)) + (validSpeedVal * n(state.speedRate));
 }
@@ -407,7 +405,6 @@ function toggleSelectAll(masterCert) {
   const isChecked = masterCert.checked;
   const currentDisplayedList = list();
   
-  // Mengubah semua akun yang tampil saat ini
   currentDisplayedList.forEach(a => {
     a.include = isChecked;
   });
@@ -441,7 +438,6 @@ function render(){
   const slice=arr.slice((page-1)*pageSize,page*pageSize);
   $('pageInfo').textContent=`Page ${page} of ${pages}`;
   
-  // Menyesuaikan status checkbox Select All
   if(slice.length > 0) {
     const allChecked = slice.every(a => a.include !== false);
     $('selectAllCheckbox').checked = allChecked;
@@ -535,7 +531,7 @@ render();
 <script type="module">
 import { GoogleGenAI, Type } from '@google/genai';
 
-let apiLimitTime = null; // Menyimpan timestamp cooldown jika 429
+let apiLimitTime = null;
 
 function getApiUsage() {
   const today = new Date().toISOString().slice(0, 10);
@@ -564,12 +560,11 @@ function updateUsageDisplay() {
   }
 }
 
-// TIMER COUNTDOWN UNTUK RESET KUOTA UTC (JAM 07:00 WIB)
 function startDailyResetTimer() {
   setInterval(() => {
     const now = new Date();
     const nextReset = new Date();
-    nextReset.setUTCHours(24, 0, 0, 0); // Reset Google API gratis terjadi jam 00:00 UTC
+    nextReset.setUTCHours(24, 0, 0, 0);
     
     const diff = nextReset - now;
     if (diff > 0) {
