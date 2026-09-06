@@ -52,8 +52,19 @@ h1{font-size:clamp(16px, 1.4vw, 24px);margin:2px 0 0;letter-spacing:.4px;text-tr
 .cards{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin:8px 0}.card{background:linear-gradient(145deg,#0d0d0d,#080806);border:1px solid var(--line);border-radius:10px;padding:8px 12px;min-height:70px;box-shadow:var(--shadow)}.card-label{font-size:clamp(10px, 0.8vw, 13px);font-weight:900;color:var(--gold2);letter-spacing:.8px}.card-value{font-size:clamp(18px, 1.6vw, 28px);font-weight:950;margin-top:4px}.card-sub{font-size:clamp(9px, 0.75vw, 12px);color:var(--muted);margin-top:2px;font-weight:700}.green{color:var(--green)}.cyan{color:var(--cyan)}.purple{color:var(--purple)}.yellow{color:var(--gold2)}
 .controls{display:flex;gap:8px;align-items:center;flex-wrap:wrap;background:#0a0a09;border:1px solid var(--line);padding:6px 10px;border-radius:10px;margin-bottom:8px}.filter{display:flex;gap:4px}.filter button{background:#0d0c09;border:1px solid var(--line);color:var(--muted);padding:5px 9px;border-radius:6px;font-size:clamp(10px, 0.8vw, 13px);font-weight:900}.filter button.active{background:var(--gold);color:#090806;border-color:var(--gold)}.search{margin-left:auto;background:#070707;border:1px solid #2e291b;color:var(--text);padding:6px 10px;border-radius:7px;min-width:200px;font-size:clamp(11px, 0.85vw, 14px);outline:none}.search:focus{border-color:var(--gold)}
 
-/* TABLE STYLES - DITINGKATKAN KETAJAMAN & SKALA TEKS UNTUK ZOOM SCREENSHOT 50 AKUN */
-.table{border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#080808}.thead,.row{display:grid;grid-template-columns:0.3fr 1.5fr .9fr 1fr .7fr .6fr .6fr .75fr .6fr .75fr .65fr 1fr;align-items:center}.thead{background:#12100b;color:var(--gold2);font-size:13px;font-weight:900;letter-spacing:.6px;padding:8px 10px}.row{min-height:30px;border-top:1px solid #211c12;padding:4px 10px;transition:all 0.2s}.row:hover{background:#0e0d0a}.cell{min-width:0}.account{display:flex;gap:7px;align-items:center}.avatar{width:22px;height:22px;border:1px solid #5b4a1b;border-radius:50%;display:grid;place-items:center;background:#12100a;font-size:11px;flex-shrink:0}.name{font-weight:900;font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#ffffff;text-shadow:0 1px 2px rgba(0,0,0,0.8)}.meta{font-size:11px;color:var(--muted);margin-top:1px;display:flex;align-items:center;gap:4px;font-weight:800}.val{font-weight:900;font-size:14px;letter-spacing:0.3px}.money{color:var(--green)}.income{color:var(--cyan)}.speed{color:var(--purple)}.pets{color:#59e5bb}.eggs{color:var(--gold2)}.treadmill{color:#ff7e9a}.pen{color:#8aa8ff}
+/* TABLE STYLES */
+.table{border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#080808}
+.thead,.row{display:grid;grid-template-columns:0.3fr 1.5fr .9fr 1fr .7fr .6fr 1fr .6fr .75fr .6fr .75fr .65fr 1fr;align-items:center}
+.thead{background:#12100b;color:var(--gold2);font-size:13px;font-weight:900;letter-spacing:.6px;padding:8px 10px}
+.row{min-height:30px;border-top:1px solid #211c12;padding:4px 10px;transition:all 0.2s}
+.row:hover{background:#0e0d0a}
+.cell{min-width:0}
+.account{display:flex;gap:7px;align-items:center}
+.avatar{width:22px;height:22px;border:1px solid #5b4a1b;border-radius:50%;display:grid;place-items:center;background:#12100a;font-size:11px;flex-shrink:0}
+.name{font-weight:900;font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#ffffff;text-shadow:0 1px 2px rgba(0,0,0,0.8)}
+.meta{font-size:11px;color:var(--muted);margin-top:1px;display:flex;align-items:center;gap:4px;font-weight:800}
+.val{font-weight:900;font-size:14px;letter-spacing:0.3px}
+.money{color:var(--green)}.income{color:var(--cyan)}.speed{color:var(--purple)}.pets{color:#59e5bb}.eggs{color:var(--gold2)}.treadmill{color:#ff7e9a}.pen{color:#8aa8ff}
 
 /* STYLE BARIS SOLD (RED HIGHLIGHT & GLOW) */
 .row.row-sold {
@@ -66,13 +77,47 @@ h1{font-size:clamp(16px, 1.4vw, 24px);margin:2px 0 0;letter-spacing:.4px;text-tr
   box-shadow: inset 0 0 15px rgba(255, 0, 0, 0.35), 0 0 12px rgba(255, 50, 50, 0.25);
 }
 
-/* TOGGLE BADGE STYLES (DATPOL & STATUS) */
-.datpol-badge, .status-badge{font-size:11px;font-weight:900;padding:2px 6px;border-radius:5px;cursor:pointer;user-select:none;display:inline-block;transition:all 0.2s;letter-spacing:0.3px}
+/* TOGGLE BADGE STYLES (DATPOL, STATUS, & DIVINE) */
+.datpol-badge, .status-badge, .divine-badge{font-size:11px;font-weight:900;padding:2px 6px;border-radius:5px;cursor:pointer;user-select:none;display:inline-block;transition:all 0.2s;letter-spacing:0.3px}
 .datpol-badge.datpol{background:#092918;color:#25d69a;border:1px solid #145e3b}
 .datpol-badge.unclean{background:#2b1908;color:#ffab40;border:1px solid #6b3e0c}
 
 .status-badge.ready{background:#09251c;color:#54e0b4;border:1px solid #1c604d}
 .status-badge.sold{background:#29100f;color:#ff8490;border:1px solid #743039}
+
+/* DIVINE TOGGLE STYLES */
+.divine-badge.has-divine {
+  background: linear-gradient(#e1bb3f, #b58a13);
+  color: #090806;
+  border: 1px solid #f1d96b;
+  font-weight: 900;
+  box-shadow: 0 0 6px rgba(212,175,55,0.4);
+}
+.divine-badge.no-divine {
+  background: #222222;
+  color: #888888;
+  border: 1px solid #444444;
+  font-weight: 800;
+}
+.divine-cell {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.divine-input {
+  width: 50px;
+  background: #050505;
+  border: 1px solid #302a1b;
+  color: var(--gold2);
+  border-radius: 5px;
+  padding: 2px 4px;
+  font-size: 11px;
+  font-weight: 900;
+  outline: none;
+}
+.divine-input:focus {
+  border-color: var(--gold);
+}
 
 .actions{display:flex;gap:3px;justify-content:flex-end;align-items:center}.action{background:#11100d;border:1px solid var(--line);color:#c9bc91;padding:3px 6px;border-radius:5px;font-size:12px;font-weight:800}.empty{padding:30px;text-align:center;color:var(--muted);font-size:14px}.bottom{display:flex;justify-content:center;gap:16px;padding:6px;border-top:1px solid #211c12;color:var(--muted);font-size:clamp(11px, 0.85vw, 14px);font-weight:700}.bottom button{background:#0e0d09;border:1px solid var(--line);color:var(--gold2);padding:4px 10px;border-radius:6px;font-weight:900}
 
@@ -106,7 +151,7 @@ h1{font-size:clamp(16px, 1.4vw, 24px);margin:2px 0 0;letter-spacing:.4px;text-tr
 .api-badge.empty{background:#262314;color:#f0d66a;border:1px solid #574e27}
 .reset-timer{font-size:10px;color:var(--cyan);margin-top:6px;font-weight:bold}
 
-@media(max-width:1100px){.cards{grid-template-columns:repeat(3,1fr)}.thead,.row{grid-template-columns:0.3fr 1.5fr .8fr 1fr .7fr .6fr .6fr .75fr .6fr .75fr .6fr 1fr;min-width:980px}.table{overflow:auto}.thead{display:grid}.search{margin-left:0;width:100%}}
+@media(max-width:1100px){.cards{grid-template-columns:repeat(3,1fr)}.thead,.row{grid-template-columns:0.3fr 1.5fr .8fr 1fr .7fr .6fr 1fr .6fr .75fr .6fr .75fr .6fr 1fr;min-width:1080px}.table{overflow:auto}.thead{display:grid}.search{margin-left:0;width:100%}}
 @media(max-width:700px){.app{padding:8px}.topbar{flex-direction:column}.top-actions{justify-content:flex-start}.cards{grid-template-columns:1fr 1fr}.analysis-grid{grid-template-columns:1fr 1fr}}
 </style>
 </head>
@@ -157,7 +202,7 @@ h1{font-size:clamp(16px, 1.4vw, 24px);margin:2px 0 0;letter-spacing:.4px;text-tr
 
   <div class="table">
     <div class="thead">
-      <div>#</div><div>USERNAME</div><div>💸 MONEY</div><div>⚡ INCOME / SEC</div><div>🚀 SPEED</div><div>🐾 PETS</div><div>🥚 EGGS</div><div>🏃 TREADMILL</div><div>🏠 PEN</div><div>DATPOL / DATA</div><div>STATUS</div>
+      <div>#</div><div>USERNAME</div><div>💸 MONEY</div><div>⚡ INCOME / SEC</div><div>🚀 SPEED</div><div>🐾 PETS</div><div>🌟 DIVINE</div><div>🥚 EGGS</div><div>🏃 TREADMILL</div><div>🏠 PEN</div><div>DATPOL / DATA</div><div>STATUS</div>
       <div style="display:flex;align-items:center;justify-content:flex-end;gap:5px;">
         <input type="checkbox" id="selectAllCheckbox" onchange="toggleSelectAll(this)" title="Select/Deselect All">
         <span>ACTIONS</span>
@@ -202,6 +247,7 @@ h1{font-size:clamp(16px, 1.4vw, 24px);margin:2px 0 0;letter-spacing:.4px;text-tr
     <label style="font-size:10px;color:var(--muted);font-weight:700">SPEED<input id="fSpeed" placeholder="10" style="width:100%;margin-top:5px;background:#050505;border:1px solid #302a1b;color:var(--text);padding:9px;border-radius:7px;font-weight:800"></label>
     <label style="font-size:10px;color:var(--muted);font-weight:700">SPEED UNIT<select id="fSpeedUnit" style="width:100%;margin-top:5px;background:#050505;border:1px solid #302a1b;color:var(--text);padding:9px;border-radius:7px;font-weight:800"><option>B</option><option>T</option><option>M</option><option value="">Tanpa Unit</option></select></label>
     <label style="font-size:10px;color:var(--muted);font-weight:700">PETS<input id="fPets" type="number" min="0" step="1" placeholder="1" style="width:100%;margin-top:5px;background:#050505;border:1px solid #302a1b;color:var(--text);padding:9px;border-radius:7px;font-weight:800"></label>
+    <label style="font-size:10px;color:var(--muted);font-weight:700">DIVINE PETS (JUMLAH)<input id="fDivineCount" type="number" min="0" step="1" placeholder="0" style="width:100%;margin-top:5px;background:#050505;border:1px solid #302a1b;color:var(--text);padding:9px;border-radius:7px;font-weight:800"></label>
     <label style="font-size:10px;color:var(--muted);font-weight:700">EGGS<input id="fEggs" type="number" min="0" step="1" placeholder="0" style="width:100%;margin-top:5px;background:#050505;border:1px solid #302a1b;color:var(--text);padding:9px;border-radius:7px;font-weight:800"></label>
     <label style="font-size:10px;color:var(--muted);font-weight:700">TREADMILL LEVEL<input id="fTreadmill" type="number" min="0" step="1" placeholder="1" style="width:100%;margin-top:5px;background:#050505;border:1px solid #302a1b;color:var(--text);padding:9px;border-radius:7px;font-weight:800"></label>
     <label style="font-size:10px;color:var(--muted);font-weight:700">PEN LEVEL<input id="fPen" type="number" min="0" step="1" placeholder="8" style="width:100%;margin-top:5px;background:#050505;border:1px solid #302a1b;color:var(--text);padding:9px;border-radius:7px;font-weight:800"></label>
@@ -401,6 +447,26 @@ function toggleStatusBadge(id) {
   }
 }
 
+function toggleDivineBadge(id) {
+  const a = state.accounts.find(x => String(x.id) === String(id));
+  if (a) {
+    a.isDivine = !a.isDivine;
+    if (a.isDivine && (a.divineCount === undefined || a.divineCount === null || a.divineCount === '')) {
+      a.divineCount = 1;
+    }
+    save();
+    render();
+  }
+}
+
+function updateDivineCount(id, val) {
+  const a = state.accounts.find(x => String(x.id) === String(id));
+  if (a) {
+    a.divineCount = val;
+    save();
+  }
+}
+
 function toggleSelectAll(masterCert) {
   const isChecked = masterCert.checked;
   const currentDisplayedList = list();
@@ -467,6 +533,15 @@ function render(){
       ? `<span class="status-badge ready" onclick="toggleStatusBadge('${a.id}')" title="Klik untuk ubah status">READY</span>`
       : `<span class="status-badge sold" onclick="toggleStatusBadge('${a.id}')" title="Klik untuk ubah status">SOLD</span>`;
 
+    const isDivine = !!a.isDivine;
+    const divineBadge = isDivine
+      ? `<span class="divine-badge has-divine" onclick="toggleDivineBadge('${a.id}')" title="Klik untuk ubah status">Pet Divine</span>`
+      : `<span class="divine-badge no-divine" onclick="toggleDivineBadge('${a.id}')" title="Klik untuk ubah status">No divine</span>`;
+
+    const divineInputHtml = isDivine
+      ? `<input type="number" min="0" class="divine-input" value="${esc(a.divineCount ?? 1)}" oninput="updateDivineCount('${a.id}', this.value)">`
+      : '';
+
     const rowClass = a.status === 'sold' ? 'row row-sold' : 'row';
 
     return `<div class="${rowClass}">
@@ -486,6 +561,7 @@ function render(){
 <div class="cell val income">${a.income!==''?fmt(a.income)+' '+esc(a.incomeUnit||'M/s'):'—'}</div>
 <div class="cell val speed">${getFormattedSpeed(a)}</div>
 <div class="cell val pets">${a.pets!==''?'🐾 '+fmt(a.pets):'—'}</div>
+<div class="cell divine-cell">${divineBadge}${divineInputHtml}</div>
 <div class="cell val eggs">${a.eggs!==''?'🥚 '+fmt(a.eggs):'—'}</div>
 <div class="cell val treadmill">${a.treadmill!==''?'LV '+fmt(a.treadmill):'—'}</div>
 <div class="cell val pen">${a.pen!==''?'LV '+fmt(a.pen):'—'}</div>
@@ -503,7 +579,7 @@ function setFilter(f,b){filter=f;page=1;document.querySelectorAll('.filter butto
 function changePage(d){page=Math.max(1,page+d);render()}
 function toggleInclude(id){const a=state.accounts.find(x=>String(x.id)===String(id));if(a){a.include=!a.include;save();render()}}
 function deleteAccount(id){if(confirm('Hapus akun ini?')){state.accounts=state.accounts.filter(x=>String(x.id)!==String(id));save();render()}}
-function openManual(){editingId=null;$('manualTitle').textContent='＋ Tambah Akun';['fName','fPass','fMoney','fIncome','fSpeed','fPets','fEggs','fTreadmill','fPen'].forEach(id=>$(id).value='');$('fPass').type='password';if($('fPassToggleBtn'))$('fPassToggleBtn').textContent='👁';$('fIncomeUnit').value='B/s';$('fSpeedUnit').value='B';$('fDatpol').value='datpol';$('fStatus').value='ready';$('manualBg').classList.add('show')}
+function openManual(){editingId=null;$('manualTitle').textContent='＋ Tambah Akun';['fName','fPass','fMoney','fIncome','fSpeed','fPets','fDivineCount','fEggs','fTreadmill','fPen'].forEach(id=>$(id).value='');$('fPass').type='password';if($('fPassToggleBtn'))$('fPassToggleBtn').textContent='👁';$('fIncomeUnit').value='B/s';$('fSpeedUnit').value='B';$('fDatpol').value='datpol';$('fStatus').value='ready';$('manualBg').classList.add('show')}
 function closeManual(){$('manualBg').classList.remove('show')}
 function toggleManualPass(){const input=$('fPass'),btn=$('fPassToggleBtn');if(input.type==='password'){input.type='text';btn.textContent='🙈'}else{input.type='password';btn.textContent='👁'}}
 function toggleAIPass(){const input=$('aiPass'),btn=$('aiPassToggleBtn');if(input.type==='password'){input.type='text';btn.textContent='🙈'}else{input.type='password';btn.textContent='👁'}}
@@ -516,8 +592,56 @@ function updateApiKey(val){
   localStorage.setItem('gemini_api_key', val.trim());
   if (window.updateApiStatusUI) window.updateApiStatusUI();
 }
-function editAccount(id){const a=state.accounts.find(x=>String(x.id)===String(id));if(!a)return;editingId=a.id;$('manualTitle').textContent='✏️ Edit Akun';$('fName').value=a.name||'';$('fPass').value=a.password||'';$('fPass').type='password';if($('fPassToggleBtn'))$('fPassToggleBtn').textContent='👁';$('fMoney').value=a.money||'';$('fIncome').value=a.income??'';$('fIncomeUnit').value=a.incomeUnit||'B/s';$('fSpeed').value=a.speed??'';$('fSpeedUnit').value=a.speedUnit||'';$('fPets').value=a.pets??'';$('fEggs').value=a.eggs??'';$('fTreadmill').value=a.treadmill??'';$('fPen').value=a.pen??'';$('fDatpol').value=a.datpol||'datpol';$('fStatus').value=a.status||'ready';$('manualBg').classList.show?true:$('manualBg').classList.add('show')}
-function saveManual(){const name=$('fName').value.trim();if(!name)return alert('Username wajib diisi.');const a={id:editingId||Date.now()+Math.random(),name,password:$('fPass').value,money:$('fMoney').value.trim(),income:$('fIncome').value,incomeUnit:$('fIncomeUnit').value,speed:$('fSpeed').value,speedUnit:$('fSpeedUnit').value,pets:$('fPets').value,eggs:$('fEggs').value,treadmill:$('fTreadmill').value,pen:$('fPen').value,datpol:$('fDatpol').value,status:$('fStatus').value,include:true};if(editingId)state.accounts=state.accounts.map(x=>String(x.id)===String(editingId)?a:x);else state.accounts.push(a);save();closeManual();render()}
+function editAccount(id){
+  const a=state.accounts.find(x=>String(x.id)===String(id));
+  if(!a)return;
+  editingId=a.id;
+  $('manualTitle').textContent='✏️ Edit Akun';
+  $('fName').value=a.name||'';
+  $('fPass').value=a.password||'';
+  $('fPass').type='password';
+  if($('fPassToggleBtn'))$('fPassToggleBtn').textContent='👁';
+  $('fMoney').value=a.money||'';
+  $('fIncome').value=a.income??'';
+  $('fIncomeUnit').value=a.incomeUnit||'B/s';
+  $('fSpeed').value=a.speed??'';
+  $('fSpeedUnit').value=a.speedUnit||'';
+  $('fPets').value=a.pets??'';
+  $('fDivineCount').value=a.divineCount??'';
+  $('fEggs').value=a.eggs??'';
+  $('fTreadmill').value=a.treadmill??'';
+  $('fPen').value=a.pen??'';
+  $('fDatpol').value=a.datpol||'datpol';
+  $('fStatus').value=a.status||'ready';
+  $('manualBg').classList.show?true:$('manualBg').classList.add('show')
+}
+function saveManual(){
+  const name=$('fName').value.trim();
+  if(!name)return alert('Username wajib diisi.');
+  const divineVal = $('fDivineCount').value;
+  const a={
+    id:editingId||Date.now()+Math.random(),
+    name,
+    password:$('fPass').value,
+    money:$('fMoney').value.trim(),
+    income:$('fIncome').value,
+    incomeUnit:$('fIncomeUnit').value,
+    speed:$('fSpeed').value,
+    speedUnit:$('fSpeedUnit').value,
+    pets:$('fPets').value,
+    isDivine: divineVal !== '' && parseInt(divineVal) > 0,
+    divineCount: divineVal,
+    eggs:$('fEggs').value,
+    treadmill:$('fTreadmill').value,
+    pen:$('fPen').value,
+    datpol:$('fDatpol').value,
+    status:$('fStatus').value,
+    include:true
+  };
+  if(editingId)state.accounts=state.accounts.map(x=>String(x.id)===String(editingId)?a:x);
+  else state.accounts.push(a);
+  save();closeManual();render()
+}
 function toggleRates(){$('ratePanel').classList.toggle('hidden')}
 function saveRates(){state.incomeRate=n($('incomeRate').value);state.speedRate=n($('speedRate').value);save();render()}
 function toggleHide(){hideMode=!hideMode;document.body.classList.toggle('screenshot-mode',hideMode);$('hideBtn').textContent=hideMode?'🛡 SCREENSHOT HIDE: ON':'🛡 SCREENSHOT HIDE';}
@@ -869,7 +993,7 @@ window.addAI = function(){
   state.accounts.push({
     id:Date.now()+Math.random(),name:a.name,password:$('aiPass')?.value||'',
     money:a.money,income:a.income,incomeUnit:a.incomeUnit,speed:a.speed,speedUnit:a.speedUnit,
-    pets:a.pets,eggs:a.eggs,treadmill:a.treadmill,pen:a.pen,datpol:'datpol',status:'ready',include:true
+    pets:a.pets,isDivine:false,divineCount:0,eggs:a.eggs,treadmill:a.treadmill,pen:a.pen,datpol:'datpol',status:'ready',include:true
   });
   save();render();closeAI();
 };
