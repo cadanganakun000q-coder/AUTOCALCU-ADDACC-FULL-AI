@@ -24,7 +24,8 @@
 :root{
   --bg:#050505;--panel:#0b0b0b;--panel2:#11100c;--gold:#d4af37;--gold2:#f0d66a;
   --line:#3b3015;--text:#ffffff;--muted:#b5ad95;--green:#25d69a;--cyan:#48d8ff;
-  --purple:#d17cff;--red:#ff6677;--shadow:0 18px 60px rgba(0,0,0,.45)
+  --purple:#d17cff;--red:#ff6677;--shadow:0 18px 60px rgba(0,0,0,.45);
+  --tosca:#00f5d4;
 }
 *{box-sizing:border-box} 
 body{margin:0;background:radial-gradient(circle at 50% -20%,#1a1407 0,#050505 42%,#000 100%);color:var(--text);font-family:Inter,Segoe UI,Arial,sans-serif;-webkit-font-smoothing:antialiased}
@@ -54,7 +55,7 @@ h1{font-size:clamp(16px, 1.4vw, 24px);margin:2px 0 0;letter-spacing:.4px;text-tr
 
 /* TABLE STYLES */
 .table{border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#080808}
-.thead,.row{display:grid;grid-template-columns:0.3fr 1.5fr .9fr 1fr .7fr .6fr 1.4fr .6fr .75fr .6fr .75fr .65fr 1fr;align-items:center}
+.thead,.row{display:grid;grid-template-columns:0.3fr 1.5fr .9fr 1fr .7fr 1.3fr .6fr 1.4fr .6fr .75fr .6fr .75fr .65fr 1fr;align-items:center}
 .thead{background:#12100b;color:var(--gold2);font-size:13px;font-weight:900;letter-spacing:.6px;padding:8px 10px}
 .row{min-height:30px;border-top:1px solid #211c12;padding:4px 10px;transition:all 0.2s}
 .row:hover{background:#0e0d0a}
@@ -77,16 +78,16 @@ h1{font-size:clamp(16px, 1.4vw, 24px);margin:2px 0 0;letter-spacing:.4px;text-tr
   box-shadow: inset 0 0 15px rgba(255, 0, 0, 0.35), 0 0 12px rgba(255, 50, 50, 0.25);
 }
 
-/* TOGGLE BADGE STYLES (DATPOL, STATUS, & DIVINE) */
-.datpol-badge, .status-badge, .divine-badge{font-size:11px;font-weight:900;padding:2px 6px;border-radius:5px;cursor:pointer;user-select:none;display:inline-block;transition:all 0.2s;letter-spacing:0.3px}
+/* TOGGLE BADGE STYLES (DATPOL, STATUS, DIVINE & TRAIL) */
+.datpol-badge, .status-badge, .divine-badge, .trail-badge{font-size:11px;font-weight:900;padding:2px 6px;border-radius:5px;cursor:pointer;user-select:none;display:inline-block;transition:all 0.2s;letter-spacing:0.3px}
 .datpol-badge.datpol{background:#092918;color:#25d69a;border:1px solid #145e3b}
 .datpol-badge.unclean{background:#2b1908;color:#ffab40;border:1px solid #6b3e0c}
 
 .status-badge.ready{background:#09251c;color:#54e0b4;border:1px solid #1c604d}
 .status-badge.sold{background:#29100f;color:#ff8490;border:1px solid #743039}
 
-/* DIVINE TOGGLE STYLES (DIBESARKAN) */
-.divine-badge {
+/* DIVINE & TRAIL TOGGLE STYLES */
+.divine-badge, .trail-badge {
   font-size: 13px !important;
   padding: 5px 10px !important;
   border-radius: 6px;
@@ -112,6 +113,35 @@ h1{font-size:clamp(16px, 1.4vw, 24px);margin:2px 0 0;letter-spacing:.4px;text-tr
   border: 1px solid #444444;
   font-weight: 800;
 }
+
+/* TRAIL BADGE COLOR STYLES */
+.trail-badge.divine-trail {
+  background: linear-gradient(#f0d66a, #d4af37);
+  color: #090806;
+  border: 1px solid #fff3a1;
+  font-weight: 900;
+  box-shadow: 0 0 8px rgba(240,214,106,0.5);
+}
+.trail-badge.moonbloom-trail {
+  background: linear-gradient(#00f5d4, #00b39b);
+  color: #050505;
+  border: 1px solid #80ffec;
+  font-weight: 900;
+  box-shadow: 0 0 8px rgba(0,245,212,0.5);
+}
+
+.trail-dropdown-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+.trail-select-overlay {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
 .divine-cell {
   display: flex;
   align-items: center;
@@ -167,7 +197,7 @@ h1{font-size:clamp(16px, 1.4vw, 24px);margin:2px 0 0;letter-spacing:.4px;text-tr
 .api-badge.empty{background:#262314;color:#f0d66a;border:1px solid #574e27}
 .reset-timer{font-size:10px;color:var(--cyan);margin-top:6px;font-weight:bold}
 
-@media(max-width:1100px){.cards{grid-template-columns:repeat(3,1fr)}.thead,.row{grid-template-columns:0.3fr 1.5fr .8fr 1fr .7fr .6fr 1.4fr .6fr .75fr .6fr .75fr .6fr 1fr;min-width:1120px}.table{overflow:auto}.thead{display:grid}.search{margin-left:0;width:100%}}
+@media(max-width:1100px){.cards{grid-template-columns:repeat(3,1fr)}.thead,.row{grid-template-columns:0.3fr 1.5fr .8fr 1fr .7fr 1.3fr .6fr 1.4fr .6fr .75fr .6fr .75fr .6fr 1fr;min-width:1250px}.table{overflow:auto}.thead{display:grid}.search{margin-left:0;width:100%}}
 @media(max-width:700px){.app{padding:8px}.topbar{flex-direction:column}.top-actions{justify-content:flex-start}.cards{grid-template-columns:1fr 1fr}.analysis-grid{grid-template-columns:1fr 1fr}}
 </style>
 </head>
@@ -218,7 +248,7 @@ h1{font-size:clamp(16px, 1.4vw, 24px);margin:2px 0 0;letter-spacing:.4px;text-tr
 
   <div class="table">
     <div class="thead">
-      <div>#</div><div>USERNAME</div><div>💸 MONEY</div><div>⚡ INCOME / SEC</div><div>🚀 SPEED</div><div>🐾 PETS</div><div>🌟 DIVINE</div><div>🥚 EGGS</div><div>🏃 TREADMILL</div><div>🏠 PEN</div><div>DATPOL / DATA</div><div>STATUS</div>
+      <div>#</div><div>USERNAME</div><div>💸 MONEY</div><div>⚡ INCOME / SEC</div><div>🚀 SPEED</div><div>👟Trail</div><div>🐾 PETS</div><div>🌟 DIVINE</div><div>🥚 EGGS</div><div>🏃 TREADMILL</div><div>🏠 PEN</div><div>DATPOL / DATA</div><div>STATUS</div>
       <div style="display:flex;align-items:center;justify-content:flex-end;gap:5px;">
         <input type="checkbox" id="selectAllCheckbox" onchange="toggleSelectAll(this)" title="Select/Deselect All">
         <span>ACTIONS</span>
@@ -262,6 +292,7 @@ h1{font-size:clamp(16px, 1.4vw, 24px);margin:2px 0 0;letter-spacing:.4px;text-tr
     <label style="font-size:10px;color:var(--muted);font-weight:700">INCOME UNIT<select id="fIncomeUnit" style="width:100%;margin-top:5px;background:#050505;border:1px solid #302a1b;color:var(--text);padding:9px;border-radius:7px;font-weight:800"><option>B/s</option><option>M/s</option></select></label>
     <label style="font-size:10px;color:var(--muted);font-weight:700">SPEED<input id="fSpeed" placeholder="10" style="width:100%;margin-top:5px;background:#050505;border:1px solid #302a1b;color:var(--text);padding:9px;border-radius:7px;font-weight:800"></label>
     <label style="font-size:10px;color:var(--muted);font-weight:700">SPEED UNIT<select id="fSpeedUnit" style="width:100%;margin-top:5px;background:#050505;border:1px solid #302a1b;color:var(--text);padding:9px;border-radius:7px;font-weight:800"><option>B</option><option>T</option><option>M</option><option value="">Tanpa Unit</option></select></label>
+    <label style="font-size:10px;color:var(--muted);font-weight:700">TRAIL TYPE<select id="fTrail" style="width:100%;margin-top:5px;background:#050505;border:1px solid #302a1b;color:var(--text);padding:9px;border-radius:7px;font-weight:800"><option value="divine">Divine Trail x14</option><option value="moonbloom">Moonbloom Trail x20</option></select></label>
     <label style="font-size:10px;color:var(--muted);font-weight:700">PETS<input id="fPets" type="number" min="0" step="1" placeholder="1" style="width:100%;margin-top:5px;background:#050505;border:1px solid #302a1b;color:var(--text);padding:9px;border-radius:7px;font-weight:800"></label>
     <label style="font-size:10px;color:var(--muted);font-weight:700">DIVINE PETS (JUMLAH)<input id="fDivineCount" type="number" min="0" step="1" placeholder="0" style="width:100%;margin-top:5px;background:#050505;border:1px solid #302a1b;color:var(--text);padding:9px;border-radius:7px;font-weight:800"></label>
     <label style="font-size:10px;color:var(--muted);font-weight:700">EGGS<input id="fEggs" type="number" min="0" step="1" placeholder="0" style="width:100%;margin-top:5px;background:#050505;border:1px solid #302a1b;color:var(--text);padding:9px;border-radius:7px;font-weight:800"></label>
@@ -463,6 +494,15 @@ function toggleStatusBadge(id) {
   }
 }
 
+function setTrailType(id, type) {
+  const a = state.accounts.find(x => String(x.id) === String(id));
+  if (a) {
+    a.trailType = type;
+    save();
+    render();
+  }
+}
+
 function toggleDivineBadge(id) {
   const a = state.accounts.find(x => String(x.id) === String(id));
   if (a) {
@@ -549,6 +589,20 @@ function render(){
       ? `<span class="status-badge ready" onclick="toggleStatusBadge('${a.id}')" title="Klik untuk ubah status">READY</span>`
       : `<span class="status-badge sold" onclick="toggleStatusBadge('${a.id}')" title="Klik untuk ubah status">SOLD</span>`;
 
+    // TRAIL BADGE & DROPDOWN TOGGLE
+    const currentTrail = a.trailType || 'divine';
+    const isDivineTrail = currentTrail === 'divine';
+    const trailLabel = isDivineTrail ? 'Divine trail x14 ▾' : 'Moonbloom trail x20 ▾';
+    const trailClass = isDivineTrail ? 'trail-badge divine-trail' : 'trail-badge moonbloom-trail';
+    const trailHtml = `
+      <div class="trail-dropdown-wrapper">
+        <span class="${trailClass}" title="Klik untuk pilih Trail">${trailLabel}</span>
+        <select class="trail-select-overlay" onchange="setTrailType('${a.id}', this.value)">
+          <option value="divine" ${isDivineTrail ? 'selected' : ''}>Divine trail x14</option>
+          <option value="moonbloom" ${!isDivineTrail ? 'selected' : ''}>Moonbloom trail x20</option>
+        </select>
+      </div>`;
+
     const isDivine = !!a.isDivine;
     const divineBadge = isDivine
       ? `<span class="divine-badge has-divine" onclick="toggleDivineBadge('${a.id}')" title="Klik untuk ubah status">Pet Divine</span>`
@@ -576,6 +630,7 @@ function render(){
 <div class="cell val money">${esc(moneyText(a.money))}</div>
 <div class="cell val income">${a.income!==''?fmt(a.income)+' '+esc(a.incomeUnit||'M/s'):'—'}</div>
 <div class="cell val speed">${getFormattedSpeed(a)}</div>
+<div class="cell">${trailHtml}</div>
 <div class="cell val pets">${a.pets!==''?'🐾 '+fmt(a.pets):'—'}</div>
 <div class="cell divine-cell">${divineBadge}${divineInputHtml}</div>
 <div class="cell val eggs">${a.eggs!==''?'🥚 '+fmt(a.eggs):'—'}</div>
@@ -595,7 +650,7 @@ function setFilter(f,b){filter=f;page=1;document.querySelectorAll('.filter butto
 function changePage(d){page=Math.max(1,page+d);render()}
 function toggleInclude(id){const a=state.accounts.find(x=>String(x.id)===String(id));if(a){a.include=!a.include;save();render()}}
 function deleteAccount(id){if(confirm('Hapus akun ini?')){state.accounts=state.accounts.filter(x=>String(x.id)!==String(id));save();render()}}
-function openManual(){editingId=null;$('manualTitle').textContent='＋ Tambah Akun';['fName','fPass','fMoney','fIncome','fSpeed','fPets','fDivineCount','fEggs','fTreadmill','fPen'].forEach(id=>$(id).value='');$('fPass').type='password';if($('fPassToggleBtn'))$('fPassToggleBtn').textContent='👁';$('fIncomeUnit').value='B/s';$('fSpeedUnit').value='B';$('fDatpol').value='datpol';$('fStatus').value='ready';$('manualBg').classList.add('show')}
+function openManual(){editingId=null;$('manualTitle').textContent='＋ Tambah Akun';['fName','fPass','fMoney','fIncome','fSpeed','fPets','fDivineCount','fEggs','fTreadmill','fPen'].forEach(id=>$(id).value='');$('fPass').type='password';if($('fPassToggleBtn'))$('fPassToggleBtn').textContent='👁';$('fIncomeUnit').value='B/s';$('fSpeedUnit').value='B';$('fTrail').value='divine';$('fDatpol').value='datpol';$('fStatus').value='ready';$('manualBg').classList.add('show')}
 function closeManual(){$('manualBg').classList.remove('show')}
 function toggleManualPass(){const input=$('fPass'),btn=$('fPassToggleBtn');if(input.type==='password'){input.type='text';btn.textContent='🙈'}else{input.type='password';btn.textContent='👁'}}
 function toggleAIPass(){const input=$('aiPass'),btn=$('aiPassToggleBtn');if(input.type==='password'){input.type='text';btn.textContent='🙈'}else{input.type='password';btn.textContent='👁'}}
@@ -622,6 +677,7 @@ function editAccount(id){
   $('fIncomeUnit').value=a.incomeUnit||'B/s';
   $('fSpeed').value=a.speed??'';
   $('fSpeedUnit').value=a.speedUnit||'';
+  $('fTrail').value=a.trailType||'divine';
   $('fPets').value=a.pets??'';
   $('fDivineCount').value=a.divineCount??'';
   $('fEggs').value=a.eggs??'';
@@ -644,6 +700,7 @@ function saveManual(){
     incomeUnit:$('fIncomeUnit').value,
     speed:$('fSpeed').value,
     speedUnit:$('fSpeedUnit').value,
+    trailType:$('fTrail').value,
     pets:$('fPets').value,
     isDivine: divineVal !== '' && parseInt(divineVal) > 0,
     divineCount: divineVal,
@@ -897,6 +954,7 @@ window.analyzeImage = async function(blob, pass = 1) {
       incomeUnit: parsedData.incomeUnit || 'B/s',
       speed: cleanSpeed,
       speedUnit: '',
+      trailType: 'divine',
       pets: extractFirstNumber(parsedData.pets),
       eggs: extractFirstNumber(parsedData.eggs),
       treadmill: extractFirstNumber(parsedData.treadmill),
@@ -1009,7 +1067,7 @@ window.addAI = function(){
   state.accounts.push({
     id:Date.now()+Math.random(),name:a.name,password:$('aiPass')?.value||'',
     money:a.money,income:a.income,incomeUnit:a.incomeUnit,speed:a.speed,speedUnit:a.speedUnit,
-    pets:a.pets,isDivine:false,divineCount:0,eggs:a.eggs,treadmill:a.treadmill,pen:a.pen,datpol:'datpol',status:'ready',include:true
+    trailType:a.trailType||'divine',pets:a.pets,isDivine:false,divineCount:0,eggs:a.eggs,treadmill:a.treadmill,pen:a.pen,datpol:'datpol',status:'ready',include:true
   });
   save();render();closeAI();
 };
