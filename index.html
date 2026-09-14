@@ -55,7 +55,7 @@ h1{font-size:clamp(16px, 1.4vw, 24px);margin:2px 0 0;letter-spacing:.4px;text-tr
 
 /* TABLE STYLES */
 .table{border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#080808}
-.thead,.row{display:grid;grid-template-columns:0.3fr 1.5fr .9fr 1fr .7fr 1.3fr .6fr 1.4fr .6fr .75fr .6fr .75fr .65fr 1fr;align-items:center}
+.thead,.row{display:grid;grid-template-columns:0.3fr 1.5fr .9fr 1fr 1fr .7fr 1.3fr .6fr 1.4fr .6fr .75fr .6fr .75fr .65fr 1fr;align-items:center}
 .thead{background:#12100b;color:var(--gold2);font-size:13px;font-weight:900;letter-spacing:.6px;padding:8px 10px}
 .row{min-height:30px;border-top:1px solid #211c12;padding:4px 10px;transition:all 0.2s}
 .row:hover{background:#0e0d0a}
@@ -66,6 +66,72 @@ h1{font-size:clamp(16px, 1.4vw, 24px);margin:2px 0 0;letter-spacing:.4px;text-tr
 .meta{font-size:11px;color:var(--muted);margin-top:1px;display:flex;align-items:center;gap:4px;font-weight:800}
 .val{font-weight:900;font-size:14px;letter-spacing:0.3px}
 .money{color:var(--green)}.income{color:var(--cyan)}.speed{color:var(--purple)}.pets{color:#59e5bb}.eggs{color:var(--gold2)}.treadmill{color:#ff7e9a}.pen{color:#8aa8ff}
+
+/* SUMMARY BAR AT BOTTOM OF TABLE */
+.table-summary-bar {
+  background: #14110b;
+  border-top: 2px solid var(--gold);
+  padding: 8px 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 900;
+  color: var(--gold2);
+  font-size: 13px;
+}
+.summary-item {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+/* CONTAINER & SIKU CONNECTOR LINE (PERBAIKAN POSISI GARIS) */
+.income-bag-container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+}
+.row-total-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 6px;
+  position: relative;
+  align-items: center;
+  width: 100%;
+}
+
+/* GARIS PENGHUBUNG SIKU DENGAN MARGIN ATAS & PADDING */
+.connecting-lines {
+  position: relative;
+  width: 75%;
+  height: 8px;
+  margin-top: 4px; /* Memberi jarak aman agar garis tidak menutupi teks angka atas */
+  border-left: 2px solid #48d8ff;
+  border-right: 2px solid #48d8ff;
+  border-bottom: 2px solid #48d8ff;
+}
+.connecting-lines::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 6px;
+  background-color: #48d8ff;
+}
+
+.total-label-box {
+  font-size: 13px;
+  font-weight: 900;
+  color: #48d8ff;
+  letter-spacing: 0.5px;
+  text-align: center;
+  margin-top: 4px;
+  line-height: 1.1;
+  text-shadow: 0 0 8px rgba(72,216,255,0.6);
+}
 
 /* STYLE BARIS SOLD (RED HIGHLIGHT & GLOW) */
 .row.row-sold {
@@ -78,7 +144,7 @@ h1{font-size:clamp(16px, 1.4vw, 24px);margin:2px 0 0;letter-spacing:.4px;text-tr
   box-shadow: inset 0 0 15px rgba(255, 0, 0, 0.35), 0 0 12px rgba(255, 50, 50, 0.25);
 }
 
-/* TOGGLE BADGE STYLES (DATPOL, STATUS, DIVINE & TRAIL) */
+/* TOGGLE BADGE STYLES */
 .datpol-badge, .status-badge, .divine-badge, .trail-badge{font-size:11px;font-weight:900;padding:2px 6px;border-radius:5px;cursor:pointer;user-select:none;display:inline-block;transition:all 0.2s;letter-spacing:0.3px}
 .datpol-badge.datpol{background:#092918;color:#25d69a;border:1px solid #145e3b}
 .datpol-badge.unclean{background:#2b1908;color:#ffab40;border:1px solid #6b3e0c}
@@ -86,7 +152,6 @@ h1{font-size:clamp(16px, 1.4vw, 24px);margin:2px 0 0;letter-spacing:.4px;text-tr
 .status-badge.ready{background:#09251c;color:#54e0b4;border:1px solid #1c604d}
 .status-badge.sold{background:#29100f;color:#ff8490;border:1px solid #743039}
 
-/* DIVINE & TRAIL TOGGLE STYLES */
 .divine-badge, .trail-badge {
   font-size: 13px !important;
   padding: 5px 10px !important;
@@ -114,7 +179,6 @@ h1{font-size:clamp(16px, 1.4vw, 24px);margin:2px 0 0;letter-spacing:.4px;text-tr
   font-weight: 800;
 }
 
-/* TRAIL BADGE COLOR STYLES */
 .trail-badge.divine-trail {
   background: linear-gradient(#f0d66a, #d4af37);
   color: #090806;
@@ -172,12 +236,12 @@ h1{font-size:clamp(16px, 1.4vw, 24px);margin:2px 0 0;letter-spacing:.4px;text-tr
 .rate-toggle-btn {box-shadow:0 4px 15px rgba(0,0,0,0.5);display:flex;align-items:center;gap:6px}
 .rate-panel{width:330px;background:#0b0a08;border:1px solid var(--line);border-radius:13px;padding:12px;box-shadow:var(--shadow);margin-bottom:8px;display:block}
 .rate-panel.hidden{display:none}
-.rate-head{display:flex;justify-space:between;align-items:center;color:var(--gold2);font-size:11px;font-weight:900}
+.rate-head{display:flex;justify-content:space-between;align-items:center;color:var(--gold2);font-size:11px;font-weight:900}
 .rate-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:9px}
 .rate-box label{display:block;font-size:9px;color:var(--muted);margin-bottom:4px;font-weight:700}
 .rate-box input{width:100%;background:#050505;color:var(--text);border:1px solid #302a1b;border-radius:7px;padding:7px;font-weight:800}
 
-.modal-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,.82);backdrop-filter:blur(7px);z-index:100;padding:22px;overflow:auto}.modal-bg.show{display:flex;align-items:center;justify-content:center}.modal{width:min(1120px,100%);background:linear-gradient(145deg,#0d0c09,#070707);border:1px solid var(--gold);border-radius:16px;padding:18px;box-shadow:0 30px 100px rgba(0,0,0,.8)}.modal h2{margin:0 0 12px;color:var(--gold2);font-size:17px}.notice{background:#090c10;border:1px solid #1f2b36;border-radius:10px;padding:11px;color:#8f9eaa;font-size:11px;line-height:1.55}.notice b{color:#d8d1bd}.paste-zone{margin-top:12px;min-height:220px;border:2px dashed #8a7020;border-radius:14px;background:radial-gradient(circle at 50% 20%,#171209,#070707 70%);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:16px;text-align:center;outline:none}.paste-zone:focus,.paste-zone.drag{border-color:var(--gold2);box-shadow:0 0 0 3px rgba(212,175,55,.08)}.paste-icon{font-size:38px}.paste-title{font-size:17px;font-weight:950;color:var(--gold2);margin-top:8px}.paste-sub{font-size:11px;color:#bdb294;margin-top:7px}.paste-status{font-size:11px;color:var(--gold2);margin-top:10px;font-weight:bold;transition:color 0.3s}.preview-wrap{display:none;margin-top:12px;border:1px solid #332a14;border-radius:12px;background:#050505;padding:10px}.preview-wrap.show{display:block}.preview-wrap img{display:block;width:100%;max-height:360px;object-fit:contain;border-radius:8px}.analysis{display:none;margin-top:10px}.analysis.show{display:block}.analysis-head{display:flex;justify-space:between;align-items:center;color:var(--gold2);font-size:11px;font-weight:900}.analysis-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-top:8px}.ai-field{background:#090908;border:1px solid #292314;border-radius:8px;padding:8px}.ai-field small{display:block;color:var(--muted);font-size:9px}.ai-field strong{display:block;margin-top:5px;font-size:13px;word-break:break-all;font-weight:900}.ai-field.ok strong{color:#8ce9c8}.ai-field.warn{border-color:#654e18}.ai-field.warn strong{color:#f1d05b}.ai-field.bad{border-color:#5c252c}.ai-field.bad strong{color:#ff8c98}.confidence{margin-top:8px;color:var(--muted);font-size:10px;font-weight:700}.ai-table{margin-top:10px;border:1px solid var(--line);border-radius:10px;overflow:auto}.ai-row{display:grid;grid-template-columns:1.5fr .9fr 1fr .7fr .7fr .7fr .8fr .7fr 1.2fr .45fr;min-width:880px;padding:9px;border-top:1px solid #211c12;align-items:center;font-size:11px;font-weight:700}.ai-head{border-top:0;background:#12100b;color:var(--gold2);font-weight:900}.manual-pass{width:100%;background:#050505;border:1px solid #302a1b;color:var(--text);padding:7px;padding-right:28px;border-radius:7px;font-weight:800}.modal-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:12px}.hidden-input{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}
+.modal-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,.82);backdrop-filter:blur(7px);z-index:100;padding:22px;overflow:auto}.modal-bg.show{display:flex;align-items:center;justify-content:center}.modal{width:min(1120px,100%);background:linear-gradient(145deg,#0d0c09,#070707);border:1px solid var(--gold);border-radius:16px;padding:18px;box-shadow:0 30px 100px rgba(0,0,0,.8)}.modal h2{margin:0 0 12px;color:var(--gold2);font-size:17px}.notice{background:#090c10;border:1px solid #1f2b36;border-radius:10px;padding:11px;color:#8f9eaa;font-size:11px;line-height:1.55}.notice b{color:#d8d1bd}.paste-zone{margin-top:12px;min-height:220px;border:2px dashed #8a7020;border-radius:14px;background:radial-gradient(circle at 50% 20%,#171209,#070707 70%);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:16px;text-align:center;outline:none}.paste-zone:focus,.paste-zone.drag{border-color:var(--gold2);box-shadow:0 0 0 3px rgba(212,175,55,.08)}.paste-icon{font-size:38px}.paste-title{font-size:17px;font-weight:950;color:var(--gold2);margin-top:8px}.paste-sub{font-size:11px;color:#bdb294;margin-top:7px}.paste-status{font-size:11px;color:var(--gold2);margin-top:10px;font-weight:bold;transition:color 0.3s}.preview-wrap{display:none;margin-top:12px;border:1px solid #332a14;border-radius:12px;background:#050505;padding:10px}.preview-wrap.show{display:block}.preview-wrap img{display:block;width:100%;max-height:360px;object-fit:contain;border-radius:8px}.analysis{display:none;margin-top:10px}.analysis.show{display:block}.analysis-head{display:flex;justify-content:space-between;align-items:center;color:var(--gold2);font-size:11px;font-weight:900}.analysis-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-top:8px}.ai-field{background:#090908;border:1px solid #292314;border-radius:8px;padding:8px}.ai-field small{display:block;color:var(--muted);font-size:9px}.ai-field strong{display:block;margin-top:5px;font-size:13px;word-break:break-all;font-weight:900}.ai-field.ok strong{color:#8ce9c8}.ai-field.warn{border-color:#654e18}.ai-field.warn strong{color:#f1d05b}.ai-field.bad{border-color:#5c252c}.ai-field.bad strong{color:#ff8c98}.confidence{margin-top:8px;color:var(--muted);font-size:10px;font-weight:700}.ai-table{margin-top:10px;border:1px solid var(--line);border-radius:10px;overflow:auto}.ai-row{display:grid;grid-template-columns:1.5fr .9fr 1fr .7fr .7fr .7fr .8fr .7fr 1.2fr .45fr;min-width:880px;padding:9px;border-top:1px solid #211c12;align-items:center;font-size:11px;font-weight:700}.ai-head{border-top:0;background:#12100b;color:var(--gold2);font-weight:900}.manual-pass{width:100%;background:#050505;border:1px solid #302a1b;color:var(--text);padding:7px;padding-right:28px;border-radius:7px;font-weight:800}.modal-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:12px}.hidden-input{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}
 .pass-wrapper{position:relative;display:flex;align-items:center;width:100%}
 .pass-toggle-btn{position:absolute;right:8px;background:none;border:none;color:var(--gold2);font-size:12px;padding:0;cursor:pointer;line-height:1;z-index:2}
 
@@ -190,20 +254,19 @@ h1{font-size:clamp(16px, 1.4vw, 24px);margin:2px 0 0;letter-spacing:.4px;text-tr
 
 /* GEMINI STATUS BOX */
 .api-status-box{background:#070a0e;border:1px solid #1a2636;border-radius:10px;padding:10px;margin-top:10px}
-.api-status-header{display:flex;justify-space:between;align-items:center}
+.api-status-header{display:flex;justify-content:space-between;align-items:center}
 .api-badge{font-size:10px;font-weight:900;padding:4px 8px;border-radius:6px;text-transform:uppercase}
 .api-badge.ready{background:#092918;color:#25d69a;border:1px solid #145e3b}
 .api-badge.not-ready{background:#3b1216;color:#ff6677;border:1px solid #6e222a}
 .api-badge.empty{background:#262314;color:#f0d66a;border:1px solid #574e27}
 .reset-timer{font-size:10px;color:var(--cyan);margin-top:6px;font-weight:bold}
 
-@media(max-width:1100px){.cards{grid-template-columns:repeat(3,1fr)}.thead,.row{grid-template-columns:0.3fr 1.5fr .8fr 1fr .7fr 1.3fr .6fr 1.4fr .6fr .75fr .6fr .75fr .6fr 1fr;min-width:1250px}.table{overflow:auto}.thead{display:grid}.search{margin-left:0;width:100%}}
+@media(max-width:1100px){.cards{grid-template-columns:repeat(3,1fr)}.thead,.row{grid-template-columns:0.3fr 1.5fr .8fr 1fr 1fr .7fr 1.3fr .6fr 1.4fr .6fr .75fr .6fr .75fr .6fr 1fr;min-width:1350px}.table{overflow:auto}.thead{display:grid}.search{margin-left:0;width:100%}}
 @media(max-width:700px){.app{padding:8px}.topbar{flex-direction:column}.top-actions{justify-content:flex-start}.cards{grid-template-columns:1fr 1fr}.analysis-grid{grid-template-columns:1fr 1fr}}
 </style>
 </head>
 <body>
 <div class="app">
-  <!-- JUDUL WEB TENGAH -->
   <div class="brand-title-center">JoStore</div>
 
   <div class="topbar">
@@ -212,7 +275,6 @@ h1{font-size:clamp(16px, 1.4vw, 24px);margin:2px 0 0;letter-spacing:.4px;text-tr
       <h1>STOCK ACCOUNT</h1>
     </div>
     <div class="top-actions">
-      <!-- TOMBOL DENGAN CLASS btn-sensitive HANYA DI-HIDE SAAT MODE SCREENSHOT -->
       <button class="btn btn-sensitive" id="showAllPassBtn" onclick="toggleShowAllPasswords()">👁 SHOW ALL PASSWORDS</button>
       <button class="btn btn-sensitive" onclick="openManual()">＋ ADD ACCOUNT</button>
       <button class="btn btn-sensitive" onclick="openAI()">✨ AI INPUT</button>
@@ -229,7 +291,7 @@ h1{font-size:clamp(16px, 1.4vw, 24px);margin:2px 0 0;letter-spacing:.4px;text-tr
     <div class="card"><div class="card-label cyan">💸 TOTAL MONEY</div><div id="moneyTotal" class="card-value green">$0</div><div class="card-sub">combined account balance</div></div>
     <div class="card"><div class="card-label cyan">💰 ESTIMATED SELLING PRICE</div><div id="priceTotal" class="card-value cyan">Rp0</div><div class="card-sub">berdasarkan rate</div></div>
     <div class="card"><div class="card-label purple">🚀 TOTAL SPEED</div><div id="speedTotal" class="card-value purple">0</div><div id="speedSub" class="card-sub">hanya unit B/T</div></div>
-    <div class="card"><div class="card-label cyan">📈 TOTAL INCOME / SEC</div><div id="incomeTotal" class="card-value cyan">0 B/s</div><div class="card-sub">hanya unit B/s</div></div>
+    <div class="card"><div class="card-label cyan">📈 TOTAL INCOME / SEC</div><div id="incomeTotal" class="card-value cyan">0 B/s</div><div class="card-sub">termasuk Income Bag</div></div>
     <div class="card"><div class="card-label yellow">🛒 SOLD ACCOUNTS</div><div id="soldCount" class="card-value yellow">0</div><div class="card-sub">marked as sold</div></div>
   </section>
 
@@ -248,13 +310,23 @@ h1{font-size:clamp(16px, 1.4vw, 24px);margin:2px 0 0;letter-spacing:.4px;text-tr
 
   <div class="table">
     <div class="thead">
-      <div>#</div><div>USERNAME</div><div>💸 MONEY</div><div>⚡ INCOME / SEC</div><div>🚀 SPEED</div><div>👟Trail</div><div>🐾 PETS</div><div>🌟 DIVINE</div><div>🥚 EGGS</div><div>🏃 TREADMILL</div><div>🏠 PEN</div><div>DATPOL / DATA</div><div>STATUS</div>
+      <div>#</div><div>USERNAME</div><div>💸 MONEY</div><div>⚡ INCOME / SEC</div><div>🎒 BAG</div><div>🚀 SPEED</div><div>👟Trail</div><div>🐾 PETS</div><div>🌟 DIVINE</div><div>🥚 EGGS</div><div>🏃 TREADMILL</div><div>🏠 PEN</div><div>DATPOL / DATA</div><div>STATUS</div>
       <div style="display:flex;align-items:center;justify-content:flex-end;gap:5px;">
         <input type="checkbox" id="selectAllCheckbox" onchange="toggleSelectAll(this)" title="Select/Deselect All">
         <span>ACTIONS</span>
       </div>
     </div>
     <div id="rows"></div>
+    <div class="table-summary-bar">
+      <div class="summary-item">
+        <span>⚡ AUTO TOTAL INCOME (MAIN + BAG):</span>
+        <span id="summaryTotalIncome" class="income" style="font-size:16px;">0 B/s</span>
+      </div>
+      <div class="summary-item">
+        <span>🎒 TOTAL BAG INCOME:</span>
+        <span id="summaryBagIncome" class="income" style="font-size:16px;">0 B/s</span>
+      </div>
+    </div>
     <div class="bottom"><button onclick="changePage(-1)">Prev</button><span id="pageInfo">Page 1</span><button onclick="changePage(1)">Next</button></div>
   </div>
 </div>
@@ -290,6 +362,10 @@ h1{font-size:clamp(16px, 1.4vw, 24px);margin:2px 0 0;letter-spacing:.4px;text-tr
     <label style="font-size:10px;color:var(--muted);font-weight:700">MONEY<input id="fMoney" placeholder="2.64T" style="width:100%;margin-top:5px;background:#050505;border:1px solid #302a1b;color:var(--text);padding:9px;border-radius:7px;font-weight:800"></label>
     <label style="font-size:10px;color:var(--muted);font-weight:700">INCOME / SEC<input id="fIncome" placeholder="3.168" type="number" step="any" style="width:100%;margin-top:5px;background:#050505;border:1px solid #302a1b;color:var(--text);padding:9px;border-radius:7px;font-weight:800"></label>
     <label style="font-size:10px;color:var(--muted);font-weight:700">INCOME UNIT<select id="fIncomeUnit" style="width:100%;margin-top:5px;background:#050505;border:1px solid #302a1b;color:var(--text);padding:9px;border-radius:7px;font-weight:800"><option>B/s</option><option>M/s</option></select></label>
+    
+    <label style="font-size:10px;color:var(--muted);font-weight:700">BAG PETS (JUMLAH)<input id="fBagPets" type="number" min="0" step="1" placeholder="0" style="width:100%;margin-top:5px;background:#050505;border:1px solid #302a1b;color:var(--text);padding:9px;border-radius:7px;font-weight:800"></label>
+    <label style="font-size:10px;color:var(--muted);font-weight:700">BAG INCOME / SEC<input id="fBagIncome" placeholder="1.2" type="number" step="any" style="width:100%;margin-top:5px;background:#050505;border:1px solid #302a1b;color:var(--text);padding:9px;border-radius:7px;font-weight:800"></label>
+
     <label style="font-size:10px;color:var(--muted);font-weight:700">SPEED<input id="fSpeed" placeholder="10" style="width:100%;margin-top:5px;background:#050505;border:1px solid #302a1b;color:var(--text);padding:9px;border-radius:7px;font-weight:800"></label>
     <label style="font-size:10px;color:var(--muted);font-weight:700">SPEED UNIT<select id="fSpeedUnit" style="width:100%;margin-top:5px;background:#050505;border:1px solid #302a1b;color:var(--text);padding:9px;border-radius:7px;font-weight:800"><option>B</option><option>T</option><option>M</option><option value="">Tanpa Unit</option></select></label>
     <label style="font-size:10px;color:var(--muted);font-weight:700">TRAIL TYPE<select id="fTrail" style="width:100%;margin-top:5px;background:#050505;border:1px solid #302a1b;color:var(--text);padding:9px;border-radius:7px;font-weight:800"><option value="divine">Divine Trail x14</option><option value="moonbloom">Moonbloom Trail x20</option></select></label>
@@ -356,7 +432,7 @@ h1{font-size:clamp(16px, 1.4vw, 24px);margin:2px 0 0;letter-spacing:.4px;text-tr
 <script>
 const $=id=>document.getElementById(id);
 let state=JSON.parse(localStorage.getItem('sae_gold_v13')||'null')||{accounts:[],incomeRate:1000,speedRate:1000};
-let filter='all',page=1,pageSize=50,editingId=null,hideMode=false; // PAGE SIZE DISET 50
+let filter='all',page=1,pageSize=50,editingId=null,hideMode=false; 
 
 let showAllPasswords = false;
 
@@ -394,6 +470,18 @@ function calcTotalIncome(accounts){
     const u = String(a.incomeUnit || '').toUpperCase();
     if(u.includes('B')){
       sum += n(a.income);
+      if(a.bagIncome) sum += n(a.bagIncome);
+    }
+  }
+  return sum;
+}
+
+function calcTotalBagIncome(accounts){
+  let sum = 0;
+  for(const a of accounts){
+    const u = String(a.incomeUnit || '').toUpperCase();
+    if(u.includes('B') && a.bagIncome){
+      sum += n(a.bagIncome);
     }
   }
   return sum;
@@ -453,14 +541,14 @@ function calcTotalSpeedInfo(accounts) {
 
 function priceOf(a){
   const validSpeedVal = parseSpeedValueStrict(a); 
-  const integerIncome = Math.floor(n(a.income));
-  return (integerIncome * n(state.incomeRate)) + (validSpeedVal * n(state.speedRate));
+  const totalAccIncome = Math.floor(n(a.income) + n(a.bagIncome || 0));
+  return (totalAccIncome * n(state.incomeRate)) + (validSpeedVal * n(state.speedRate));
 }
 
 function list(){
   let a=state.accounts.filter(x=>(filter==='all'||x.status===filter)&&(!$('onlyIncluded').checked||x.include!==false)&&(!$('search').value.trim()||String(x.name).toLowerCase().includes($('search').value.trim().toLowerCase())));
   const s=$('sort').value;
-  if(s==='income')a.sort((x,y)=>n(y.income)-n(x.income));
+  if(s==='income')a.sort((x,y)=>(n(y.income)+n(y.bagIncome||0))-(n(x.income)+n(x.bagIncome||0)));
   if(s==='speed')a.sort((x,y)=>parseSpeedValueStrict(y)-parseSpeedValueStrict(x));
   if(s==='price')a.sort((x,y)=>priceOf(y)-priceOf(x));
   if(s==='name')a.sort((x,y)=>String(x.name).localeCompare(String(y.name)));
@@ -543,6 +631,10 @@ function render(){
 
   const totalIncB = calcTotalIncome(activeAccounts);
   $('incomeTotal').textContent = totalIncB > 0 ? (totalIncB.toFixed(2).replace(/\.00$/,'') + ' B/s') : '0 B/s';
+  
+  const totalBagIncB = calcTotalBagIncome(activeAccounts);
+  $('summaryTotalIncome').textContent = totalIncB > 0 ? (totalIncB.toFixed(2).replace(/\.00$/,'') + ' B/s') : '0 B/s';
+  $('summaryBagIncome').textContent = totalBagIncB > 0 ? (totalBagIncB.toFixed(2).replace(/\.00$/,'') + ' B/s') : '0 B/s';
 
   const speedInfo = calcTotalSpeedInfo(activeAccounts);
   $('speedTotal').textContent = speedInfo.display;
@@ -589,7 +681,6 @@ function render(){
       ? `<span class="status-badge ready" onclick="toggleStatusBadge('${a.id}')" title="Klik untuk ubah status">READY</span>`
       : `<span class="status-badge sold" onclick="toggleStatusBadge('${a.id}')" title="Klik untuk ubah status">SOLD</span>`;
 
-    // TRAIL BADGE & DROPDOWN TOGGLE
     const currentTrail = a.trailType || 'divine';
     const isDivineTrail = currentTrail === 'divine';
     const trailLabel = isDivineTrail ? 'Divine trail x14 ▾' : 'Moonbloom trail x20 ▾';
@@ -614,6 +705,34 @@ function render(){
 
     const rowClass = a.status === 'sold' ? 'row row-sold' : 'row';
 
+    // LOGIKA CEK BAG
+    const hasBagData = (n(a.bagIncome) > 0) || (n(a.bagPets) > 0);
+
+    const bagIncomeDisplay = n(a.bagIncome) > 0 ? fmt(a.bagIncome) + ' ' + esc(a.incomeUnit||'B/s') : '';
+    const bagPetsDisplay = n(a.bagPets) > 0 ? '🐾 ' + fmt(a.bagPets) : '';
+
+    const bagDisplay = hasBagData
+      ? `<div style="display:flex;flex-direction:column;gap:1px;align-items:center;">
+           ${bagPetsDisplay ? `<span class="val pets" style="font-size:12px">${bagPetsDisplay}</span>` : ''}
+           ${bagIncomeDisplay ? `<span class="val income" style="font-size:12px">${bagIncomeDisplay}</span>` : ''}
+         </div>`
+      : '—';
+
+    // PENANGANAN TOTAL & GARIS PENGHUBUNG (HANYA APABILA BAG ADA ANGKA/ISI)
+    const rowIncomeVal = n(a.income);
+    const rowBagVal = n(a.bagIncome);
+    const rowTotalIncome = (rowIncomeVal + rowBagVal).toFixed(2).replace(/\.00$/, '');
+    const unitText = esc(a.incomeUnit || 'B/s');
+
+    const lineAndTotalHtml = hasBagData ? `
+      <div class="row-total-container">
+        <div class="connecting-lines"></div>
+        <div class="total-label-box">
+          <b>${rowTotalIncome} ${unitText}</b>
+        </div>
+      </div>
+    ` : '';
+
     return `<div class="${rowClass}">
 <div class="cell" style="font-weight:900;color:var(--muted);font-size:12px">${rowNumber}</div>
 <div class="cell">
@@ -628,7 +747,16 @@ function render(){
   </div>
 </div>
 <div class="cell val money">${esc(moneyText(a.money))}</div>
-<div class="cell val income">${a.income!==''?fmt(a.income)+' '+esc(a.incomeUnit||'M/s'):'—'}</div>
+
+<!-- DESAIN MAIN INCOME + BAG + GARIS KONDISIONAL SIKU PERSIS DI BAWAH ANGKA -->
+<div class="cell" style="grid-column: span 2;">
+  <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 8px; align-items: flex-end; text-align: center;">
+    <div class="val income">${a.income!==''?fmt(a.income)+' '+unitText:'—'}</div>
+    <div class="val">${bagDisplay}</div>
+  </div>
+  ${lineAndTotalHtml}
+</div>
+
 <div class="cell val speed">${getFormattedSpeed(a)}</div>
 <div class="cell">${trailHtml}</div>
 <div class="cell val pets">${a.pets!==''?'🐾 '+fmt(a.pets):'—'}</div>
@@ -650,7 +778,7 @@ function setFilter(f,b){filter=f;page=1;document.querySelectorAll('.filter butto
 function changePage(d){page=Math.max(1,page+d);render()}
 function toggleInclude(id){const a=state.accounts.find(x=>String(x.id)===String(id));if(a){a.include=!a.include;save();render()}}
 function deleteAccount(id){if(confirm('Hapus akun ini?')){state.accounts=state.accounts.filter(x=>String(x.id)!==String(id));save();render()}}
-function openManual(){editingId=null;$('manualTitle').textContent='＋ Tambah Akun';['fName','fPass','fMoney','fIncome','fSpeed','fPets','fDivineCount','fEggs','fTreadmill','fPen'].forEach(id=>$(id).value='');$('fPass').type='password';if($('fPassToggleBtn'))$('fPassToggleBtn').textContent='👁';$('fIncomeUnit').value='B/s';$('fSpeedUnit').value='B';$('fTrail').value='divine';$('fDatpol').value='datpol';$('fStatus').value='ready';$('manualBg').classList.add('show')}
+function openManual(){editingId=null;$('manualTitle').textContent='＋ Tambah Akun';['fName','fPass','fMoney','fIncome','fBagPets','fBagIncome','fSpeed','fPets','fDivineCount','fEggs','fTreadmill','fPen'].forEach(id=>$(id).value='');$('fPass').type='password';if($('fPassToggleBtn'))$('fPassToggleBtn').textContent='👁';$('fIncomeUnit').value='B/s';$('fSpeedUnit').value='B';$('fTrail').value='divine';$('fDatpol').value='datpol';$('fStatus').value='ready';$('manualBg').classList.add('show')}
 function closeManual(){$('manualBg').classList.remove('show')}
 function toggleManualPass(){const input=$('fPass'),btn=$('fPassToggleBtn');if(input.type==='password'){input.type='text';btn.textContent='🙈'}else{input.type='password';btn.textContent='👁'}}
 function toggleAIPass(){const input=$('aiPass'),btn=$('aiPassToggleBtn');if(input.type==='password'){input.type='text';btn.textContent='🙈'}else{input.type='password';btn.textContent='👁'}}
@@ -675,6 +803,8 @@ function editAccount(id){
   $('fMoney').value=a.money||'';
   $('fIncome').value=a.income??'';
   $('fIncomeUnit').value=a.incomeUnit||'B/s';
+  $('fBagPets').value=a.bagPets??'';
+  $('fBagIncome').value=a.bagIncome??'';
   $('fSpeed').value=a.speed??'';
   $('fSpeedUnit').value=a.speedUnit||'';
   $('fTrail').value=a.trailType||'divine';
@@ -698,6 +828,8 @@ function saveManual(){
     money:$('fMoney').value.trim(),
     income:$('fIncome').value,
     incomeUnit:$('fIncomeUnit').value,
+    bagPets:$('fBagPets').value,
+    bagIncome:$('fBagIncome').value,
     speed:$('fSpeed').value,
     speedUnit:$('fSpeedUnit').value,
     trailType:$('fTrail').value,
@@ -952,6 +1084,8 @@ window.analyzeImage = async function(blob, pass = 1) {
       money: parsedData.money || '',
       income: cleanIncome || rawIncome,
       incomeUnit: parsedData.incomeUnit || 'B/s',
+      bagPets: '',
+      bagIncome: '',
       speed: cleanSpeed,
       speedUnit: '',
       trailType: 'divine',
@@ -1066,7 +1200,7 @@ window.addAI = function(){
   if(!$('aiInclude')?.checked)return;
   state.accounts.push({
     id:Date.now()+Math.random(),name:a.name,password:$('aiPass')?.value||'',
-    money:a.money,income:a.income,incomeUnit:a.incomeUnit,speed:a.speed,speedUnit:a.speedUnit,
+    money:a.money,income:a.income,incomeUnit:a.incomeUnit,bagPets:a.bagPets||'',bagIncome:a.bagIncome||'',speed:a.speed,speedUnit:a.speedUnit,
     trailType:a.trailType||'divine',pets:a.pets,isDivine:false,divineCount:0,eggs:a.eggs,treadmill:a.treadmill,pen:a.pen,datpol:'datpol',status:'ready',include:true
   });
   save();render();closeAI();
