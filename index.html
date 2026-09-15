@@ -85,7 +85,7 @@ h1{font-size:clamp(16px, 1.4vw, 24px);margin:2px 0 0;letter-spacing:.4px;text-tr
   align-items: center;
 }
 
-/* CONTAINER & SIKU CONNECTOR LINE (PERBAIKAN POSISI GARIS) */
+/* CONTAINER & SIKU CONNECTOR LINE */
 .income-bag-container {
   display: flex;
   flex-direction: column;
@@ -101,12 +101,11 @@ h1{font-size:clamp(16px, 1.4vw, 24px);margin:2px 0 0;letter-spacing:.4px;text-tr
   width: 100%;
 }
 
-/* GARIS PENGHUBUNG SIKU DENGAN MARGIN ATAS & PADDING */
 .connecting-lines {
   position: relative;
   width: 75%;
   height: 8px;
-  margin-top: 4px; /* Memberi jarak aman agar garis tidak menutupi teks angka atas */
+  margin-top: 4px;
   border-left: 2px solid #48d8ff;
   border-right: 2px solid #48d8ff;
   border-bottom: 2px solid #48d8ff;
@@ -133,7 +132,6 @@ h1{font-size:clamp(16px, 1.4vw, 24px);margin:2px 0 0;letter-spacing:.4px;text-tr
   text-shadow: 0 0 8px rgba(72,216,255,0.6);
 }
 
-/* STYLE BARIS SOLD (RED HIGHLIGHT & GLOW) */
 .row.row-sold {
   background: rgba(255, 60, 60, 0.12) !important;
   border-left: 3px solid #ff4d4d;
@@ -144,7 +142,6 @@ h1{font-size:clamp(16px, 1.4vw, 24px);margin:2px 0 0;letter-spacing:.4px;text-tr
   box-shadow: inset 0 0 15px rgba(255, 0, 0, 0.35), 0 0 12px rgba(255, 50, 50, 0.25);
 }
 
-/* TOGGLE BADGE STYLES */
 .datpol-badge, .status-badge, .divine-badge, .trail-badge{font-size:11px;font-weight:900;padding:2px 6px;border-radius:5px;cursor:pointer;user-select:none;display:inline-block;transition:all 0.2s;letter-spacing:0.3px}
 .datpol-badge.datpol{background:#092918;color:#25d69a;border:1px solid #145e3b}
 .datpol-badge.unclean{background:#2b1908;color:#ffab40;border:1px solid #6b3e0c}
@@ -245,14 +242,12 @@ h1{font-size:clamp(16px, 1.4vw, 24px);margin:2px 0 0;letter-spacing:.4px;text-tr
 .pass-wrapper{position:relative;display:flex;align-items:center;width:100%}
 .pass-toggle-btn{position:absolute;right:8px;background:none;border:none;color:var(--gold2);font-size:12px;padding:0;cursor:pointer;line-height:1;z-index:2}
 
-/* SCREENSHOT MODE CONFIGURATION */
 .screenshot-mode .secret,
 .screenshot-mode .username-sensitive,
 .screenshot-mode .btn-sensitive {
   display: none !important;
 }
 
-/* GEMINI STATUS BOX */
 .api-status-box{background:#070a0e;border:1px solid #1a2636;border-radius:10px;padding:10px;margin-top:10px}
 .api-status-header{display:flex;justify-content:space-between;align-items:center}
 .api-badge{font-size:10px;font-weight:900;padding:4px 8px;border-radius:6px;text-transform:uppercase}
@@ -387,7 +382,7 @@ h1{font-size:clamp(16px, 1.4vw, 24px);margin:2px 0 0;letter-spacing:.4px;text-tr
   <h2>✨ AI INPUT — GEMINI 3.6 VISION OCR</h2>
   <div class="notice">
     <b>PASTE-ONLY VISION WORKFLOW</b><br>
-    Tempel screenshot dengan <b>Ctrl + V</b>. Sistem membaca <b>USERNAME, MONEY, INCOME/SEC, SPEED, PETS, EGGS, TREADMILL LEVEL, PEN LEVEL</b> saja.
+    Tempel screenshot dengan <b>Ctrl + V</b> (bisa tempel/pilih banyak sekaligus hingga 20+ file). Sistem mampu membaca <b>1 sampai 10 akun sekaligus dalam 1 screenshot</b> (termasuk USERNAME, MONEY, INCOME/SEC, SPEED, PETS, EGGS, TREADMILL LEVEL, PEN LEVEL).
   </div>
   
   <div class="api-status-box">
@@ -410,7 +405,7 @@ h1{font-size:clamp(16px, 1.4vw, 24px);margin:2px 0 0;letter-spacing:.4px;text-tr
   <div id="pasteZone" class="paste-zone" tabindex="0">
     <div class="paste-icon">📋</div>
     <div class="paste-title">TEMPEL SCREENSHOT DI SINI</div>
-    <div class="paste-sub">Klik area ini lalu tekan <b>Ctrl + V</b> — tidak perlu upload file.</div>
+    <div class="paste-sub">Klik area ini lalu tekan <b>Ctrl + V</b> atau Drag & Drop banyak gambar sekaligus.</div>
     <div class="paste-status" id="pasteStatus">✅ Siap menerima screenshot (Ready to Paste)</div>
     <button class="btn primary" id="pasteButton" style="margin-top:10px">📋 TEMPEL DARI CLIPBOARD</button>
   </div>
@@ -424,7 +419,7 @@ h1{font-size:clamp(16px, 1.4vw, 24px);margin:2px 0 0;letter-spacing:.4px;text-tr
   <div class="modal-actions">
     <button class="btn ghost" onclick="closeAI()">BATAL</button>
     <button class="btn" id="reanalyzeBtn" style="display:none" onclick="reanalyze()">🔄 ANALISIS ULANG</button>
-    <button class="btn primary" id="addAI" style="display:none" onclick="addAI()">＋ TAMBAHKAN YANG DIPILIH</button>
+    <button class="btn primary" id="addAI" style="display:none" onclick="addAI()">＋ TAMBAHKAN DARI HASIL ANALISIS</button>
   </div>
  </div>
 </div>
@@ -705,7 +700,6 @@ function render(){
 
     const rowClass = a.status === 'sold' ? 'row row-sold' : 'row';
 
-    // LOGIKA CEK BAG
     const hasBagData = (n(a.bagIncome) > 0) || (n(a.bagPets) > 0);
 
     const bagIncomeDisplay = n(a.bagIncome) > 0 ? fmt(a.bagIncome) + ' ' + esc(a.incomeUnit||'B/s') : '';
@@ -718,7 +712,6 @@ function render(){
          </div>`
       : '—';
 
-    // PENANGANAN TOTAL & GARIS PENGHUBUNG (HANYA APABILA BAG ADA ANGKA/ISI)
     const rowIncomeVal = n(a.income);
     const rowBagVal = n(a.bagIncome);
     const rowTotalIncome = (rowIncomeVal + rowBagVal).toFixed(2).replace(/\.00$/, '');
@@ -748,7 +741,6 @@ function render(){
 </div>
 <div class="cell val money">${esc(moneyText(a.money))}</div>
 
-<!-- DESAIN MAIN INCOME + BAG + GARIS KONDISIONAL SIKU PERSIS DI BAWAH ANGKA -->
 <div class="cell" style="grid-column: span 2;">
   <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 8px; align-items: flex-end; text-align: center;">
     <div class="val income">${a.income!==''?fmt(a.income)+' '+unitText:'—'}</div>
@@ -781,7 +773,7 @@ function deleteAccount(id){if(confirm('Hapus akun ini?')){state.accounts=state.a
 function openManual(){editingId=null;$('manualTitle').textContent='＋ Tambah Akun';['fName','fPass','fMoney','fIncome','fBagPets','fBagIncome','fSpeed','fPets','fDivineCount','fEggs','fTreadmill','fPen'].forEach(id=>$(id).value='');$('fPass').type='password';if($('fPassToggleBtn'))$('fPassToggleBtn').textContent='👁';$('fIncomeUnit').value='B/s';$('fSpeedUnit').value='B';$('fTrail').value='divine';$('fDatpol').value='datpol';$('fStatus').value='ready';$('manualBg').classList.add('show')}
 function closeManual(){$('manualBg').classList.remove('show')}
 function toggleManualPass(){const input=$('fPass'),btn=$('fPassToggleBtn');if(input.type==='password'){input.type='text';btn.textContent='🙈'}else{input.type='password';btn.textContent='👁'}}
-function toggleAIPass(){const input=$('aiPass'),btn=$('aiPassToggleBtn');if(input.type==='password'){input.type='text';btn.textContent='🙈'}else{input.type='password';btn.textContent='👁'}}
+function toggleAIPass(idx){const input=$(`aiPass_${idx}`),btn=$(`aiPassToggleBtn_${idx}`);if(input.type==='password'){input.type='text';btn.textContent='🙈'}else{input.type='password';btn.textContent='👁'}}
 function toggleGeminiKeyVis(){
   const input=$('geminiApiKey'), btn=$('geminiKeyToggleBtn');
   if(input.type==='password'){ input.type='text'; btn.textContent='🙈'; }
@@ -947,7 +939,7 @@ document.addEventListener('DOMContentLoaded', () => {
   startDailyResetTimer();
 });
 
-let aiState = {blob:null, pass:0, result:null, busy:false};
+let aiState = {blobs:[], results:[], busy:false};
 
 function startCooldown(seconds = 60) {
   apiLimitTime = new Date(Date.now() + (seconds * 1000));
@@ -998,7 +990,103 @@ async function fileToGenerativePart(file) {
   });
 }
 
-window.analyzeImage = async function(blob, pass = 1) {
+async function processSingleImage(blob, apiKey) {
+  const ai = new GoogleGenAI({ apiKey: apiKey });
+  const imagePart = await fileToGenerativePart(blob);
+
+  // Schema khusus ARRAY untuk membaca 1 hingga 10 akun sekaligus dari 1 screenshot
+  const accountSchema = {
+    type: Type.OBJECT,
+    properties: {
+      name: { type: Type.STRING },
+      money: { type: Type.STRING },
+      income: { type: Type.STRING },
+      incomeUnit: { type: Type.STRING },
+      speed: { type: Type.STRING },
+      pets: { type: Type.STRING },
+      eggs: { type: Type.STRING },
+      treadmill: { type: Type.STRING },
+      pen: { type: Type.STRING }
+    },
+    required: ["name"]
+  };
+
+  const responseSchema = {
+    type: Type.OBJECT,
+    properties: {
+      accounts: {
+        type: Type.ARRAY,
+        items: accountSchema
+      }
+    },
+    required: ["accounts"]
+  };
+
+  const prompt = `Lakukan OCR tingkat tinggi pada screenshot Roblox ini. 
+  DALAM 1 SCREENSHOT INI BISA TERDAPAT 1 HINGGA 10 AKUN ATAU BARIS/WINDOW BERBEDA. 
+  BACA SEMUA AKUN SATU PER SATU DARI ATAS KE BAWAL ATAU DARI KIRI KE KANAN.
+
+  Untuk setiap akun yang ditemukan dalam gambar, ekstrak data berikut:
+  1. USERNAME: Teks ID di dekat avatar (contoh: "Zp3HKVx9QmLs").
+  2. MONEY: Teks nilai di bawah MONEY BALANCE (contoh: "$7.39T").
+  3. INCOME: Angka persis di bawah "INCOME / SEC" (contoh dari "$7.26B/s", ekstrak angkanya saja "7.26").
+  4. INCOME UNIT: Unit dari INCOME / SEC (contoh jika "$7.26B/s" maka unitnya "B/s", jika "$500M/s" maka "M/s").
+  5. SPEED: Teks angka lengkap beserta unit K/M/B/T di bawah SPEED (contoh: "2.75M", "10K", atau "10"). Sertakan huruf unitnya jika ada.
+  6. PETS: Teks di TOTAL PETS. Ekstrak HANYA angka pertama sebelum kurung (contoh: dari "2 (2)" ambil "2").
+  7. EGGS: Teks di TOTAL EGGS. Ekstrak HANYA angka pertama sebelum kurung (contoh: dari "1 (1)" ambil "1").
+  8. TREADMILL: Level pertama pada TREADMILL (contoh: dari "Lv. 1 / 10", ambil "1").
+  9. PEN: Level pertama pada PET PEN (tulisan kecil di pojok kanan, contoh: dari "Lv. 8 / 11", ambil "8").
+
+  Kembalikan daftar array "accounts" berisi semua akun yang berhasil terbaca.`;
+
+  const response = await ai.models.generateContent({
+    model: 'gemini-3.6-flash',
+    contents: [prompt, imagePart],
+    config: {
+      responseMimeType: "application/json",
+      responseSchema: responseSchema,
+      temperature: 0.0
+    }
+  });
+
+  incrementApiUsage();
+  window.updateApiStatusUI();
+
+  const parsedData = JSON.parse(response.text);
+  const rawAccounts = parsedData.accounts || [];
+
+  const extractFirstNumber = (val) => {
+    if (!val) return '';
+    const match = String(val).match(/\d+/);
+    return match ? match[0] : '';
+  };
+
+  return rawAccounts.map(acc => {
+    const rawIncome = acc.income || '';
+    const cleanIncome = rawIncome.replace(/[^0-9.]/g, ''); 
+    const rawSpeed = acc.speed ? String(acc.speed).trim() : '';
+    const cleanSpeed = rawSpeed.replace(/[^0-9.KMBTkmbt]/g, '').toUpperCase();
+
+    return {
+      name: acc.name || '',
+      money: acc.money || '',
+      income: cleanIncome || rawIncome,
+      incomeUnit: acc.incomeUnit || 'B/s',
+      bagPets: '',
+      bagIncome: '',
+      speed: cleanSpeed,
+      speedUnit: '',
+      trailType: 'divine',
+      pets: extractFirstNumber(acc.pets),
+      eggs: extractFirstNumber(acc.eggs),
+      treadmill: extractFirstNumber(acc.treadmill),
+      pen: extractFirstNumber(acc.pen),
+      conf: 99
+    };
+  });
+}
+
+window.analyzeImages = async function(blobs) {
   if (aiState.busy) return;
   
   const apiKey = $('geminiApiKey')?.value || localStorage.getItem('gemini_api_key');
@@ -1008,133 +1096,87 @@ window.analyzeImage = async function(blob, pass = 1) {
   }
 
   aiState.busy = true;
+  aiState.blobs = blobs;
+  aiState.results = [];
+
   $('analysis').classList.add('show');
-  $('passLabel').textContent = 'FLASH OCR PRECISION';
-  $('pasteStatus').textContent = '⏳ Mengirim screenshot ke Gemini AI...';
-  $('pasteStatus').style.color = 'var(--gold2)';
-
-  const imgUrl = URL.createObjectURL(blob);
-  $('previewImg').src = imgUrl;
+  $('passLabel').textContent = 'FLASH OCR BATCH';
   $('previewWrap').classList.add('show');
-  $('imageMeta').textContent = `Screenshot diproses oleh Gemini Flash`;
 
-  try {
-    const ai = new GoogleGenAI({ apiKey: apiKey });
-    const imagePart = await fileToGenerativePart(blob);
+  let successCount = 0;
+  for (let i = 0; i < blobs.length; i++) {
+    const blob = blobs[i];
+    $('pasteStatus').textContent = `⏳ Memproses screenshot ${i + 1} dari ${blobs.length}...`;
+    $('pasteStatus').style.color = 'var(--gold2)';
 
-    const responseSchema = {
-      type: Type.OBJECT,
-      properties: {
-        name: { type: Type.STRING },
-        money: { type: Type.STRING },
-        income: { type: Type.STRING },
-        incomeUnit: { type: Type.STRING },
-        speed: { type: Type.STRING },
-        pets: { type: Type.STRING },
-        eggs: { type: Type.STRING },
-        treadmill: { type: Type.STRING },
-        pen: { type: Type.STRING }
-      },
-      required: ["name"]
-    };
+    const imgUrl = URL.createObjectURL(blob);
+    $('previewImg').src = imgUrl;
+    $('imageMeta').textContent = `Memproses Screenshot ${i + 1}/${blobs.length}`;
 
-    const prompt = `Lakukan OCR tingkat tinggi pada screenshot Roblox ini. Perhatikan angka samar/kecil:
-
-    1. USERNAME: Teks ID di dekat avatar (contoh: "Zp3HKVx9QmLs").
-    2. MONEY: Teks nilai di bawah MONEY BALANCE (contoh: "$7.39T").
-    3. INCOME: Angka persis di bawah "INCOME / SEC" (contoh dari "$7.26B/s", ekstrak angkanya saja "7.26").
-    4. INCOME UNIT: Unit dari INCOME / SEC (contoh jika "$7.26B/s" maka unitnya "B/s", jika "$500M/s" maka "M/s").
-    5. SPEED: Teks angka lengkap beserta unit K/M/B/T di bawah SPEED (contoh: "2.75M", "10K", atau "10"). Sertakan huruf unitnya jika ada.
-    6. PETS: Teks di TOTAL PETS. Ekstrak HANYA angka pertama sebelum kurung (contoh: dari "2 (2)" ambil "2").
-    7. EGGS: Teks di TOTAL EGGS. Ekstrak HANYA angka pertama sebelum kurung (contoh: dari "1 (1)" ambil "1").
-    8. TREADMILL: Level pertama pada TREADMILL (contoh: dari "Lv. 1 / 10", ambil "1").
-    9. PEN: Level pertama pada PET PEN (tulisan kecil di pojok kanan, contoh: dari "Lv. 8 / 11", ambil "8").
-
-    Keluarkan respons murni dalam JSON.`;
-
-    const response = await ai.models.generateContent({
-      model: 'gemini-3.6-flash',
-      contents: [prompt, imagePart],
-      config: {
-        responseMimeType: "application/json",
-        responseSchema: responseSchema,
-        temperature: 0.0
+    try {
+      const accList = await processSingleImage(blob, apiKey);
+      if (Array.isArray(accList) && accList.length > 0) {
+        aiState.results.push(...accList);
       }
-    });
-
-    incrementApiUsage();
-    window.updateApiStatusUI();
-
-    const parsedData = JSON.parse(response.text);
-
-    const rawIncome = parsedData.income || '';
-    const cleanIncome = rawIncome.replace(/[^0-9.]/g, ''); 
-    
-    const extractFirstNumber = (val) => {
-      if (!val) return '';
-      const match = String(val).match(/\d+/);
-      return match ? match[0] : '';
-    };
-
-    const rawSpeed = parsedData.speed ? String(parsedData.speed).trim() : '';
-    const cleanSpeed = rawSpeed.replace(/[^0-9.KMBTkmbt]/g, '').toUpperCase();
-
-    const resultObj = {
-      name: parsedData.name || '',
-      money: parsedData.money || '',
-      income: cleanIncome || rawIncome,
-      incomeUnit: parsedData.incomeUnit || 'B/s',
-      bagPets: '',
-      bagIncome: '',
-      speed: cleanSpeed,
-      speedUnit: '',
-      trailType: 'divine',
-      pets: extractFirstNumber(parsedData.pets),
-      eggs: extractFirstNumber(parsedData.eggs),
-      treadmill: extractFirstNumber(parsedData.treadmill),
-      pen: extractFirstNumber(parsedData.pen),
-      conf: 99,
-      pass
-    };
-
-    aiState = { blob, result: resultObj, pass, busy: false };
-    renderAI(resultObj);
-    
-    $('reanalyzeBtn').style.display = 'inline-block';
-    $('addAI').style.display = resultObj.name ? 'inline-block' : 'none';
-    $('pasteStatus').textContent = '✅ Pembacaan Berhasil!';
-
-  } catch (err) {
-    console.error(err);
-    
-    if (err.message.includes('429') || err.message.includes('RESOURCE_EXHAUSTED') || err.message.includes('quota')) {
-      startCooldown(60);
-    } else {
-      alert('Gagal memproses gambar: ' + err.message);
-      $('pasteStatus').textContent = '❌ Gagal menganalisis gambar.';
-      aiState.busy = false;
+      successCount++;
+      renderAI(aiState.results);
+    } catch (err) {
+      console.error(err);
+      if (err.message && (err.message.includes('429') || err.message.includes('RESOURCE_EXHAUSTED') || err.message.includes('quota'))) {
+        startCooldown(60);
+        break;
+      }
     }
   }
+
+  aiState.busy = false;
+  $('reanalyzeBtn').style.display = 'inline-block';
+  $('addAI').style.display = aiState.results.length > 0 ? 'inline-block' : 'none';
+  $('pasteStatus').textContent = `✅ Pembacaan Berhasil! (Membaca ${aiState.results.length} Akun dari ${successCount} Screenshot)`;
 };
 
-function renderAI(a){
+function renderAI(results){
+  const lastRes = results[results.length - 1] || {};
   const fields=[
-    ['USERNAME',a.name],['MONEY',a.money],['INCOME / SEC',a.income?(a.income+' '+a.incomeUnit):''],
-    ['SPEED',a.speed],['PETS',a.pets],['EGGS',a.eggs],['TREADMILL',a.treadmill?'LV '+a.treadmill:''],['PEN',a.pen?'LV '+a.pen:'']
+    ['USERNAME TERAKHIR',lastRes.name],['MONEY',lastRes.money],['INCOME / SEC',lastRes.income?(lastRes.income+' '+lastRes.incomeUnit):''],
+    ['SPEED',lastRes.speed],['PETS',lastRes.pets],['EGGS',lastRes.eggs],['TREADMILL',lastRes.treadmill?'LV '+lastRes.treadmill:''],['PEN',lastRes.pen?'LV '+lastRes.pen:'']
   ];
   $('analysisGrid').innerHTML=fields.map(([k,v])=>
     `<div class="ai-field ${v?'ok':'warn'}"><small>${k}</small><strong>${esc(v||'BELUM TERBACA')}</strong></div>`
   ).join('');
-  const missing=fields.filter(x=>!x[1]).map(x=>x[0]);
-  $('confidence').innerHTML=`Gemini Vision Confidence: <b>99%</b> · ${
-    missing.length?`<span style="color:#f1d05b">Periksa: ${missing.join(', ')}</span>`:
-    '<span style="color:#8ce9c8">Semua field target terbaca</span>'}`;
-  $('aiTable').innerHTML=`<div class="ai-row ai-head"><div>USERNAME</div><div>MONEY</div><div>INCOME/S</div><div>SPEED</div><div>PETS</div><div>EGGS</div><div>TREADMILL</div><div>PEN</div><div>PASSWORD</div><div>ADD</div></div>
-  <div class="ai-row"><div class="username-sensitive">${esc(a.name||'—')}</div><div>${esc(a.money||'—')}</div><div>${esc(a.income?(a.income+' '+a.incomeUnit):'—')}</div><div>${esc(a.speed||'—')}</div><div>${esc(a.pets||'—')}</div><div>${esc(a.eggs||'—')}</div><div>${a.treadmill?'LV '+esc(a.treadmill):'—'}</div><div>${a.pen?'LV '+esc(a.pen):'—'}</div><div><div class="pass-wrapper"><input id="aiPass" class="manual-pass" type="password" placeholder="Password manual"><button type="button" class="pass-toggle-btn" onclick="toggleAIPass()" id="aiPassToggleBtn">👁</button></div></div><div><input id="aiInclude" type="checkbox" checked></div></div>`;
+
+  $('confidence').innerHTML=`Gemini Vision Multi-Account: <b>Total ${results.length} Akun Terbaca</b>`;
+
+  const rowsHtml = results.map((a, idx) => `
+    <div class="ai-row">
+      <div class="username-sensitive">${esc(a.name||'—')}</div>
+      <div>${esc(a.money||'—')}</div>
+      <div>${esc(a.income?(a.income+' '+a.incomeUnit):'—')}</div>
+      <div>${esc(a.speed||'—')}</div>
+      <div>${esc(a.pets||'—')}</div>
+      <div>${esc(a.eggs||'—')}</div>
+      <div>${a.treadmill?'LV '+esc(a.treadmill):'—'}</div>
+      <div>${a.pen?'LV '+esc(a.pen):'—'}</div>
+      <div>
+        <div class="pass-wrapper">
+          <input id="aiPass_${idx}" class="manual-pass" type="password" placeholder="Password manual">
+          <button type="button" class="pass-toggle-btn" onclick="toggleAIPass(${idx})" id="aiPassToggleBtn_${idx}">👁</button>
+        </div>
+      </div>
+      <div><input id="aiInclude_${idx}" type="checkbox" checked></div>
+    </div>
+  `).join('');
+
+  $('aiTable').innerHTML=`
+    <div class="ai-row ai-head">
+      <div>USERNAME</div><div>MONEY</div><div>INCOME/S</div><div>SPEED</div><div>PETS</div><div>EGGS</div><div>TREADMILL</div><div>PEN</div><div>PASSWORD</div><div>ADD</div>
+    </div>
+    ${rowsHtml}
+  `;
 }
 
 window.openAI = function(){
-  aiState={blob:null,pass:0,result:null,busy:false};
+  aiState={blobs:[],results:[],busy:false};
   $('aiBg').classList.add('show');$('analysis').classList.remove('show');$('previewWrap').classList.remove('show');
   if ($('pasteButton')) $('pasteButton').disabled = false;
   $('pasteStatus').textContent='✅ Siap menerima screenshot (Ready to Paste)';
@@ -1148,62 +1190,109 @@ window.openAI = function(){
 window.closeAI = function(){$('aiBg').classList.remove('show')};
 
 window.reanalyze = async function(){
-  if(aiState.blob&&!aiState.busy) await window.analyzeImage(aiState.blob,(aiState.pass||1)+1);
+  if(aiState.blobs.length > 0 && !aiState.busy) await window.analyzeImages(aiState.blobs);
 };
 
-async function handlePasteBlob(blob){
-  if(blob&&!aiState.busy){aiState.blob=blob;await window.analyzeImage(blob,1)}
+async function handlePasteBlobs(blobs){
+  if(blobs.length > 0 && !aiState.busy){
+    await window.analyzeImages(blobs);
+  }
 }
 
-function extractClipboardImage(e){
-  const items=[...(e.clipboardData?.items||[])];
-  const imgItem=items.find(i=>i.kind==='file'&&i.type.startsWith('image/'));
-  if(imgItem)return imgItem.getAsFile();
-  const files=[...(e.clipboardData?.files||[])];
-  return files.find(f=>f.type.startsWith('image/'))||null;
+function extractClipboardImages(e){
+  const items = [...(e.clipboardData?.items || [])];
+  const imgItems = items.filter(i => i.kind === 'file' && i.type.startsWith('image/'));
+  if (imgItems.length > 0) {
+    return imgItems.map(i => i.getAsFile()).filter(Boolean);
+  }
+  const files = [...(e.clipboardData?.files || [])];
+  return files.filter(f => f.type.startsWith('image/'));
 }
 
 document.addEventListener('paste',e=>{
   if(!$('aiBg').classList.contains('show'))return;
-  const f=extractClipboardImage(e);
-  if(f){e.preventDefault();e.stopPropagation();handlePasteBlob(f)}
+  const files = extractClipboardImages(e);
+  if(files.length > 0){
+    e.preventDefault();
+    e.stopPropagation();
+    handlePasteBlobs(files);
+  }
 },true);
 
 $('pasteZone').addEventListener('paste',e=>{
-  const f=extractClipboardImage(e);
-  if(f){e.preventDefault();e.stopPropagation();handlePasteBlob(f)}
+  const files = extractClipboardImages(e);
+  if(files.length > 0){
+    e.preventDefault();
+    e.stopPropagation();
+    handlePasteBlobs(files);
+  }
 });
 
 $('pasteZone').addEventListener('dragover',e=>{e.preventDefault();$('pasteZone').classList.add('drag')});
 $('pasteZone').addEventListener('dragleave',()=>$('pasteZone').classList.remove('drag'));
 $('pasteZone').addEventListener('drop',e=>{
-  e.preventDefault();$('pasteZone').classList.remove('drag');
-  const f=[...(e.dataTransfer?.files||[])].find(x=>x.type.startsWith('image/'));
-  if(f)handlePasteBlob(f);
+  e.preventDefault();
+  $('pasteZone').classList.remove('drag');
+  const files = [...(e.dataTransfer?.files || [])].filter(x => x.type.startsWith('image/'));
+  if(files.length > 0) handlePasteBlobs(files);
 });
 
 $('pasteButton').addEventListener('click',async()=>{
   try{
     if(!navigator.clipboard?.read){$('pasteZone').focus();$('pasteStatus').textContent='Tekan Ctrl+V sekarang.';return}
-    const items=await navigator.clipboard.read();
+    const items = await navigator.clipboard.read();
+    const blobs = [];
     for(const it of items){
-      const t=it.types.find(x=>x.startsWith('image/'));
-      if(t){await handlePasteBlob(await it.getType(t));return}
+      const t = it.types.find(x => x.startsWith('image/'));
+      if(t){
+        blobs.push(await it.getType(t));
+      }
     }
-    $('pasteStatus').textContent='⚠️ Clipboard tidak berisi gambar.';
+    if (blobs.length > 0) {
+      await handlePasteBlobs(blobs);
+    } else {
+      $('pasteStatus').textContent='⚠️ Clipboard tidak berisi gambar.';
+    }
   }catch{$('pasteZone').focus();$('pasteStatus').textContent='Tekan Ctrl+V sekarang.'}
 });
 
 window.addAI = function(){
-  if(!aiState.result?.name)return;
-  const a=aiState.result;
-  if(!$('aiInclude')?.checked)return;
-  state.accounts.push({
-    id:Date.now()+Math.random(),name:a.name,password:$('aiPass')?.value||'',
-    money:a.money,income:a.income,incomeUnit:a.incomeUnit,bagPets:a.bagPets||'',bagIncome:a.bagIncome||'',speed:a.speed,speedUnit:a.speedUnit,
-    trailType:a.trailType||'divine',pets:a.pets,isDivine:false,divineCount:0,eggs:a.eggs,treadmill:a.treadmill,pen:a.pen,datpol:'datpol',status:'ready',include:true
+  if(!aiState.results.length) return;
+  
+  let addedCount = 0;
+  aiState.results.forEach((a, idx) => {
+    const isChecked = $(`aiInclude_${idx}`)?.checked;
+    if (isChecked && a.name) {
+      const passVal = $(`aiPass_${idx}`)?.value || '';
+      state.accounts.push({
+        id: Date.now() + Math.random(),
+        name: a.name,
+        password: passVal,
+        money: a.money,
+        income: a.income,
+        incomeUnit: a.incomeUnit,
+        bagPets: a.bagPets || '',
+        bagIncome: a.bagIncome || '',
+        speed: a.speed,
+        speedUnit: a.speedUnit,
+        trailType: a.trailType || 'divine',
+        pets: a.pets,
+        isDivine: false,
+        divineCount: 0,
+        eggs: a.eggs,
+        treadmill: a.treadmill,
+        pen: a.pen,
+        datpol: 'datpol',
+        status: 'ready',
+        include: true
+      });
+      addedCount++;
+    }
   });
-  save();render();closeAI();
+
+  save();
+  render();
+  closeAI();
 };
 </script>
 </body>
